@@ -2,8 +2,11 @@
 
 <p>
   <%= simple_format(@request.description) %>
-  <%# if current_request.BeforePicture.present? %>
-    <%#= image_tag(request.BeforePicture.url) %>
-    <%# end %>
+  <% if @request.BeforePicture.present? %>
+    <%= image_tag(@request.BeforePicture.url) %>
+  <% end %>
 
+  <% if @request.DreamPicture.present? %>
+    <%= image_tag(@request.DreamPicture.url) %>
+  <% end %>
 </p>

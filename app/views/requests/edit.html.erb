@@ -4,6 +4,17 @@
 
 <%= f.input :title %>
 <%= f.input :description %>
+<% if @request.BeforePicture.present? %>
+  <%= image_tag(@request.BeforePicture.url) %>
+<% end %>
+
+
+<%= f.input :BeforePicture, label: "现实图片" %>
+
+<% if @request.DreamPicture.present? %>
+  <%= image_tag(@request.DreamPicture.url) %>
+<% end %>
+<%= f.input :DreamPicture, label: "理想图片" %>
 
   <%= f.submit "Submit" %>
 <% end %>
