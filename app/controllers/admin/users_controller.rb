@@ -9,15 +9,13 @@ class Admin::UsersController < ApplicationController
 
   def make_admin
     @user = User.find(params[:id])
-    @user.is_admin = true
-    @user.save
+    @user.make_admin!
     redirect_to :back
   end
 
   def make_user
     @user = User.find(params[:id])
-    @user.is_admin = false
-    @user.save
+    @user.make_user!
     redirect_to :back
   end
 

@@ -11,6 +11,11 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :works
+    resources :works do
+      member do
+        post :publish
+        post :hide
+      end
+    end
   end
 end

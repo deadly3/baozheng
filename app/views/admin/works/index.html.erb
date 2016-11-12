@@ -25,6 +25,7 @@
       <% end %>
     </td>
     <td>
+      <%= render_work_status(work) %>
       <%= work.title%>
     </td>
     <td>
@@ -34,9 +35,16 @@
       <%= work.price %>
     </td>
     <td>
-      <%= link_to("Edit", edit_admin_work_path(work)) %>
+      <%= link_to("Edit", edit_admin_work_path(work), :class => "btn btn-xs btn-default") %>
       |
-      <%= link_to("Destroy", admin_work_path(work), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+      <%= link_to("Destroy", admin_work_path(work), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
+      |
+
+     <% if work.is_hidden %>
+       <%= link_to("Publish", publish_admin_work_path(work), :method => :post, :class => "btn btn-xs btn-default") %>
+     <% else %>
+       <%= link_to("Hide", hide_admin_work_path(work), :method => :post, :class => "btn btn-xs btn-default") %>
+     <% end %>
     </td>
   </tr>
   <% end %>
