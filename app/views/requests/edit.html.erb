@@ -1,0 +1,9 @@
+<h1> 修改任务 </h1>
+
+<%= simple_form_for @request do |f| %>
+
+<%= f.input :title %>
+<%= f.input :description %>
+
+  <%= f.submit "Submit" %>
+<% end %>

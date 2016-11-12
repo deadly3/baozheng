@@ -12,4 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
+
+  resources :requests
+  
 end
