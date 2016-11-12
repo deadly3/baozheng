@@ -20,10 +20,6 @@ class Admin::WorksController < ApplicationController
     end
   end
 
-  def show
-    @work = Work.find(params[:id])
-  end
-
   def edit
     @work = Work.find(params[:id])
   end
