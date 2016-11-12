@@ -2,5 +2,8 @@
 
 <p>
   <%= simple_format(@request.description) %>
+  <%# if current_request.BeforePicture.present? %>
+    <%#= image_tag(request.BeforePicture.url) %>
+    <%# end %>
 
 </p>
