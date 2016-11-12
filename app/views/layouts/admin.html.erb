@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Baozheng</title>
+        <title> 包整 </title>
         <%= csrf_meta_tags %>
 
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,7 +13,14 @@
         <div class="container-fluid">
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
-            <%= yield %>
+            <div class="row">
+              <div class="col-md-2">
+                sidebar
+              </div>
+
+              <div class="col-md-10">
+                <%= yield %>
+              </div>
         </div>
 
         <%= render "common/footer" %>
