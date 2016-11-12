@@ -1,8 +1,13 @@
+<div class="pull-right">
+  <%= link_to("添加作品", new_admin_work_path, :class => "btn btn-default" ) %>
+</div>
+
+
 <table class="table table-boldered">
   <% @works.each do |work| %>
   <tr>
     <td>
-      <%= work.title %>
+      <%= link_to(work.title, admin_work_path(work) )%>
     </td>
     <td>
       <%= work.description %>
@@ -14,7 +19,12 @@
       <%= work.image %>
     </td>
     <td>
-      <%= job.created_at %>
+      <%= link_to(work.title, admin_work_path(work)) %>
+    </td>
+    <td>
+      <%= link_to("Edit", edit_admin_work_path(work)) %>
+      |
+      <%= link_to("Destroy", admin_work_path(work), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
     </td>
   </tr>
   <% end %>

@@ -1,21 +1,3 @@
-<table class="table table-boldered">
-  <% @works.each do |work| %>
-  <tr>
-    <td>
-      <%= work.title %>
-    </td>
-    <td>
-      <%= work.description %>
-    </td>
-    <td>
-      <%= work.price %>
-    </td>
-    <td>
-      <%= work.image %>
-    </td>
-    <td>
-      <%= job.created_at %>
-    </td>
-  </tr>
-  <% end %>
-</table>
+<h1> 添加作品 </h1>
+
+<%= render "form" %>

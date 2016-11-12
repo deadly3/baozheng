@@ -12,13 +12,41 @@ class Admin::WorksController < ApplicationController
   end
 
   def create
-    @work = Work.create
-    work.save
+    @work = Work.new(work_params)
+    if @work.save
+      redirect_to admin_works_path
+    else
+      render :new
+    end
   end
 
   def show
     @work = Work.find(params[:id])
   end
 
+  def edit
+    @work = Work.find(params[:id])
+  end
+
+  def update
+    @work = Work.find(params[:id])
+    if @work.update(work_params)
+      redirect_to admin_works_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @work = Work.find(params[:id])
+    @work.destroy
+    redirect_to admin_works_path
+  end
+
+  private
+
+  def work_params
+    params.require(:work).permit(:title, :description, :price, :image)
+  end
 
 end
