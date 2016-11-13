@@ -1,0 +1,9 @@
+修改用户资料
+
+<%= simple_form_for [:account, current_user] do |f|%>
+  <%= f.input :nickname %>
+  <%= f.input :description %>
+  <%= f.input :avatar, as: :file %>
+
+  <%= f.submit " 提交", disabled_with: "提交中。。。。" %>
+<% end %>
