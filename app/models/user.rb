@@ -32,4 +32,6 @@ class User < ApplicationRecord
   end
 
   scope :all_except, ->(user) { where.not(id: user) }
+
+  mount_uploader :avatar, AvatarUploader
 end

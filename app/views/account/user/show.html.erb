@@ -5,6 +5,11 @@
 用户描述
 <h2><%= current_user.description %></h2>
 用户头像
+<% if current_user.avatar.present?%>
+    <%= image_tag(current_user.avatar.url) %>
+<% else %>
+
+<% end %>
 <p> <%= current_user.avatar %> </p>
 <hr>
 用户ID
