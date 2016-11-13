@@ -1,5 +1,12 @@
 我是用户中心
 <hr>
+用户昵称
+<h1><%= current_user.nickname %></h1>
+用户描述
+<h2><%= current_user.description %></h2>
+用户头像
+<p> <%= current_user.avatar %> </p>
+<hr>
 用户ID
 <h1><%= current_user.id %></h1>
 用户邮箱
