@@ -3,7 +3,7 @@
 </h2>
 
 
-<% if current_user.nickname.blank?%>
+<% if current_user.nickname.empty?%>
   <%= link_to("填写资料", edit_account_user_path(current_user), class: "btn btn-danger btn-lg pull-right") %>
 <% else %>
   <%= link_to("修改资料", edit_account_user_path(current_user), class: "btn btn-danger btn-lg pull-right") %>
