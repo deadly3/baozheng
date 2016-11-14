@@ -18,7 +18,6 @@ class RequestsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def edit
@@ -27,7 +26,6 @@ class RequestsController < ApplicationController
 
   def update
     @request = Request.find(params[:id])
-
     if @request.update(request_params)
       redirect_to requests_path
     else
@@ -41,12 +39,15 @@ class RequestsController < ApplicationController
 
   def destroy
     @request = Request.find(params[:id])
-
     @request.destroy
-
     redirect_to requests_path
   end
 
+  def choose
+    @request = Request.find(params[:id])
+    @request.choose!
+    redirect_to :back
+  end
 
   private
 

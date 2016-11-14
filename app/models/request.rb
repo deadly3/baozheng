@@ -19,5 +19,21 @@ class Request < ApplicationRecord
   mount_uploader :dream_picture, DreamPictureUploader
 
   validates :title, presence: true
-  
+
+  include AASM
+
+  aasm do
+    state :request_made, initial: true
+    state :selected
+    state :paid
+
+    event :choose do
+      transitions from: :request_made, to: :selected
+    end
+
+    event :make_payment do
+      transitions from: :selected, to: :paid
+    end
+  end
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114022532) do
+ActiveRecord::Schema.define(version: 20161114082012) do
 
   create_table "requests", force: :cascade do |t|
     t.integer  "user_id"
@@ -18,8 +18,10 @@ ActiveRecord::Schema.define(version: 20161114022532) do
     t.text     "description"
     t.string   "before_picture"
     t.string   "dream_picture"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "aasm_state",     default: "request_made"
+    t.index ["aasm_state"], name: "index_requests_on_aasm_state"
   end
 
   create_table "users", force: :cascade do |t|

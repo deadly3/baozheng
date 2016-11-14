@@ -12,36 +12,36 @@
   </thead>
 
   <tbody>
-  <% @requests.each do |request| %>
+  <% @requests.each do |r| %>
   <tr>
 
     <td>
-      <%= link_to(request.title, request_path(request)) %>
+      <%= link_to(r.title, request_path(request)) %>
     </td>
     <td>
-      <% if request.before_picture.present? %>
-        <%= image_tag(request.before_picture.thumb.url, class:"thumbnail") %>
+      <% if r.before_picture.present? %>
+        <%= image_tag(r.before_picture.thumb.url, class:"thumbnail") %>
       <% else %>
         <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
       <% end %>
     </td>
     <td>
-      <% if request.dream_picture.present? %>
-        <%= image_tag(request.dream_picture.thumb.url, class:"thumbnail") %>
+      <% if r.dream_picture.present? %>
+        <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
       <% else %>
         <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
       <% end %>
     </td>
     <td>
-      <%= link_to("Edit", edit_request_path(request), :class => "btn btn-xs btn-default") %>
+      <%= link_to("Edit", edit_request_path(r), :class => "btn btn-xs btn-default") %>
       |
-      <%= link_to("Destroy", request_path(request), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
+      <%= link_to("Destroy", request_path(r), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
     </td>
     <td>
-      <%= request.created_at %>
+      <%= r.created_at %>
     </td>
     <td>
-      #
+      <%= r.aasm_state %>
     </td>
   </tr>
   <% end %>
