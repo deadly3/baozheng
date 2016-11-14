@@ -13,7 +13,6 @@ Rails.application.routes.draw do
         post :make_admin
         post :make_user
       end
-
     end
     resources :works do
       member do
@@ -21,10 +20,12 @@ Rails.application.routes.draw do
         post :hide
       end
     end
-
-    resources :requests
+    resources :requests do
+      member do
+        post :choose
+      end
+    end
   end
 
   resources :requests
-
 end

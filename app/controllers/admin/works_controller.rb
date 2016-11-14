@@ -4,7 +4,7 @@ class Admin::WorksController < ApplicationController
   layout "admin"
 
   def index
-    @works = Work.all
+    @works = current_user.works
   end
 
   def new
