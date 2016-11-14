@@ -1,4 +1,17 @@
-<table class="table table-boldered">
+<table class="table table-bordered">
+
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>当前照片</th>
+      <th>梦想照片</th>
+      <th>修改/删除</th>
+      <th>创建时间</th>
+      <th>订单状态</th>
+      </tr>
+  </thead>
+
+  <tbody>
   <% @requests.each do |request| %>
   <tr>
 
@@ -6,12 +19,31 @@
       <%= link_to(request.title, request_path(request)) %>
     </td>
     <td>
-      <%= link_to("Edit", edit_request_path(request)) %>
-      <%= link_to("Destroy", request_path(request), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+      <% if request.before_picture.present? %>
+        <%= image_tag(request.before_picture.thumb.url, class:"thumbnail") %>
+      <% else %>
+        <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
+      <% end %>
+    </td>
+    <td>
+      <% if request.dream_picture.present? %>
+        <%= image_tag(request.dream_picture.thumb.url, class:"thumbnail") %>
+      <% else %>
+        <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to("Edit", edit_request_path(request), :class => "btn btn-xs btn-default") %>
+      |
+      <%= link_to("Destroy", request_path(request), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
     </td>
     <td>
       <%= request.created_at %>
     </td>
+    <td>
+      #
+    </td>
   </tr>
   <% end %>
+</tbody>
 </table>

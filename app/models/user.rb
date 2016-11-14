@@ -29,7 +29,6 @@ class User < ApplicationRecord
 
   has_many :requests
 
-
   def admin?
    is_admin
   end
