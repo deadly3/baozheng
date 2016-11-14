@@ -2,7 +2,7 @@
 
   <thead>
     <tr>
-      <th>名称</th>
+      <th>主题</th>
       <th>当前照片</th>
       <th>梦想照片</th>
       <th>修改/删除</th>
@@ -16,7 +16,7 @@
   <tr>
 
     <td>
-      <%= link_to(r.title, request_path(request)) %>
+      <%= link_to(r.title, request_path(r.token)) %>
     </td>
     <td>
       <% if r.before_picture.present? %>
@@ -33,9 +33,9 @@
       <% end %>
     </td>
     <td>
-      <%= link_to("Edit", edit_request_path(r), :class => "btn btn-xs btn-default") %>
+      <%= link_to("Edit", edit_request_path(r.token), :class => "btn btn-xs btn-default") %>
       |
-      <%= link_to("Destroy", request_path(r), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
+      <%= link_to("Destroy", request_path(r.token), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
     </td>
     <td>
       <%= r.created_at %>

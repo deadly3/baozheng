@@ -21,7 +21,7 @@ class RequestsController < ApplicationController
   end
 
   def edit
-    @request = Request.find(params[:id])
+    @request = Request.find_by_token(params[:id])
   end
 
   def update
@@ -34,17 +34,17 @@ class RequestsController < ApplicationController
   end
 
   def show
-    @request = Request.find(params[:id])
+    @request = Request.find_by_token(params[:id])
   end
 
   def destroy
-    @request = Request.find(params[:id])
+    @request = Request.find_by_token(params[:id])
     @request.destroy
     redirect_to requests_path
   end
 
   def choose
-    @request = Request.find(params[:id])
+    @request = Request.find_by_token(params[:id])
     @request.choose!
     redirect_to :back
   end
@@ -52,7 +52,7 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:title, :description, :user_id, :before_picture, :dream_picture)
+    params.require(:request).permit(:title, :description, :user_id, :before_picture, :dream_picture, :token)
   end
 
 end

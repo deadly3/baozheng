@@ -20,6 +20,13 @@ class Request < ApplicationRecord
 
   validates :title, presence: true
 
+
+  before_create :generate_token
+
+  def generate_token
+    self.token = SecureRandom.uuid
+  end
+
   include AASM
 
   aasm do

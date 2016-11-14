@@ -1,25 +1,30 @@
-<h1> <%= @request.title %> </h1>
-
-<p>
-
-  任务描述
-  <%= simple_format(@request.description) %>
-</p>
-
-
-<p>
-  现在的房间
-  <br>
-  <% if @request.before_picture.present? %>
-    <%= image_tag(@request.before_picture.url) %>
-  <% end %>
-</p>
-
-
-<p>
-  期待的样子
+  <div class="col-xs-6 col-sm-3">
     <br>
-  <% if @request.dream_picture.present? %>
-    <%= image_tag(@request.dream_picture.url) %>
-  <% end %>
-</p>
+    <% if @request.before_picture.present? %>
+      <%= image_tag(@request.before_picture.url) %>
+    <% end %>
+    <br>
+  </div>
+  <div class="col-xs-6 col-sm-3">
+    <% if @request.dream_picture.present? %>
+      <%= image_tag(@request.dream_picture.url) %>
+    <% end %>
+    <br>
+  </div>
+
+  <div class="col-xs-12 col-sm-6">
+    <h2><%= @request.title %></h2>
+    <div style="height:100px;">
+       <p>
+         <%= @request.title %>
+       </p>
+     </div>
+     <%= @request.created_at %>
+    <br>
+     <%= @request.description%>
+    <br>
+  </div>
+
+  <div class="pull-right">
+      <a href="#" class="btn btn-danger" disabled> 我要抢单 </a>
+  </div>
