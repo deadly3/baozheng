@@ -13,6 +13,7 @@ class Admin::WorksController < ApplicationController
 
   def create
     @work = Work.new(work_params)
+    @work.user = current_user
     if @work.save
       redirect_to admin_works_path
     else
@@ -42,7 +43,7 @@ class Admin::WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:title, :description, :price, :image)
+    params.require(:work).permit(:title, :description, :price, :image, :user_id)
   end
 
 end
