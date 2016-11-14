@@ -21,5 +21,6 @@
 .byebug_history
 
 
-public/uploads
+
+public/uploads/
 db/schema.rb
