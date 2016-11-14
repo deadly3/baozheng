@@ -27,9 +27,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :requests
+
+
   def admin?
    is_admin
   end
+
+  has_many :works
 
   scope :all_except, ->(user) { where.not(id: user) }
 
