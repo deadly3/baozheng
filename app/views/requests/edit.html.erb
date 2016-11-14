@@ -1,0 +1,20 @@
+<h1> 修改任务 </h1>
+
+<%= simple_form_for @request do |f| %>
+
+<%= f.input :title %>
+<%= f.input :description %>
+<% if @request.before_picture.present? %>
+  <%= image_tag(@request.before_picture.url) %>
+<% end %>
+
+
+<%= f.input :before_picture, label: "现实图片" %>
+
+<% if @request.dream_picture.present? %>
+  <%= image_tag(@request.dream_picture.url) %>
+<% end %>
+<%= f.input :dream_picture, label: "理想图片" %>
+
+  <%= f.submit "Submit" %>
+<% end %>

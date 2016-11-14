@@ -1,0 +1,25 @@
+<h1> <%= @request.title %> </h1>
+
+<p>
+
+  任务描述
+  <%= simple_format(@request.description) %>
+</p>
+
+
+<p>
+  现在的房间
+  <br>
+  <% if @request.before_picture.present? %>
+    <%= image_tag(@request.before_picture.url) %>
+  <% end %>
+</p>
+
+
+<p>
+  期待的样子
+    <br>
+  <% if @request.dream_picture.present? %>
+    <%= image_tag(@request.dream_picture.url) %>
+  <% end %>
+</p>
