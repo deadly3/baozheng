@@ -14,11 +14,11 @@ Rails.application.routes.draw do
         post :make_user
       end
     end
-
-  resources :work do
-    member do
-      post :publish
-      post :hide
+    resources :works do
+      member do
+        post :publish
+        post :hide
+      end
     end
   end
 

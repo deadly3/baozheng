@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20161114022532) do
 
   create_table "requests", force: :cascade do |t|
@@ -49,16 +48,10 @@ ActiveRecord::Schema.define(version: 20161114022532) do
     t.text     "description"
     t.integer  "price"
     t.string   "image"
-<<<<<<< HEAD
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "is_hidden",   default: true
-=======
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.integer  "user_id"
     t.boolean  "is_hidden",   default: false
->>>>>>> develop
   end
 
 end
