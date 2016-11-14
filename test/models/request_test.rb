@@ -3,13 +3,13 @@
 # Table name: requests
 #
 #  id             :integer          not null, primary key
+#  user_id        :integer
 #  title          :string
 #  description    :text
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
 #  before_picture :string
 #  dream_picture  :string
-#  user_id        :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 
 require 'test_helper'
