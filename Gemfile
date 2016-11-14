@@ -40,6 +40,7 @@ gem 'mini_magick'
 gem 'aasm'
 gem 'pry'
 gem 'awesome_rails_console'
+gem 'mini_magick'
 
 
 group :development, :test do
