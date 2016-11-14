@@ -8,14 +8,13 @@ class Admin::RequestsController < ApplicationController
   end
 
   def show
-    @request = Request.find(params[:id])
+    @request = Request.find_by_token(params[:id])
   end
 
   private
 
   def request_params
-    params.require(:request).permit(:title, :description, :user_id, :before_picture, :dream_picture)
+    params.require(:request).permit(:title, :description, :user_id, :before_picture, :dream_picture, :token)
   end
-
 
 end
