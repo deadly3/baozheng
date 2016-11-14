@@ -40,10 +40,22 @@ class Admin::WorksController < ApplicationController
     redirect_to admin_works_path
   end
 
+  def publish
+    @work = Work.find(params[:id])
+    @work.publish!
+    redirect_to :back
+  end
+
+  def hide
+    @work = Work.find(params[:id])
+    @work.hide!
+    redirect_to :back
+  end
+
   private
 
   def work_params
-    params.require(:work).permit(:title, :description, :price, :image, :user_id)
+    params.require(:work).permit(:title, :description, :price, :image, :user_id, :is_hidden)
   end
 
 end

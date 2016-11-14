@@ -34,6 +34,16 @@ class User < ApplicationRecord
    is_admin
   end
 
+  def make_user!
+    self.is_admin = false
+    self.save
+  end
+
+  def make_admin!
+    self.is_admin = true
+    self.save
+  end
+
   has_many :works
 
   scope :all_except, ->(user) { where.not(id: user) }

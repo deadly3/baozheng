@@ -13,6 +13,8 @@
 #
 
 class Work < ApplicationRecord
+  belongs_to :user
+
   validates :title, presence: true
   validates :description, presence: true
   validates :price, presence: true, numericality: { greater_than: 0}
@@ -20,5 +22,16 @@ class Work < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  belongs_to :user
+  def publish!
+    self.is_hidden = false
+    self.save
+  end
+
+  def hide!
+    self.is_hidden = true
+    self.save
+  end
+
+
+
 end

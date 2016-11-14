@@ -14,7 +14,12 @@ Rails.application.routes.draw do
         post :make_user
       end
     end
-    resources :works
+
+  resources :work do
+    member do
+      post :publish
+      post :hide
+    end
   end
 
   resources :requests
