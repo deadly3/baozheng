@@ -4,17 +4,17 @@
 
 <%= f.input :title %>
 <%= f.input :description %>
-<% if @request.BeforePicture.present? %>
-  <%= image_tag(@request.BeforePicture.url) %>
+<% if @request.before_picture.present? %>
+  <%= image_tag(@request.before_picture.url) %>
 <% end %>
 
 
-<%= f.input :BeforePicture, label: "现实图片" %>
+<%= f.input :before_picture, label: "现实图片" %>
 
-<% if @request.DreamPicture.present? %>
-  <%= image_tag(@request.DreamPicture.url) %>
+<% if @request.dream_picture.present? %>
+  <%= image_tag(@request.dream_picture.url) %>
 <% end %>
-<%= f.input :DreamPicture, label: "理想图片" %>
+<%= f.input :dream_picture, label: "理想图片" %>
 
   <%= f.submit "Submit" %>
 <% end %>

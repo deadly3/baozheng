@@ -10,8 +10,8 @@
 <p>
   现在的房间
   <br>
-  <% if @request.BeforePicture.present? %>
-    <%= image_tag(@request.BeforePicture.url) %>
+  <% if @request.before_picture.present? %>
+    <%= image_tag(@request.before_picture.url) %>
   <% end %>
 </p>
 
@@ -19,7 +19,7 @@
 <p>
   期待的样子
     <br>
-  <% if @request.DreamPicture.present? %>
-    <%= image_tag(@request.DreamPicture.url) %>
+  <% if @request.dream_picture.present? %>
+    <%= image_tag(@request.dream_picture.url) %>
   <% end %>
 </p>
