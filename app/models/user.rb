@@ -16,6 +16,9 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  is_admin               :boolean          default(FALSE)
+#  nickname               :string           default("")
+#  description            :text
+#  avatar                 :string
 #
 
 class User < ApplicationRecord
@@ -31,4 +34,6 @@ class User < ApplicationRecord
   has_many :works
 
   scope :all_except, ->(user) { where.not(id: user) }
+
+  mount_uploader :avatar, AvatarUploader
 end
