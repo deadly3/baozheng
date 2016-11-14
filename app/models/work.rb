@@ -9,14 +9,14 @@
 #  image       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  is_hidden   :boolean          default(TRUE)
+#  user_id     :integer
 #
 
 class Work < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :price, presence: true, numericality: { greater_than: 0}
-  validates :image, presence: true
+  validates :image, presence: false
 
   mount_uploader :image, ImageUploader
 

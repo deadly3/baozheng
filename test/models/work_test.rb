@@ -9,7 +9,7 @@
 #  image       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  is_hidden   :boolean          default(TRUE)
+#  user_id     :integer
 #
 
 require 'test_helper'
