@@ -31,6 +31,8 @@ class User < ApplicationRecord
    is_admin
   end
 
+  has_many :works
+
   scope :all_except, ->(user) { where.not(id: user) }
 
   mount_uploader :avatar, AvatarUploader

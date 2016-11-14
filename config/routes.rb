@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         post :make_user
       end
     end
-  end
 
+    resources :works
+  end
 end
