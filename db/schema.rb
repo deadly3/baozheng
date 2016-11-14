@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20161114022532) do
 
+
   create_table "requests", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
@@ -21,6 +22,7 @@ ActiveRecord::Schema.define(version: 20161114022532) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
+
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
