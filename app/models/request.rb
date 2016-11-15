@@ -25,6 +25,8 @@ class Request < ApplicationRecord
 
   validates :title, presence: true
 
+  scope :recent, -> {order("created_at DESC")}
+
   before_create :generate_token
 
   # def join_applicants!(user)

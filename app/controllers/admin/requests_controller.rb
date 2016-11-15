@@ -4,7 +4,7 @@ class Admin::RequestsController < ApplicationController
   layout "admin"
 
   def index
-    @requests = Request.all
+    @requests = Request.all.recent
   end
 
   def show

@@ -3,7 +3,7 @@ class Account::RequestsController < ApplicationController
   layout "account"
 
   def index
-    @requests = Request.where(:user_id => current_user.id)
+    @requests = Request.where(:user_id => current_user.id).recent
   end
 
   def new
