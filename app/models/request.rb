@@ -27,6 +27,14 @@ class Request < ApplicationRecord
 
   before_create :generate_token
 
+  # def join_applicants!(user)
+  #   applicants << user
+  # end
+
+  def has_been_applied_by?(user)
+    applicants.include?(user)
+  end
+
   def generate_token
     self.token = SecureRandom.uuid
   end

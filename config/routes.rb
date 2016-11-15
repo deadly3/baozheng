@@ -18,7 +18,6 @@ Rails.application.routes.draw do
       member do
         post :make_admin
         post :make_user
-        post :join
       end
     end
     resources :works do
@@ -29,12 +28,18 @@ Rails.application.routes.draw do
     end
     resources :requests do
       member do
-        post :apply
-
+        post :applied
+        post :join_applicants
       end
     end
   end
 
   resources :requests
+
+  resources :users do
+    member do
+      post :join
+    end
+  end
 
 end

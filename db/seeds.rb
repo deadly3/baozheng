@@ -34,7 +34,12 @@ create_jos = for i in 1..2 do
 end
 puts "2个未公开达人产品 创建成功"
 
-create_jos = for i in 1..10 do
-  Request.create!([user_id: 1, title: "Request no.#{i}", description: "这是用种子程序生产的第 #{i} 个申请"])
+create_jos = for i in 1..4 do
+  Request.create!([user_id: 3, title: "Request no.#{i}", description: "这是用种子程序生产的第 #{i} 个申请"])
 end
-puts "10个订单 创建成功"
+puts "4个订单 创建成功"
+
+create_jos = for i in 1..4 do
+  Request.create!([user_id: 4, title: "Request no.#{i+4}", description: "这是用种子程序生产的第 #{i+4} 个申请"])
+end
+puts "4个订单 创建成功"
