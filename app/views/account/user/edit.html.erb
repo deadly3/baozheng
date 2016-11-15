@@ -1,9 +1,17 @@
-修改用户资料
 
+
+<div>
 <%= simple_form_for [:account, current_user] do |f|%>
-  <%= f.input :nickname %>
-  <%= f.input :description %>
-  <%= f.input :avatar, as: :file %>
+  <%= f.input :nickname, label:"昵称" %>
+  <%= f.input :description, label:"个性签名" %>
+  <%= f.input :avatar, as: :file, label:"头像"%>
 
   <%= f.submit " 提交", disabled_with: "提交中。。。。" %>
 <% end %>
+</div>
+
+<br>
+
+<div>
+<%= link_to("修改密码或注销用户", edit_user_registration_path, class: "btn btn-danger btn-lg pull-right") %>
+</div>
