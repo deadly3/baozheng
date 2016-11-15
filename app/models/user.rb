@@ -45,7 +45,7 @@ class User < ApplicationRecord
     self.save
   end
 
-  def join!
+  def join!(request)
     applied_requests << request
   end
 

@@ -38,7 +38,12 @@
       <%= r.user_id %>
     </td>
     <td>
-      
+      <%= r.aasm_state %>
+      <% if r.request_made? %>
+        <%= link_to("抢单！", apply_admin_request_path(r.token), :method => :post,:class => "btn btn-danger") %>
+      <% else %>
+        <a href="#" class="btn btn-warning" disabled> 已抢单 </a>
+      <% end %>
     </td>
   </tr>
   <% end %>

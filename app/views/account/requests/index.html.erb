@@ -1,4 +1,4 @@
-
+<br>
 <%= link_to("发起订单", new_account_request_path, class: "btn btn-danger pull-left") %>
 
 <br><br>
@@ -45,7 +45,7 @@
       <%= r.created_at %>
     </td>
     <td>
-
+      <%= r.aasm_state %>
     </td>
   </tr>
   <% end %>

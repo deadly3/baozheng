@@ -24,6 +24,19 @@ class RequestsController < ApplicationController
     @request = Request.find_by_token(params[:id])
   end
 
+  def apply
+    @request = Request.find_by_token(params[:id])
+      if @request.applied?
+        flash[:warning] = '已经抢过这个单了哟~'
+      else
+        @request.apply!
+        @request.user = current_user
+        current_user.join!(@request)
+        @request.save
+      end
+    redirect_to :back
+  end
+
   private
 
   def request_params

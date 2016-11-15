@@ -18,7 +18,7 @@ class Admin::RequestsController < ApplicationController
       else
         @request.apply!
         @request.user = current_user
-        current_user.join!
+        current_user.join!(@request)
         @request.save
       end
     redirect_to :back
