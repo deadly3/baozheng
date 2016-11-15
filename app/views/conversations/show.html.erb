@@ -5,11 +5,23 @@
     <div class="messages">
       <% @conversation.receipts_for(current_user).each do |receipt| %>
         <% message = receipt.message %>
-
-        <%= message.sender.email %>
+        <p style="color: salmon;">
+          <%= message.sender.email %>
+        </p>
+        <h3>
+          <%= message.body %>
+        </h3>
+        <p>
           says at <%= message.created_at.strftime("%F %T") %>
-        <%= message.body %>
+        </p>
       <% end %>
     </div>
   </div>
 </div>
+
+<%= form_tag reply_conversation_path(@conversation), method: :post do %>
+  <div class="form-group">
+    <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+  </div>
+  <%= submit_tag "Send Message", class: 'btn btn-primary' %>
+<% end %>
