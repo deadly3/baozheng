@@ -18,6 +18,7 @@
                 <h1>用户中心</h1>
                 <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
                    <li class="active"><%= link_to("用户资料", account_user_path(current_user)) %> </li>
+                   <li class="active"><%= link_to("我的订单", account_requests_path(current_user)) %> </li>
                 </ul>
               </div>
 

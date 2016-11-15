@@ -10,6 +10,8 @@
 #  dream_picture  :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  aasm_state     :string           default("request_made")
+#  token          :string
 #
 
 require 'test_helper'
