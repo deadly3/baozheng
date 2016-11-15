@@ -51,6 +51,8 @@ class User < ApplicationRecord
   include Gravtastic
   gravtastic :size => 50, :default => "mm"
 
+
+
   has_many :works
 
   # def is_applicant_of?(request)

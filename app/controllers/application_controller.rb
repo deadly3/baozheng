@@ -7,5 +7,15 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+
+  def avatar!
+    if current_user.avatar.present?
+      image_tag(current_user.avatar.thumb.url)
+    else
+      image_tag current_user.gravatar_url(:size => 100)
+    end
+  end
+
   
 end
