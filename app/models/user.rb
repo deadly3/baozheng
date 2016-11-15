@@ -28,6 +28,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :requests
+  has_many :request_relationships
+  has_many :applied_requests, :through => :request_relationships, :source => :request
 
   def admin?
    is_admin

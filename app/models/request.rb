@@ -15,6 +15,9 @@
 class Request < ApplicationRecord
   belongs_to :user
 
+  has_many :request_relationships
+  has_many :applicant, through: :group_relationships, source: :user
+
   mount_uploader :before_picture, BeforePictureUploader
   mount_uploader :dream_picture, DreamPictureUploader
 
