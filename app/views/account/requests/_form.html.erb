@@ -1,0 +1,9 @@
+<%= simple_form_for [:account, @request] do |f| %>
+
+<%= f.input :title, :label =>  "主题"%>
+<%= f.input :description, :label =>  "描述" %>
+<%= f.input :before_picture, :label =>  "当前照片" %>
+<%= f.input :dream_picture, :label =>  "理想图片" %>
+
+<%= f.submit "Submit" %>
+<% end %>

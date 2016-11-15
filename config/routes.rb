@@ -5,6 +5,12 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :user
+    resources :requests do
+      member do
+        post :choose
+        post :make_payment
+      end
+    end
   end
 
   namespace :admin do
@@ -20,8 +26,20 @@ Rails.application.routes.draw do
         post :hide
       end
     end
+    resources :requests do
+      member do
+        post :applied
+        post :join_applicants
+      end
+    end
   end
 
   resources :requests
+
+  resources :users do
+    member do
+      post :join
+    end
+  end
 
 end

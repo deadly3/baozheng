@@ -1,3 +1,8 @@
+<br>
+<%= link_to("发起订单", new_account_request_path, class: "btn btn-danger pull-left") %>
+
+<br><br>
+
 <table class="table table-bordered">
 
   <thead>
@@ -5,8 +10,8 @@
       <th>主题</th>
       <th>当前照片</th>
       <th>梦想照片</th>
+      <th>修改/删除</th>
       <th>创建时间</th>
-      <th>用户</th>
       <th>订单状态</th>
       </tr>
   </thead>
@@ -15,7 +20,7 @@
   <% @requests.each do |r| %>
   <tr>
     <td>
-      <%= link_to(r.title, request_path(r.token)) %>
+      <%= link_to(r.title, account_requests_path(r.token)) %>
     </td>
     <td>
       <% if r.before_picture.present? %>
@@ -32,18 +37,15 @@
       <% end %>
     </td>
     <td>
+      <%= link_to("Edit", edit_account_request_path(r.token), :class => "btn btn-xs btn-default") %>
+      |
+      <%= link_to("Destroy", account_request_path(r.token), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
+    </td>
+    <td>
       <%= r.created_at %>
     </td>
     <td>
-      <%= r.user_id %>
-    </td>
-    <td>
       <%= r.aasm_state %>
-      <%# if current_user && current_user.is_applicant_of?(@request) %>
-        <a href="#" class="btn btn-warning" disabled> 已抢单 </a>
-      <%# else %>
-        <%#= link_to("抢单！", apply_admin_request_path(r.token), :method => :post, :class => "btn btn-danger") %>
-      <%#end %>
     </td>
   </tr>
   <% end %>
