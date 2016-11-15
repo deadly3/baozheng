@@ -41,7 +41,7 @@ class Admin::RequestsController < ApplicationController
   #       flash[:warning] = '已经抢过这个单了哟~'
   #     else
   #       @request.apply!
-  #       @request.user = current_userza
+  #       @request.user = current_user
   #       current_user.join!(@request)
   #       flash[:notice] = "已抢单！"
   #       @request.save
