@@ -43,12 +43,6 @@ class RequestsController < ApplicationController
     redirect_to requests_path
   end
 
-  def choose
-    @request = Request.find_by_token(params[:id])
-    @request.choose!
-    redirect_to :back
-  end
-
   private
 
   def request_params

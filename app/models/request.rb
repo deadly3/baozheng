@@ -10,19 +10,20 @@
 #  dream_picture  :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  aasm_state     :string           default("request_made")
+#  token          :string
 #
 
 class Request < ApplicationRecord
   belongs_to :user
 
   has_many :request_relationships
-  has_many :applicant, through: :group_relationships, source: :user
+  has_many :applicants, through: :request_relationships, source: :user
 
   mount_uploader :before_picture, BeforePictureUploader
   mount_uploader :dream_picture, DreamPictureUploader
 
   validates :title, presence: true
-
 
   before_create :generate_token
 
