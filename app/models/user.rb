@@ -27,7 +27,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :works
   has_many :requests
+  has_many :request_relationships
+  has_many :applied_requests, :through => :request_relationships, :source => :request
 
   def admin?
    is_admin
@@ -43,7 +46,9 @@ class User < ApplicationRecord
     self.save
   end
 
-  has_many :works
+  # def is_applicant_of?(request)
+  #   applied_requests.include?(request)
+  # end
 
   scope :all_except, ->(user) { where.not(id: user) }
 

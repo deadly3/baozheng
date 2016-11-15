@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 
   def index
-    @requests = Request.where(:user_id => current_user.id)
+    @requests = Request.all.recent
   end
 
   def new
@@ -20,39 +20,27 @@ class RequestsController < ApplicationController
     end
   end
 
-  def edit
-    @request = Request.find_by_token(params[:id])
-  end
-
-  def update
-    @request = Request.find(params[:id])
-    if @request.update(request_params)
-      redirect_to requests_path
-    else
-      render :edit
-    end
-  end
-
   def show
     @request = Request.find_by_token(params[:id])
   end
 
-  def destroy
+  def apply
     @request = Request.find_by_token(params[:id])
-    @request.destroy
-    redirect_to requests_path
-  end
-
-  def choose
-    @request = Request.find_by_token(params[:id])
-    @request.choose!
+      if @request.applied?
+        flash[:warning] = '已经抢过这个单了哟~'
+      else
+        @request.apply!
+        @request.user = current_user
+        current_user.join!(@request)
+        @request.save
+      end
     redirect_to :back
   end
 
   private
 
   def request_params
-    params.require(:request).permit(:title, :description, :user_id, :before_picture, :dream_picture, :token)
+    params.require(:request).permit(:title, :description, :user_id, :before_picture, :dream_picture, :token, :aasm_state)
   end
 
 end
