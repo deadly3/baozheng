@@ -5,7 +5,12 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :user
-    resources :requests
+    resources :requests do
+      member do
+        post :choose
+        post :make_payment
+      end
+    end
   end
 
   namespace :admin do
@@ -25,14 +30,11 @@ Rails.application.routes.draw do
     resources :requests do
       member do
         post :apply
-        post :make_payment
+
       end
     end
   end
 
-  resources :requests do
-    member do
-      post :choose
-    end
-  end
+  resources :requests
+
 end

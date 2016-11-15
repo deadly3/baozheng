@@ -1,3 +1,8 @@
+
+<%= link_to("发起订单", new_account_request_path, class: "btn btn-danger pull-left") %>
+
+<br><br>
+
 <table class="table table-bordered">
 
   <thead>
@@ -15,7 +20,7 @@
   <% @requests.each do |r| %>
   <tr>
     <td>
-      <%= link_to(r.title, request_path(r.token)) %>
+      <%= link_to(r.title, account_requests_path(r.token)) %>
     </td>
     <td>
       <% if r.before_picture.present? %>
@@ -32,9 +37,9 @@
       <% end %>
     </td>
     <td>
-      <%= link_to("Edit", edit_request_path(r.token), :class => "btn btn-xs btn-default") %>
+      <%= link_to("Edit", edit_account_request_path(r.token), :class => "btn btn-xs btn-default") %>
       |
-      <%= link_to("Destroy", request_path(r.token), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
+      <%= link_to("Destroy", account_request_path(r.token), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
     </td>
     <td>
       <%= r.created_at %>

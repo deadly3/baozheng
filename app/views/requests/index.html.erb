@@ -5,8 +5,8 @@
       <th>主题</th>
       <th>当前照片</th>
       <th>梦想照片</th>
-      <th>修改/删除</th>
       <th>创建时间</th>
+      <th>用户</th>
       <th>订单状态</th>
       </tr>
   </thead>
@@ -32,15 +32,13 @@
       <% end %>
     </td>
     <td>
-      <%= link_to("Edit", edit_request_path(r.token), :class => "btn btn-xs btn-default") %>
-      |
-      <%= link_to("Destroy", request_path(r.token), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
-    </td>
-    <td>
       <%= r.created_at %>
     </td>
     <td>
-
+      <%= r.user_id %>
+    </td>
+    <td>
+      
     </td>
   </tr>
   <% end %>
