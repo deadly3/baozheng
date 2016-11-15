@@ -47,6 +47,8 @@ class User < ApplicationRecord
   include Gravtastic
   gravtastic :size => 50, :default => "mm"
 
+
+
   has_many :works
 
   scope :all_except, ->(user) { where.not(id: user) }
