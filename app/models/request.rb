@@ -31,19 +31,20 @@ class Request < ApplicationRecord
     self.token = SecureRandom.uuid
   end
 
-  def apply!(request)
-    applied_requests << request
-  end
-
   include AASM
 
   aasm do
     state :request_made, initial: true
+    state :applied
     state :selected
     state :paid
 
+    event :apply do
+      transitions from: :request_made, to: :applied
+    end
+
     event :choose do
-      transitions from: :request_made, to: :selected
+      transitions from: :applied, to: :selected
     end
 
     event :make_payment do

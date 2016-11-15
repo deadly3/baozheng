@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :user
+    resources :requests
   end
 
   namespace :admin do
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
       member do
         post :make_admin
         post :make_user
+        post :join
       end
     end
     resources :works do
@@ -22,11 +24,15 @@ Rails.application.routes.draw do
     end
     resources :requests do
       member do
-        post :choose
+        post :apply
         post :make_payment
       end
     end
   end
 
-  resources :requests
+  resources :requests do
+    member do
+      post :choose
+    end
+  end
 end

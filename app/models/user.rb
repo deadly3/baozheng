@@ -45,6 +45,10 @@ class User < ApplicationRecord
     self.save
   end
 
+  def join!
+    applied_requests << request
+  end
+
   has_many :works
 
   scope :all_except, ->(user) { where.not(id: user) }
