@@ -5,15 +5,27 @@
     <div class="messages">
       <% @conversation.receipts_for(current_user).each do |receipt| %>
         <% message = receipt.message %>
-        <p style="color: salmon;">
-          <%= message.sender.email %>
-        </p>
-        <h3>
-          <%= message.body %>
-        </h3>
-        <p>
-          says at <%= message.created_at.strftime("%F %T") %>
-        </p>
+        <% if message.sender == current_user %>
+          <div class="text-right" style="height: 30px;">
+            <h3>
+              <%= message.body %>
+            </h3>
+          </div>
+        <% else %>
+          <div class="" style="background-color: grey;">
+            <p>
+              <span style="color: blue;">
+                <%= message.sender.email %>
+              </span>
+              <span style="color: blue;">
+                says at <%= message.created_at.strftime("%F %T") %>
+              </span>
+            </p>
+            <h3 style="margin-top: -5px;">
+              <%= message.body %>
+            </h3>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
