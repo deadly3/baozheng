@@ -1,13 +1,3 @@
-<h1> 发起任务 </h1>
+<h1> 发起请求 </h1>
 
-<%= simple_form_for @request do |f| %>
-
-<%= f.input :title, label: "任务名称"%>
-<%= f.input :description, label: "任务描述" %>
-<%= f.input :before_picture, label: "现实图片" %>
-<%= f.input :dream_picture, label: "理想图片" %>
-
-
-
-  <%= f.submit "Submit" %>
-<% end %>
+<%= render "form" %>
