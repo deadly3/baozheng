@@ -1,19 +1,25 @@
 <h2 style="color: red;">
-  我是用户中心
+  我的资料
 </h2>
 
-
+<div>
 <% if current_user.nickname.empty?%>
   <%= link_to("填写资料", edit_account_user_path(current_user), class: "btn btn-danger btn-lg pull-right") %>
 <% else %>
   <%= link_to("修改资料", edit_account_user_path(current_user), class: "btn btn-danger btn-lg pull-right") %>
 <% end %>
+</div>
+<br>
+<div>
+<%= link_to("修改密码或注销用户", edit_user_registration_path, class: "btn btn-danger btn-lg pull-right") %>
+</div>
 
 <hr>
 用户昵称
 <h1><%= current_user.nickname %></h1>
 用户描述
 <h2><%= current_user.description %></h2>
+<br>
 用户头像
 <% if current_user.avatar.present?%>
     <%= image_tag(current_user.avatar.url) %>
@@ -21,8 +27,7 @@
 
 <% end %>
 <hr>
-用户ID
-<h1><%= current_user.id %></h1>
+
 用户邮箱
 <h1><%= current_user.email %></h1>
 上次登陆
