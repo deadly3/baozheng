@@ -31,6 +31,10 @@ class Request < ApplicationRecord
     self.token = SecureRandom.uuid
   end
 
+  def apply!(request)
+    applied_requests << request
+  end
+
   include AASM
 
   aasm do
