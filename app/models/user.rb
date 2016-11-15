@@ -45,8 +45,7 @@ class User < ApplicationRecord
 
 
   include Gravtastic
-  gravtastic :size => 50,
-            :default => "mm"
+  gravtastic :size => 50, :default => "mm"
 
   has_many :works
 
