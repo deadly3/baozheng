@@ -22,10 +22,11 @@ ActiveRecord::Schema.define(version: 20161115025826) do
   create_table "requests", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "before_picture"
-    t.string   "dream_picture"
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
+    t.string   "before_picture"
+    t.string   "dream_picture"
+    t.integer  "user_id"
     t.string   "aasm_state",     default: "request_made"
     t.string   "token"
     t.index ["aasm_state"], name: "index_requests_on_aasm_state"

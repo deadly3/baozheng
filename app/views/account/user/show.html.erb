@@ -21,9 +21,12 @@
 <h2><%= current_user.description %></h2>
 <br>
 用户头像
-<% if current_user.avatar.present?%>
+<br>
+<%= image_tag current_user.gravatar_url %>
+
+<!-- <% if current_user.avatar.present?%>
     <%= image_tag(current_user.avatar.url) %>
-<% else %>
+<% else %> -->
 
 <% end %>
 <hr>

@@ -40,8 +40,8 @@ gem 'mini_magick'
 gem 'aasm'
 gem 'pry'
 gem 'awesome_rails_console'
+gem 'gravtastic'
 gem 'devise-i18n'
-
 
 
 group :development, :test do

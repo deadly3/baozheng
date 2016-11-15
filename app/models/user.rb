@@ -46,9 +46,17 @@ class User < ApplicationRecord
     self.save
   end
 
+
+
+  include Gravtastic
+  gravtastic :size => 50, :default => "mm"
+
+  has_many :works
+
   # def is_applicant_of?(request)
   #   applied_requests.include?(request)
   # end
+
 
   scope :all_except, ->(user) { where.not(id: user) }
 
