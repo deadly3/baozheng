@@ -3,16 +3,18 @@
 </h2>
 
 <div>
-<% if current_user.nickname.empty?%>
-  <%= link_to("填写资料", edit_account_user_path(current_user), class: "btn btn-danger btn-lg pull-right") %>
-<% else %>
-  <%= link_to("修改资料", edit_account_user_path(current_user), class: "btn btn-danger btn-lg pull-right") %>
-<% end %>
+  <p>
+    <% if current_user.nickname.empty?%>
+      <%= link_to("填写资料", edit_account_user_path(current_user), class: "btn btn-danger btn-lg pull-right") %>
+    <% else %>
+      <%= link_to("修改资料", edit_account_user_path(current_user), class: "btn btn-danger btn-lg pull-right") %>
+    <% end %>
+  </p>
+  <p>
+    <%= link_to("修改密码或注销用户", edit_user_registration_path, class: "btn btn-default pull-right") %>
+  </p>
 </div>
 <br>
-<div>
-<%= link_to("修改密码或注销用户", edit_user_registration_path, class: "btn btn-danger btn-lg pull-right") %>
-</div>
 
 <hr>
 用户昵称

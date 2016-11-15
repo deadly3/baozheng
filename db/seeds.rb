@@ -15,7 +15,7 @@
 
 puts "这个种子程序会自动建立admin账号, 并且创建6个达人作品products"
 
-create_account = User.create([email: 'admin@1', password: '123123', password_confirmation: '123123', is_admin: 'true'])
+create_account = User.create([email: 'admin@1', password: '123123', password_confirmation: '123123', is_admin: 'true', nickname: '🐂👃闪闪'])
 create_account = User.create([email: '1@1', password: '111111', password_confirmation: '111111', is_admin: 'true'])
 puts "管理员建立成功."
 

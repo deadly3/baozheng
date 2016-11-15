@@ -32,6 +32,8 @@ class User < ApplicationRecord
   has_many :request_relationships
   has_many :applied_requests, :through => :request_relationships, :source => :request
 
+  acts_as_messageable
+
   def admin?
    is_admin
   end

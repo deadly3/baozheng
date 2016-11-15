@@ -1,6 +1,5 @@
 <br><br>
-
-<table class="table table-bordered">
+<table class="table table-boldered">
   <thead>
     <tr>
       <th>Email</th>
@@ -9,8 +8,12 @@
       <th>创建时间</th>
       </tr>
   </thead>
+
+
+
+
   <tbody>
-    <% @users.each do |user| %>
+    <%= @users.each do |user| %>
     <tr>
       <td>
         <%= user.email  %>
@@ -20,7 +23,7 @@
       </td>
       <td>
         <% if user.is_admin %>
-          <%= link_to("解除管理员", make_user_admin_user_path(user) , :method => :post, :class => "btn btn-xs btn-default") %>
+          <%= link_to("解除管理员", make_user_admin_user_path(user) , method: :get, :class => "btn btn-xs btn-default") %>
         <% else %>
           <%= link_to("设为管理员", make_admin_admin_user_path(user), :method => :post,  :class => "btn btn-xs btn-default") %>
         <% end %>
