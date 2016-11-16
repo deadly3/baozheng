@@ -22,17 +22,22 @@
 
     <tbody>
       <%# @requests.applicants.each do |user| %>
-      <% @applicants.each do |user| %>
+      <% @applicants.each do |applicant| %>
         <tr>
-          <td> <%= link_to(user.id, user_path(user)) %> </td>
+          <td> <%= applicant.id %>
+            <%#= link_to(applicant.id, user_path(user)) %> </td>
           <td> # </td>
-          <td> # </td>
-          <td> <% @request.aasm_state %> </td>
+          <td> <%= @request.winner %> </td>
+          <td> <%= @request.aasm_state %> </td>
           <td>
             <% if @request.selected? %>
-              已经选好合作达人喽~
+              <% if @request.winner == applicant.id %>
+                聊5块钱需求~
+              <% else %>
+                下次再合作吧👻
+              <% end %>
             <% else %>
-              <%= link_to("选我选我选我！", choose_account_request_path(@request.token),:method => :post, :class => "btn btn-xs btn-danger") %>
+              <%= link_to("选我选我选我！", choose_account_request_path(@request.token,:winner => applicant),:method => :post, :class => "btn btn-xs btn-danger") %>
             <% end %>
           </td>
         </tr>

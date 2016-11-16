@@ -12,6 +12,7 @@
 #  updated_at     :datetime         not null
 #  aasm_state     :string           default("request_made")
 #  token          :string
+#  winner         :string           default("")
 #
 
 class Request < ApplicationRecord
