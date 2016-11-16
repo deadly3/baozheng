@@ -59,6 +59,8 @@ class Account::RequestsController < ApplicationController
       if @request.selected?
         flash[:warning] = '已经选好合作达人喽~'
       else
+        @user = params[:winner]
+        @request.winner = @user
         @request.choose!
       end
     redirect_to :back
@@ -69,6 +71,5 @@ class Account::RequestsController < ApplicationController
   def request_params
     params.require(:request).permit(:title, :description, :user_id, :before_picture, :dream_picture, :token, :aasm_state)
   end
-
 
 end
