@@ -17,10 +17,12 @@ puts "这个种子程序会自动建立admin账号, 并且创建6个达人作品
 
 create_account = User.create([email: 'admin@1', password: '123123', password_confirmation: '123123', is_admin: 'true', nickname: '🐂👃闪闪'])
 create_account = User.create([email: '1@1', password: '111111', password_confirmation: '111111', is_admin: 'true'])
+create_account = User.create([email: '2@2', password: '111111', password_confirmation: '111111', is_admin: 'true'])
 puts "管理员建立成功."
 
 create_account = User.create([email: 'test@1', password: '123123', password_confirmation: '123123'])
-create_account = User.create([email: '2@2', password: '111111', password_confirmation: '111111'])
+create_account = User.create([email: '3@3', password: '111111', password_confirmation: '111111'])
+create_account = User.create([email: '4@4', password: '111111', password_confirmation: '111111'])
 puts "顾客建立成功"
 
 
@@ -35,11 +37,11 @@ end
 puts "2个未公开达人产品 创建成功"
 
 create_jos = for i in 1..4 do
-  Request.create!([user_id: 3, title: "Request no.#{i}", description: "这是用种子程序生产的第 #{i} 个申请"])
+  Request.create!([user_id: 5, title: "Request no.#{i}", description: "这是用种子程序生产的第 #{i} 个申请"])
 end
 puts "4个订单 创建成功"
 
 create_jos = for i in 1..4 do
-  Request.create!([user_id: 4, title: "Request no.#{i+4}", description: "这是用种子程序生产的第 #{i+4} 个申请"])
+  Request.create!([user_id: 6, title: "Request no.#{i+4}", description: "这是用种子程序生产的第 #{i+4} 个申请"])
 end
 puts "4个订单 创建成功"
