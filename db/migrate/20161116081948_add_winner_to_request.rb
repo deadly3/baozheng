@@ -3,3 +3,4 @@ class AddWinnerToRequest < ActiveRecord::Migration[5.0]
     add_column :requests, :winner, :integer, default: ""
   end
 end
+     
