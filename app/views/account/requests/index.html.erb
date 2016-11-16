@@ -1,5 +1,5 @@
 <br>
-<%= link_to("发起订单", new_account_request_path, class: "btn btn-danger pull-left") %>
+<%= link_to("发起订单", new_account_request_path, class: "btn btn-default pull-left") %>
 
 <br><br>
 
@@ -37,12 +37,12 @@
       <% end %>
     </td>
     <td>
-      <%= link_to("Edit", edit_account_request_path(r.token), :class => "btn btn-xs btn-default") %>
-      |
-      <%= link_to("Destroy", account_request_path(r.token), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
+      <%= link_to("修改", edit_account_request_path(r.token), :class => "btn") %>
+      /
+      <%= link_to("删除", account_request_path(r.token), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn") %>
     </td>
     <td>
-      <%= r.created_at %>
+      <%= r.created_at.strftime("%F") %>
     </td>
     <td>
       <% if r.applicants.present? %>
