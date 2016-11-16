@@ -37,19 +37,19 @@
       <% end %>
     </td>
     <td>
-      <% if r.applicants.present? %>
-       已有人抢单的订单不可以修改
-      <% else %>
       <%= link_to("Edit", edit_account_request_path(r.token), :class => "btn btn-xs btn-default") %>
-      <% end %>
-      <br>
+      |
       <%= link_to("Destroy", account_request_path(r.token), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
     </td>
     <td>
       <%= r.created_at %>
     </td>
     <td>
-      <%= link_to("查看已抢单达人", edit_account_request_path(r.token), :class => "btn btn-xs btn-warning") %>
+      <% if r.applicants.present? %>
+        <%= link_to("查看已抢单达人", display_account_request_path(r.token),:method => :post, :class => "btn btn-xs btn-warning") %>
+      <% else %>
+        目前没有达人愿意解救你，你们家真是太乱了好吗💩
+      <% end %>
     </td>
   </tr>
   <% end %>

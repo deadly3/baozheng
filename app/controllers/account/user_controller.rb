@@ -10,9 +10,11 @@ class Account::UserController < ApplicationController
       render :edit
     end
   end
-
-
-
+  # 
+  # def display
+  #   @request = Request.find_by_token(params[:id])
+  #   @users = request.applicants
+  # end
 
   private
 

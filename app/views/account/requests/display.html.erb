@@ -1,0 +1,35 @@
+<div class="col-md-12">
+
+  <h2 class="text-center"> 已抢单达人 </h2>
+<br>
+<br>
+<%= @request.token %>
+订单详情放这里
+<br>
+<br>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> 达人昵称 </th>
+        <th> 作品名称 </ th>
+        <th> 作品图片 </th>
+        <th> 参考价格 </th>
+        <th> 选择 </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%# @requests.applicants.each do |user| %>
+      <% @applicants.each do |user| %>
+        <tr>
+          <td> <%= link_to(user.id, user_path(user)) %> </td>
+          <td> <% user.nickname %> </td>
+          <td> user.nickname</td>
+          <td> user.nickname</td>
+          <td> 选 </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

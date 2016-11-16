@@ -12,10 +12,13 @@ Rails.application.routes.draw do
   namespace :account do
     resources :user
     resources :requests do
+
       member do
+        post :display
         post :choose
         post :make_payment
       end
+      resources :users
     end
   end
 
