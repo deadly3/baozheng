@@ -36,7 +36,8 @@
                         <li> <%= link_to("Admin Panel", admin_users_path) %> </li>
                         <hr>
                         <% end %>
-                        <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>                      </ul>
+                        <li> <%= link_to("登出", destroy_user_session_path, data: { confirm: "Are you sure?" }, method: :delete) %> </li>                      
+                      </ul>
                     </li>
                   <% end %>
                 </li>
