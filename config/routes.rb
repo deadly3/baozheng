@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   #联系人
   namespace :contacts do
     resources :users do
+      resources :conversations
       member do
         post :create_conversation
       end
