@@ -42,7 +42,7 @@ gem 'pry'
 gem 'awesome_rails_console'
 gem 'gravtastic'
 gem 'devise-i18n'
-
+gem 'mailboxer'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
