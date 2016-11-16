@@ -13,7 +13,6 @@ class Account::RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     @request.user = current_user
-
     if @request.save
       redirect_to account_requests_path
     else
@@ -23,6 +22,11 @@ class Account::RequestsController < ApplicationController
 
   def edit
     @request = Request.find_by_token(params[:id])
+    if @request.applicants.present?
+      flash[:alert] = '已有人抢单的订单不可以进行修改💀'
+      redirect_to :back
+    else
+    end
   end
 
   def update
@@ -44,6 +48,11 @@ class Account::RequestsController < ApplicationController
     redirect_to account_requests_path
   end
 
+
+  def display
+    @request = Request.find_by_token(params[:id])
+    @applicants = @request.applicants
+  end
 
   def choose
     @request = Request.find_by_token(params[:id])

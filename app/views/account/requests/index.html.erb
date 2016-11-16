@@ -12,7 +12,7 @@
       <th>梦想照片</th>
       <th>修改/删除</th>
       <th>创建时间</th>
-      <th>订单状态</th>
+      <th>抢单状态</th>
       </tr>
   </thead>
 
@@ -45,7 +45,11 @@
       <%= r.created_at %>
     </td>
     <td>
-      <%= r.aasm_state %>
+      <% if r.applicants.present? %>
+        <%= link_to("查看已抢单达人", display_account_request_path(r.token),:method => :get, :class => "btn btn-xs btn-warning") %>
+      <% else %>
+        目前没有达人愿意解救你，你们家真是太乱了好吗💩
+      <% end %>
     </td>
   </tr>
   <% end %>

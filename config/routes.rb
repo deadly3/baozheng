@@ -14,9 +14,11 @@ Rails.application.routes.draw do
     resources :user
     resources :requests do
       member do
+        get :display
         post :choose
         post :make_payment
       end
+      resources :users
     end
   end
 
