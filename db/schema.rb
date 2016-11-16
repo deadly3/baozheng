@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115161154) do
+ActiveRecord::Schema.define(version: 20161116081948) do
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.string  "unsubscriber_type"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20161115161154) do
     t.datetime "updated_at",                              null: false
     t.string   "aasm_state",     default: "request_made"
     t.string   "token"
+    t.integer  "winner"
     t.index ["aasm_state"], name: "index_requests_on_aasm_state"
   end
 

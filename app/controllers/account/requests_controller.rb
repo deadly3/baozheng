@@ -13,7 +13,6 @@ class Account::RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     @request.user = current_user
-
     if @request.save
       redirect_to account_requests_path
     else
@@ -23,6 +22,11 @@ class Account::RequestsController < ApplicationController
 
   def edit
     @request = Request.find_by_token(params[:id])
+    if @request.applicants.present?
+      flash[:alert] = '已有人抢单的订单不可以进行修改💀'
+      redirect_to :back
+    else
+    end
   end
 
   def update
@@ -45,11 +49,18 @@ class Account::RequestsController < ApplicationController
   end
 
 
+  def display
+    @request = Request.find_by_token(params[:id])
+    @applicants = @request.applicants
+  end
+
   def choose
     @request = Request.find_by_token(params[:id])
       if @request.selected?
         flash[:warning] = '已经选好合作达人喽~'
       else
+        @user = params[:winner]
+        @request.winner = @user
         @request.choose!
       end
     redirect_to :back
@@ -60,6 +71,5 @@ class Account::RequestsController < ApplicationController
   def request_params
     params.require(:request).permit(:title, :description, :user_id, :before_picture, :dream_picture, :token, :aasm_state)
   end
-
 
 end
