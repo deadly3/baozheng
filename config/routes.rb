@@ -12,9 +12,8 @@ Rails.application.routes.draw do
   namespace :account do
     resources :user
     resources :requests do
-
       member do
-        post :display
+        get :display
         post :choose
         post :make_payment
       end
