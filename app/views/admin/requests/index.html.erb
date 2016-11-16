@@ -33,7 +33,9 @@
         <% end %>
       </td>
       <td>
-        <%= r.user_id %>
+        <% if r.user.present? %>
+        <%= r.user.nickname %>
+        <% end %>
       </td>
       <td>
         <%= r.created_at.strftime("%F") %>
