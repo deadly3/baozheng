@@ -1,23 +1,28 @@
+
+
 <div>
+
   <%= simple_form_for [:account, current_user] do |f|%>
 
-    <%= f.input :nickname, label:"昵称" %>
-    <%= f.input :description, label:"个性签名" %>
-    <%= f.input :avatar, as: :file, label:"头像"%>
 
-    <% if current_user.avatar.present? %>
-      <%= image_tag(current_user.avatar.thumb.url) %>
-    <% else %>
-      <%= image_tag current_user.gravatar_url(:size => 100) %>
-    <% end %>
+    <div>
+      <% if current_user.avatar.present? %>
+        <%= image_tag(current_user.avatar.thumb.url) %>
+      <% else %>
+        <%= image_tag current_user.gravatar_url(:size => 100) %>
+      <% end %>
 
-    <%= f.input :avatar, as: :file, :label => "头像" %>
-    <%= f.submit " 提交", disabled_with: "提交中。。。。" %>
+      <%= f.input :avatar, as: :file, :label => "头像" %>
+    </div>
+
+    <div>
+      <%= f.input :nickname, label:"昵称" %>
+      <%= f.input :description, label:"个性签名" %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "更新" %>
+    </div>
+
   <% end %>
-</div>
-
-<br>
-
-<div>
-  <%= link_to("修改密码", edit_user_registration_path, class: "btn btn-danger btn-lg pull-right") %>
 </div>

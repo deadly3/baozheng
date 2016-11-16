@@ -1,5 +1,5 @@
 <br>
-<%= link_to("发起订单", new_account_request_path, class: "btn btn-danger pull-left") %>
+<%= link_to("发起订单", new_account_request_path, class: "btn btn-default pull-left") %>
 
 <br><br>
 
@@ -12,7 +12,7 @@
       <th>梦想照片</th>
       <th>修改/删除</th>
       <th>创建时间</th>
-      <th>订单状态</th>
+      <th>抢单状态</th>
       </tr>
   </thead>
 
@@ -37,15 +37,19 @@
       <% end %>
     </td>
     <td>
-      <%= link_to("Edit", edit_account_request_path(r.token), :class => "btn btn-xs btn-default") %>
-      |
-      <%= link_to("Destroy", account_request_path(r.token), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
+      <%= link_to("修改", edit_account_request_path(r.token), :class => "btn") %>
+      /
+      <%= link_to("删除", account_request_path(r.token), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn") %>
     </td>
     <td>
-      <%= r.created_at %>
+      <%= r.created_at.strftime("%F") %>
     </td>
     <td>
-      <%= r.aasm_state %>
+      <% if r.applicants.present? %>
+        <%= link_to("查看已抢单达人", display_account_request_path(r.token),:method => :get, :class => "btn btn-xs btn-warning") %>
+      <% else %>
+        目前没有达人愿意解救你，你们家真是太乱了好吗💩
+      <% end %>
     </td>
   </tr>
   <% end %>
