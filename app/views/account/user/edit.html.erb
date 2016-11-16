@@ -3,22 +3,24 @@
   <%= simple_form_for [:account, current_user] do |f|%>
 
 
+    <div>
+      <% if current_user.avatar.present? %>
+        <%= image_tag(current_user.avatar.thumb.url) %>
+      <% else %>
+        <%= image_tag current_user.gravatar_url(:size => 100) %>
+      <% end %>
 
-  <% if current_user.avatar.present? %>
-    <%= image_tag(current_user.avatar.thumb.url) %>
-  <% else %>
-    <%= image_tag current_user.gravatar_url(:size => 100) %>
-  <% end %>
+      <%= f.input :avatar, as: :file, :label => "头像" %>
+    </div>
 
-  <%= f.input :avatar, as: :file, :label => "头像" %>
+    <div>
+      <%= f.input :nickname, label:"昵称" %>
+      <%= f.input :description, label:"个性签名" %>
+    </div>
 
-  
-    <%= f.input :nickname, label:"昵称" %>
-    <%= f.input :description, label:"个性签名" %>
+    <div class="form-actions">
+      <%= f.button :submit, "更新" %>
+    </div>
 
-
-    <%= f.submit " 提交", disabled_with: "提交中。。。。" %>
   <% end %>
 </div>
-
-<br>
