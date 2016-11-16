@@ -33,10 +33,10 @@
         <% end %>
       </td>
       <td>
-        <%= r.user_id%>
+        <%= r.user_id %>
       </td>
       <td>
-        <%= r.created_at %>
+        <%= r.created_at.strftime("%F") %>
       </td>
       <td>
         <%= r.aasm_state %>
