@@ -6,6 +6,7 @@ class ConversationsController < ApplicationController
 
   def index
     @conversations = @mailbox.conversations
+    @users = User.all
   end
 
   def show

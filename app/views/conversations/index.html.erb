@@ -7,3 +7,27 @@
     </li>
   <% end %>
 </ul>
+
+<hr>
+<h1>联系人</h1>
+<div class="container">
+  <div class="">
+    <table>
+      <tbody>
+        <%= @users.each do |user| %>
+        <tr>
+          <td>
+            <%= user.email %>
+          </td>
+          <td>
+            <%= user.nickname %>
+          </td>
+          <td>
+            <%= render 'common/avatar' %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
