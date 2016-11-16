@@ -12,7 +12,7 @@
       <th>梦想照片</th>
       <th>修改/删除</th>
       <th>创建时间</th>
-      <th>订单状态</th>
+      <th>抢单状态</th>
       </tr>
   </thead>
 
@@ -37,15 +37,19 @@
       <% end %>
     </td>
     <td>
+      <% if r.applicants.present? %>
+       已有人抢单的订单不可以修改
+      <% else %>
       <%= link_to("Edit", edit_account_request_path(r.token), :class => "btn btn-xs btn-default") %>
-      |
+      <% end %>
+      <br>
       <%= link_to("Destroy", account_request_path(r.token), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
     </td>
     <td>
       <%= r.created_at %>
     </td>
     <td>
-      <%= r.user_id %>
+      <%= link_to("查看已抢单达人", edit_account_request_path(r.token), :class => "btn btn-xs btn-warning") %>
     </td>
   </tr>
   <% end %>
