@@ -16,7 +16,7 @@
         <th> 作品名称 </ th>
         <th> 作品图片 </th>
         <th> 参考价格 </th>
-        <th> 选择 </th>
+        <th> 请选择一名合作达人 </th>
       </tr>
     </thead>
 
@@ -25,10 +25,16 @@
       <% @applicants.each do |user| %>
         <tr>
           <td> <%= link_to(user.id, user_path(user)) %> </td>
-          <td> <% user.nickname %> </td>
-          <td> user.nickname</td>
-          <td> user.nickname</td>
-          <td> 选 </td>
+          <td> # </td>
+          <td> # </td>
+          <td> <% @request.aasm_state %> </td>
+          <td>
+            <% if @request.selected? %>
+              已经选好合作达人喽~
+            <% else %>
+              <%= link_to("选我选我选我！", choose_account_request_path(@request.token),:method => :post, :class => "btn btn-xs btn-danger") %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

@@ -45,16 +45,11 @@ class Request < ApplicationRecord
 
   aasm do
     state :request_made, initial: true
-    state :applied
     state :selected
     state :paid
 
-    event :apply do
-      transitions from: :request_made, to: :applied
-    end
-
     event :choose do
-      transitions from: :applied, to: :selected
+      transitions from: :request_made, to: :selected
     end
 
     event :make_payment do
