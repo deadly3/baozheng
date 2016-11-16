@@ -15,10 +15,23 @@
             <%= render "common/flashes" %>
             <div class="row">
               <div class="col-md-2">
+                <h3><i class="fa fa-user-circle fa-1x"> 管理员中心</i></h3>
+                
                 <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-                   <li class="active"><%= link_to("Admin 全部用户", admin_users_path ) %> </li>
-                   <li class="active"><%= link_to("Admin 全部订单", admin_requests_path ) %> </li>
-                   <li class="active"><%= link_to("我的作品", admin_works_path ) %> </li>
+
+                  <li>
+                    <%= link_to(content_tag(:i, " 我的作品", class: "fa fa-tasks"), admin_works_path) %>
+                  </li>
+
+                  <hr>
+
+                   <li>
+                    <%= link_to(content_tag(:i, " 全部用户", class: "fa fa-users"), admin_users_path) %>
+                   </li>
+
+                   <li>
+                    <%= link_to(content_tag(:i, " 全部订单", class: "fa fa-archive"), admin_requests_path) %>
+                   </li>
                 </ul>
               </div>
 
