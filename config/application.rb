@@ -13,8 +13,11 @@ module Baozheng
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.i18n.default_locale = :"zh-CN"
+    # config.i18n.default_locale = :"zh-CN"
 
+    config.to_prepare do
+      Devise::PasswordsController.layout "account"
+    end
 
   end
 
