@@ -37,7 +37,7 @@
         <% end %>
       </td>
       <td>
-        <%= r.created_at.strftime("%F") %>
+        <%= r.created_at.strftime("%F %T") %>
       </td>
       <td>
         <% if r.has_been_applied_by?(current_user) %>
