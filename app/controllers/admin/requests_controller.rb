@@ -11,6 +11,10 @@ class Admin::RequestsController < ApplicationController
     @request = Request.find_by_token(params[:id])
   end
 
+  def joined_requests
+    @requests = current_user.applied_requests
+  end
+
   def join_applicants
     #作为admin加入到  当前request的申请者 collection
     @request = Request.find_by_token(params[:id])
