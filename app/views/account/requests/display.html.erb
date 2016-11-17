@@ -29,14 +29,14 @@
     </td>
     <td>
       <% if @request.before_picture.present? %>
-        <%= image_tag(r.before_picture.thumb.url, class:"thumbnail") %>
+        <%= image_tag(@request.before_picture.thumb.url, class:"thumbnail") %>
       <% else %>
         <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
       <% end %>
     </td>
     <td>
       <% if @request.dream_picture.present? %>
-        <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
+        <%= image_tag(@request.dream_picture.thumb.url, class:"thumbnail") %>
       <% else %>
         <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
       <% end %>

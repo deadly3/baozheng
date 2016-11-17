@@ -23,4 +23,5 @@
 <% end %>
 
 
-<h3 class="pull-right"><%#= link_to "删除我的账户", registration_path(resource_name), :style=>'color: red;' , data: { confirm: "Are you sure?" }, method: :delete %></h3>
+
+<p class="pull-right"><%= link_to "删除我的账户", registration_path(resource_name), :style=>'color: red;' , data: { confirm: "真的删除账户吗？" }, method: :delete %></p>
