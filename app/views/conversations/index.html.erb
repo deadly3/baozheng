@@ -3,7 +3,11 @@
 <ul>
   <%= @conversations.each do |conversation| %>
     <li class="list-group-item clearfix">
+      <%= conversation.receipts %>
       <%= link_to conversation.subject, conversation_path(conversation) %>
     </li>
   <% end %>
 </ul>
+
+<hr>
+<%#= render 'common/contacts' %>

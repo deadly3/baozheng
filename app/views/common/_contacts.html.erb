@@ -1,0 +1,28 @@
+<h1>联系人</h1>
+<div class="container">
+  <div class="col-md-4">
+    <table class="table">
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= render 'common/avatar' %>
+          </td>
+          <td>
+            <%= user.email %>
+          </td>
+          <td>
+            <%= user.nickname %>
+          </td>
+          <td>
+            <%= link_to("发起会话", new_message_path, class: "btn btn-danger") %>
+          </td>
+          <td>
+            <%=  %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
