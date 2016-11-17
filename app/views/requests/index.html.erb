@@ -47,7 +47,7 @@
         <% if r.has_been_applied_by?(current_user) %>
           <a href="#" class="btn btn-warning" disabled> 已抢单 </a>
         <% else %>
-          <%= link_to("抢单！", join_applicants_admin_request_path(r.token), method: :post, class: "btn btn-danger") %>
+          <%= link_to("整！", join_applicants_admin_request_path(r.token), method: :post, class: "btn btn-danger") %>
         <% end %>
       </td>
     </tr>

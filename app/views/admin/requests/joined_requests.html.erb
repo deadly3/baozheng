@@ -49,9 +49,9 @@
         <% elsif r.winner.present? && r.winner == current_user.id %>
           <%= link_to("厉害了，订单是你的了，等待对方付款","#",class: "btn btn-success btn-sm",disabled: :true)%>
         <% elsif r.winner.present? && r.winner != current_user.id %>
-          <%= link_to("订单被别人抢走了","#",class: "btn btn-info btn-sm",disabled: :true)%>
+          <%= link_to("完了，申请者选择跟别人整了","#",class: "btn btn-info btn-sm",disabled: :true)%>
         <% elsif !r.winner.present? && !r.applicants.include?(current_user) %>
-          <%= link_to("抢单！", join_applicants_admin_request_path(r.token), method: :post, class: "btn btn-sm btn-danger") %>
+          <%= link_to("整！", join_applicants_admin_request_path(r.token), method: :post, class: "btn btn-sm btn-danger") %>
         <% elsif r.applicants.present? && r.applicants.include?(current_user) %>
           <%= link_to("已抢单","#",class: "btn btn-warning btn-sm",disabled: :true)%>
         <% end %>
