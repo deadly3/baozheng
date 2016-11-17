@@ -1,12 +1,113 @@
-<nav class="navbar navbar-default" role="navigation">
+<!-- <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">包整</a>
-        </div>
+        <!-- <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+          <img src="http://ww2.sinaimg.cn/large/65e4f1e6jw1f9tpq71wkwj208o089jrq.jpg" style="width: 60px" "height: 60px">
+            </a>
+        </div> -->
+
+
+
+
+        <!-- Second navbar for sign in -->
+         <nav class="navbar navbar-default">
+           <div class="container">
+             <!-- Brand and toggle get grouped for better mobile display -->
+             <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+
+               </button>
+               <a class="navbar-brand" href="/">
+                 <img src="http://ww2.sinaimg.cn/large/65e4f1e6jw1f9tpq71wkwj208o089jrq.jpg" style="width: 50px" "height: 50px">
+               </a>
+             </div>
+
+             <!-- Collect the nav links, forms, and other content for toggling -->
+             <div class="collapse navbar-collapse" id="navbar-collapse-2">
+               <ul class="nav navbar-nav navbar-left">
+                 <li><a href="#">
+                   <div class="bz-button-head">
+                     <%= link_to("发订单", new_request_path, class: "btn btn-primary pull-right") %>
+                       <!-- <button type="button" class="btn btn-primary">发要求</button> -->
+                   </div>
+                 </a></li>
+                 <li><a href="#">
+                   <div class="bz-button-head">
+                     <%= link_to("看作品", admin_requests_path, class: "btn btn-primary pull-right") %>
+                       <!-- <button type="button" class="btn btn-primary">选达人</button> -->
+                   </div>
+                 </a></li>
+                 <li><a href="#">
+                   <div class="bz-button-head">
+                     <%= link_to("接任务", new_request_path, class: "btn btn-primary pull-right") %>
+                       <!-- <button type="button" class="btn btn-primary">接任务</button> -->
+                   </div>
+                  </a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                      <% if !current_user %>
+                        <li><%= link_to("免费注册", new_user_registration_path) %> </li>
+                        <li><%= link_to("会员登入", new_user_session_path) %></li>
+                      <% else %>
+                        <li><%= link_to("我的邮箱📮", conversations_path) %> </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              <% if current_user.nickname.present?%>
+                                Hi!, <%= current_user.nickname %>
+                              <% else %>
+                                Hi!, <%= current_user.email %>
+                              <% end %>
+                              <b class="caret"></b>
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><%= link_to("用户中心", account_user_path(current_user)) %></li>
+                            <hr>
+                            <% if current_user.admin? %>
+                            <li> <%= link_to("Admin Panel", admin_users_path) %> </li>
+                            <hr>
+                            <% end %>
+                            <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>
+                           </ul>
+                        </li>
+                      <% end %>
+                    </li>
+                </ul>
+
+
+               <!-- <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse2">
+                 <form class="navbar-form navbar-right form-inline" role="form">
+                   <div class="form-group">
+                     <label class="sr-only" for="Email">Email</label>
+                     <input type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
+                   </div>
+                   <div class="form-group">
+                     <label class="sr-only" for="Password">Password</label>
+                     <input type="password" class="form-control" id="Password" placeholder="Password" required />
+                   </div>
+                   <button type="submit" class="btn btn-success">Sign in</button>
+                 </form>
+               </div> -->
+
+
+             </div><!-- /.navbar-collapse -->
+           </div><!-- /.container -->
+         </nav><!-- /.navbar -->
+
+
+
+
+
+
+
+
+
+
+
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
                   <% if !current_user %>
@@ -14,7 +115,7 @@
                     <li><%= link_to("登入", new_user_session_path) %></li>
                   <% else %>
                     <li><%= link_to("用户中心🕴", account_user_path(current_user)) %> </li>
-                    <li><%= link_to("我的邮箱📮", conversations_path) %> </li>
+                    <li> <%= link_to(content_tag(:i, "我的邮箱", class: "fa fa-envelope"), conversations_path) %> </li>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                           <% if current_user.nickname.present?%>
@@ -25,18 +126,32 @@
                           <b class="caret"></b>
                       </a>
                       <ul class="dropdown-menu">
-                        <li><%= link_to("用户中心", account_user_path(current_user)) %></li>
-                        <hr>
+                        <li>
+                          <%= link_to(content_tag(:i, " 用户中心", class: "fa fa-user"), account_requests_path(current_user)) %>
+                        </li>
+
                         <% if current_user.admin? %>
-                        <li> <%= link_to("Admin Panel", admin_users_path) %> </li>
-                        <hr>
+                        <br>
+                          <li>
+                              <%= link_to(content_tag(:i, " 管理员中心", class: "fa fa-user-circle"), admin_works_path) %>
+                          </li>
                         <% end %>
-                        <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>                      </ul>
+<<<<<<< HEAD
+
+                        <hr>
+
+                        <li>
+                          <%= link_to(content_tag(:i, " 登出", class: "fa fa-sign-out"), destroy_user_session_path, data: { confirm: "Are you sure?" }, method: :delete) %>
+                        </li>
+=======
+                        <li> <%= link_to("登出", destroy_user_session_path, data: { confirm: "Are you sure?" }, method: :delete) %> </li>
+>>>>>>> develop
+                      </ul>
                     </li>
                   <% end %>
                 </li>
             </ul>
-        </div>
+        </div> -->
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->

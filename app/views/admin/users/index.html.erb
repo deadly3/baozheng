@@ -1,12 +1,19 @@
-<br><br>
-<table class="table table-bordered">
+<div>
+  <%= link_to("个人资料", edit_account_user_path(current_user), class: "btn btn-default") %>
+  <%= link_to("变更密码", edit_user_registration_path, class: "btn btn-default") %>
+</div>
+
+<table class="table table-boldered">
+
+<hr>
+
   <thead>
     <tr>
       <th>Email</th>
-      <th>是否管理员</th>
-      <th>切换身份</th>
+      <th>昵称</th>
+      <th>权限</th>
       <th>创建时间</th>
-      </tr>
+    </tr>
   </thead>
 
   <tbody>
@@ -16,17 +23,22 @@
         <%= user.email  %>
       </td>
       <td>
-        <%= user.is_admin %>
+        <%= user.nickname %>
       </td>
+
       <td>
         <% if user.is_admin %>
-          <%= link_to("解除管理员", make_user_admin_user_path(user) , method: :get, :class => "btn btn-xs btn-default") %>
+          <%= "管理员 " %>
+          ／
+          <%= link_to("解除权限", make_user_admin_user_path(user) , method: :post, :class => "btn btn-s") %>
         <% else %>
-          <%= link_to("设为管理员", make_admin_admin_user_path(user), :method => :post,  :class => "btn btn-xs btn-default") %>
+          <%= "普通用户 " %>
+          ／
+          <%= link_to("设为管理员", make_admin_admin_user_path(user), :method => :post,  :class => "btn btn-s") %>
         <% end %>
       </td>
       <td>
-        <%= user.created_at %>
+        <%= user.created_at.strftime("%F") %>
       </td>
     </tr>
   <% end %>

@@ -1,3 +1,69 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+h1,h3,p,a,button{
+  font-family: fantasy;
+}
+
+.bz-part-1{
+    height: 550px;
+}
+
+.bz-part-1-bg{
+  height: 400px;
+  width: 100%;
+  position: absolute;
+  background-position: center center;
+  background-size: cover;
+}
+
+#bz-part-1-bg-id{
+  background-image: url(http://ww3.sinaimg.cn/large/65e4f1e6jw1f9tumre3yoj21jk0m8q99.jpg);
+}
+
+.bz-part-1-bg-gray{
+height: 300px;
+width: 70%;
+position: absolute;
+background-position: center center;
+background-size: cover;
+z-index:2;
+opacity:0.45;
+}
+
+
+#bz-part-1-bg-gray-id
+{
+  background-image: url(http://ww1.sinaimg.cn/large/65e4f1e6jw1f9tvnx628wj20f208q742.jpg);
+}
+
+
+.headh1content{
+  margin-top: 150px;
+  line-height: 75px;
+  z-index:3;
+}
+
+.title-text{
+  text-align: center;
+  z-index:3;
+}
+
+.headfontsize h1{
+  font-size: 40pt;
+  color: #fb5e37;
+}
+
+.headfontsize p{
+  color: #fcc4b6;
+}
+
+.bz-part-2-block-1{
+  text-align: center;
+}
+
+.bz-part-3-block-1-text{
+  text-align: center;
+}

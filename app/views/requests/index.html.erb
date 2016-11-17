@@ -1,51 +1,62 @@
-<table class="table table-bordered">
+<br><br>
 
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>主题</th>
       <th>当前照片</th>
-      <th>梦想照片</th>
-      <th>创建时间</th>
+      <th>理想照片</th>
       <th>用户</th>
-      <th>订单状态</th>
+      <th>创建时间</th>
+      <th>当前状态</th>
+      <th>抢单</th>
       </tr>
   </thead>
-
   <tbody>
-  <% @requests.each do |r| %>
-  <tr>
-    <td>
-      <%= link_to(r.title, request_path(r.token)) %>
-    </td>
-    <td>
-      <% if r.before_picture.present? %>
-        <%= image_tag(r.before_picture.thumb.url, class:"thumbnail") %>
-      <% else %>
-        <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
-      <% end %>
-    </td>
-    <td>
-      <% if r.dream_picture.present? %>
-        <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
-      <% else %>
-        <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
-      <% end %>
-    </td>
-    <td>
-      <%= r.created_at %>
-    </td>
-    <td>
-      <%= r.user_id %>
-    </td>
-    <td>
-      <%= r.aasm_state %>
-      <%# if current_user && current_user.is_applicant_of?(@request) %>
-        <a href="#" class="btn btn-warning" disabled> 已抢单 </a>
-      <%# else %>
-        <%#= link_to("抢单！", apply_admin_request_path(r.token), :method => :post, :class => "btn btn-danger") %>
-      <%#end %>
-    </td>
-  </tr>
+    <% @requests.each do |r| %>
+    <tr>
+      <td>
+        <%= r.title %>
+      </td>
+      <td>
+        <% if r.before_picture.present? %>
+          <%= image_tag(r.before_picture.thumb.url, class:"thumbnail") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
+        <% end %>
+      </td>
+      <td>
+        <% if r.dream_picture.present? %>
+          <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
+        <% end %>
+      </td>
+      <td>
+        <% if r.user.present? %>
+        <%= r.user.nickname %>
+        <% end %>
+      </td>
+      <td>
+        <%= r.created_at.strftime("%F") %>
+      </td>
+      <td>
+        <%= r.aasm_state %>
+      </td>
+      <td>
+        <%#= link_to("申请", join_admin_request_path(r.token), :method => :post, :class => "btn btn-danger") %>
+        <%# if current_user && current_user.is_applicant_of?(@request) %>
+          <!-- <a href="#" class="btn btn-warning" disabled> 已抢单 </a> -->
+        <%# else %>
+          <%#= link_to("抢单！", apply_admin_request_path(r.token), :method => :post, :class => "btn btn-danger") %>
+        <%# end %>
+
+        <% if r.has_been_applied_by?(current_user) %>
+          <a href="#" class="btn btn-warning" disabled> 已抢单 </a>
+        <% else %>
+          <%= link_to("抢单！", join_applicants_admin_request_path(r.token), method: :post, class: "btn btn-danger") %>
+        <% end %>
+      </td>
+    </tr>
   <% end %>
-</tbody>
 </table>
