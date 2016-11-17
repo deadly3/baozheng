@@ -1,18 +1,19 @@
 <div class="panel panel-default">
-  <div class="panel-heading"><%= @conversation.subject %></div>
+  <div class="panel-heading"><%= @conversation.receipts %>
+    <%#= @conversation.subject %></div>
 
   <div class="panel-body">
     <div class="messages">
       <% @conversation.receipts_for(current_user).each do |receipt| %>
         <% message = receipt.message %>
         <% if message.sender == current_user %>
-          <div class="text-right" style="height: 30px;">
-            <h3>
+          <div class="text-right" style="background-color:; height: 30px;">
+            <h4>
               <%= message.body %>
-            </h3>
+            </h4>
           </div>
         <% else %>
-          <div class="" style="background-color: grey;">
+          <div class="" style="background-color: ;">
             <p>
               <span style="color: blue;">
                 <%= message.sender.email %>

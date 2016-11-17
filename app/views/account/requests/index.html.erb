@@ -20,7 +20,7 @@
   <% @requests.each do |r| %>
   <tr>
     <td>
-      <%= link_to(r.title, account_requests_path(r.token)) %>
+      <%= link_to(r.title, account_request_path(r.token)) %>
     </td>
     <td>
       <% if r.before_picture.present? %>

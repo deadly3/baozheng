@@ -27,44 +27,10 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
-class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+require 'test_helper'
 
-  before_create :generate_token
-
-  def generate_token
-    self.token = SecureRandom.hex(8)
-  end
-
-  has_many :works
-  has_many :requests
-  has_many :request_relationships
-  has_many :applied_requests, :through => :request_relationships, :source => :request
-
-  acts_as_messageable
-
-  def admin?
-   is_admin
-  end
-
-  def make_user!
-    self.is_admin = false
-    self.save
-  end
-
-  def make_admin!
-    self.is_admin = true
-    self.save
-  end
-
-
-  include Gravtastic
-  gravtastic :size => 50, :default => "mm"
-
-  scope :all_except, ->(user) { where.not(id: user) }
-
-  mount_uploader :avatar, AvatarUploader
+class UsersControllerTest < ActionDispatch::IntegrationTest
+  # test "the truth" do
+  #   assert true
+  # end
 end

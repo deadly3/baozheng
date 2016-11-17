@@ -14,6 +14,10 @@
 #  token          :string
 #  winner         :integer
 #
+# Indexes
+#
+#  index_requests_on_aasm_state  (aasm_state)
+#
 
 class Request < ApplicationRecord
   belongs_to :user
