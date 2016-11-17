@@ -15,32 +15,16 @@
   <hr>
 
 
-    <h1><%= current_user.nickname %></h1>
+    <h1><%= @user.nickname %></h1>
     <br>
-    <h4><%= current_user.description %></h4>
+    <h4><%= @user.description %></h4>
     <br>
 
 
 
 
-    <% if current_user.is_admin %>
+    <% if @user.is_admin %>
       <%= render :partial => "shared/admin_homepage_extra" %>
     <% end %>
 
 </div>
-
-<br>
-
-<hr>
-用户昵称
-<h1><%= current_user.nickname %></h1>
-用户描述
-<h2><%= current_user.description %></h2>
-<br>
-用户头像
-<br>
-<%= render 'common/avatar' %>
-<hr>
-
-用户邮箱
-<h1><%= current_user.email %></h1>
