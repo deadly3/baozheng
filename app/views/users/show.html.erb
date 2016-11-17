@@ -1,0 +1,6 @@
+
+<% if @user.is_admin %>
+  <%= render :partial => "shared/admin_homepage" %>
+<% else %>
+  <%= render :partial => "shared/user_homepage" %>
+<% end %>
