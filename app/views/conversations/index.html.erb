@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<div class="col-md-8 col-md-offset-2">
 
 
     訂單 <%= @request.id %> - <%= @request.title %>
@@ -7,12 +7,21 @@
     <!-- 查看历史信息 -->
     <% if @messages.present? %>
     <% @messages.each do |m| %>
-    <p>
-        <%= m.sender.email %>
-        说:
-        <%= m.body %>
-    </p>
-
+        <% if m.sender == current_user%>
+          <div class="text-right" style="background-color:#e5f7ff; margin-bottom: 3px; font-size: 1.2em;">
+            <%= m.body %>
+          </div>
+        <% else %>
+          <p>
+            <% if m.sender.nickname.present?%>
+                <%= m.sender.nickname %>
+            <% else %>
+                <%= m.sender.email %>
+            <% end %>
+            说:
+            <%= m.body %>
+          </p>
+        <% end %>
     <% end %>
 
     <% end %>
