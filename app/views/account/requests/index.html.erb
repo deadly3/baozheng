@@ -1,5 +1,5 @@
 <br>
-<%= link_to("发起订单", new_account_request_path, class: "btn btn-default pull-left") %>
+<%= link_to("发起订单", new_account_request_path, class: "btn btn-danger pull-left") %>
 
 <br><br>
 
@@ -42,7 +42,7 @@
       <%= link_to("删除", account_request_path(r.token), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
     </td>
     <td>
-      <%= r.created_at.strftime("%F") %>
+      <%= r.created_at.strftime("%F %T") %>
     </td>
     <td>
       <% if r.winner.present? && r.paid? %>

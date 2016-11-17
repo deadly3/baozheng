@@ -42,13 +42,13 @@
         <% end %>
       </td>
       <td>
-        <%= r.created_at.strftime("%F") %>
+        <%= r.created_at.strftime("%F %T") %>
       </td>
       <td>
         <% if r.paid? %>
           对方已支付，你俩可以开始整了！
         <% elsif r.winner.present? && r.winner == current_user.id %>
-          <%= link_to("厉害了，订单是你的了","#",class: "btn btn-success btn-sm",disabled: :true)%>
+          <%= link_to("厉害了，订单是你的了，等待对方付款","#",class: "btn btn-success btn-sm",disabled: :true)%>
         <% elsif r.winner.present? && r.winner != current_user.id %>
           <%= link_to("订单被别人抢走了","#",class: "btn btn-info btn-sm",disabled: :true)%>
         <% elsif !r.winner.present? && !r.applicants.include?(current_user) %>

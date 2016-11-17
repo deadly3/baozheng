@@ -30,7 +30,7 @@
         <% if user.is_admin %>
           <%= "达人" %>
         <% else %>
-          <%= "申请人" %>
+          <%= "申请者" %>
           <% end %>
       </td>
       <td>
@@ -41,7 +41,7 @@
         <% end %>
       </td>
       <td>
-        <%= user.created_at.strftime("%F") %>
+        <%= user.created_at.strftime("%F %T") %>
       </td>
     </tr>
   <% end %>
