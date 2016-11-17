@@ -19,7 +19,7 @@
                 <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
 
                   <li>
-                    <%= link_to(content_tag(:i, " 用户资料", class: "fa fa-address-card"), edit_account_user_path(current_user)) %>
+                    <%= link_to(content_tag(:i, " 用户资料", class: "fa fa-address-card"), edit_account_user_path(current_user.token)) %>
                   </li>
 
                   <li>
@@ -33,7 +33,7 @@
                   </li>
 
                   <li>
-                    <%= link_to(content_tag(:i, " 我的订单", class: "fa fa-tasks fa"), account_requests_path(current_user)) %>
+                    <%= link_to(content_tag(:i, " 我的订单", class: "fa fa-tasks fa"), account_requests_path(current_user.token)) %>
                   </li>
                 </ul>
               </div>
