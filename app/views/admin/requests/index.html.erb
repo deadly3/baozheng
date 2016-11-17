@@ -10,8 +10,8 @@
       <th>主题</th>
       <th>当前照片</th>
       <th>理想照片</th>
-      <th>发单用户</th>
       <th>创建时间</th>
+      <th>发单用户</th>
       <th>合作对象</th>
       <th>订单状态</th>
       </tr>
@@ -37,24 +37,27 @@
         <% end %>
       </td>
       <td>
+        <%= r.created_at.strftime("%F %T") %>
+      </td>
+      <td>
         <% if r.user.present? %>
         <%= r.user.nickname %>
         <% end %>
       </td>
       <td>
-        <%= r.created_at.strftime("%F %T") %>
+        <% if r.winner.present? %>
+        达人<%= r.winner %>
+        <% else %>
+          尚无
+        <% end %>
       </td>
       <td>
         <% if r.paid? %>
-          对方已支付，你俩可以开始整了！
-        <% elsif r.winner.present? && r.winner == current_user.id %>
-          <%= link_to("厉害了，订单是你的了，等待对方付款","#",class: "btn btn-success btn-sm",disabled: :true)%>
-        <% elsif r.winner.present? && r.winner != current_user.id %>
-          <%= link_to("订单被别人抢走了","#",class: "btn btn-info btn-sm",disabled: :true)%>
-        <% elsif !r.winner.present? && !r.applicants.include?(current_user) %>
-          <%= link_to("抢单！", join_applicants_admin_request_path(r.token), method: :post, class: "btn btn-sm btn-danger") %>
-        <% elsif r.applicants.present? && r.applicants.include?(current_user) %>
-          <%= link_to("已抢单","#",class: "btn btn-warning btn-sm",disabled: :true)%>
+          已成单
+        <% elsif r.selected? %>
+          已选定合作达人,等待申请者付款
+        <% elsif r.request_made? %>
+          抢单进行中
         <% end %>
       </td>
     </tr>
