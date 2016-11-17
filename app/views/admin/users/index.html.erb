@@ -30,7 +30,7 @@
         <% if user.is_admin %>
           <%= "管理员 " %>
           ／
-          <%= link_to("解除权限", make_user_admin_user_path(user) , method: :get, :class => "btn btn-s") %>
+          <%= link_to("解除权限", make_user_admin_user_path(user) , method: :post, :class => "btn btn-s") %>
         <% else %>
           <%= "普通用户 " %>
           ／
