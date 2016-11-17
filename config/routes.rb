@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {registrations: 'account/registrations'}
+  devise_for :users, controllers: {registrations: "account/registrations"}
 
   resources :conversations do
     member do
@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       end
       resources :users
     end
+    resources :conversations
   end
   #./用户中心
 
@@ -59,7 +60,9 @@ Rails.application.routes.draw do
   end
   # ./管理后台
 
-  resources :requests
+  resources :requests do
+    resources :conversations
+  end
 
   resources :users do
     resources :requests
@@ -75,6 +78,6 @@ Rails.application.routes.draw do
 
   resources :works
 
-  root 'welcome#index'
+  root "welcome#index"
 
 end
