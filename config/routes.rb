@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'welcome#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: {registrations: 'account/registrations'}
+
   resources :conversations do
     member do
       post :reply
@@ -27,9 +26,11 @@ Rails.application.routes.draw do
     resources :user
     resources :requests do
       member do
+        get :display
         post :choose
         post :make_payment
       end
+      resources :users
     end
   end
   #./用户中心
@@ -58,14 +59,21 @@ Rails.application.routes.draw do
   # ./管理后台
 
   resources :requests
+
   resources :users do
     resources :requests
   end
-  #
-  resources :users do
+
+  resources :requests do
     member do
-      post :join
+      post :join_applicants
     end
   end
-  #./
+
+  resources :users
+
+  resources :works
+
+  root 'welcome#index'
+
 end

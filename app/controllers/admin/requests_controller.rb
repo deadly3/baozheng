@@ -16,7 +16,6 @@ class Admin::RequestsController < ApplicationController
     @request = Request.find_by_token(params[:id])
     if !@request.has_been_applied_by?(current_user)
        @request.applicants << current_user
-      # join_applicants!(current_user)
       flash[:notice] = "已抢单！"
       redirect_to :back
     else
@@ -24,30 +23,6 @@ class Admin::RequestsController < ApplicationController
       redirect_to :back
     end
   end
-  #
-  # def join
-  #   @request = Request.find_by_token(params[:id])
-  #   @request.user = current_user
-  #   current_user.join!(@request)
-  #   flash[:notice] = "申请成功！"
-  #   current_user.save
-  #   @request.save
-  #   redirect_to :back
-  # end
-  #
-  # def apply
-  #   @request = Request.find_by_token(params[:id])
-  #     if @request.applied?
-  #       flash[:warning] = '已经抢过这个单了哟~'
-  #     else
-  #       @request.apply!
-  #       @request.user = current_user
-  #       current_user.join!(@request)
-  #       flash[:notice] = "已抢单！"
-  #       @request.save
-  #     end
-  #   redirect_to :back
-  # end
 
   private
 

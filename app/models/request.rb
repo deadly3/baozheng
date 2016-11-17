@@ -12,6 +12,7 @@
 #  updated_at     :datetime         not null
 #  aasm_state     :string           default("request_made")
 #  token          :string
+#  winner         :integer
 #
 
 class Request < ApplicationRecord
@@ -29,6 +30,10 @@ class Request < ApplicationRecord
 
   before_create :generate_token
 
+  def generate_token
+    self.token = SecureRandom.uuid
+  end
+
   # def join_applicants!(user)
   #   applicants << user
   # end
@@ -37,24 +42,17 @@ class Request < ApplicationRecord
     applicants.include?(user)
   end
 
-  def generate_token
-    self.token = SecureRandom.uuid
-  end
+
 
   include AASM
 
   aasm do
     state :request_made, initial: true
-    state :applied
     state :selected
     state :paid
 
-    event :apply do
-      transitions from: :request_made, to: :applied
-    end
-
     event :choose do
-      transitions from: :applied, to: :selected
+      transitions from: :request_made, to: :selected
     end
 
     event :make_payment do

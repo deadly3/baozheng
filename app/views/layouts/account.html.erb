@@ -15,12 +15,13 @@
             <%= render "common/flashes" %>
             <div class="row">
               <div class="col-md-2">
-                <h1>用户中心</h1>
+                <h3><i class="fa fa-user fa-1x"> 用户中心</i></h3>
                 <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-                   <li class="active"><%= link_to("我的邮箱📮", conversations_path) %> </li>
-                   <li class="active"><%= link_to("用户资料", account_user_path(current_user)) %> </li>
-                   <li class="active"><%= link_to("我的订单", account_requests_path(current_user)) %> </li>
-                   <li class="active"><%= link_to("我的联系人", contacts_users_path) %> </li>                   
+                  <li> <%= link_to(content_tag(:i, " 用户资料", class: "fa fa-address-card"), edit_account_user_path(current_user.token)) %> </li>
+                  <li> <%= link_to(content_tag(:i, " 变更密码", class: "fa fa-key"), edit_user_registration_path) %> </li>
+                  <hr>
+                  <li> <%= link_to(content_tag(:i, " 我的消息", class: "fa fa-envelope"), conversations_path) %> </li>
+                  <li> <%= link_to(content_tag(:i, " 我的订单", class: "fa fa-tasks fa"), account_requests_path(current_user.token)) %> </li>
                 </ul>
               </div>
 

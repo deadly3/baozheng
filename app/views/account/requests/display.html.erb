@@ -1,0 +1,47 @@
+<div class="col-md-12">
+
+  <h2 class="text-center"> 已抢单达人 </h2>
+<br>
+<br>
+订单编号：<%= @request.token %>
+<br>
+订单详情放这里
+<br>
+<br>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th> 达人昵称 </th>
+        <th> 作品名称 </ th>
+        <th> 作品图片 </th>
+        <th> 参考价格 </th>
+        <th> 请选择一名合作达人 </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%# @requests.applicants.each do |user| %>
+      <% @applicants.each do |applicant| %>
+        <tr>
+          <td> <%= applicant.id %>
+            <%#= link_to(applicant.id, user_path(user)) %> </td>
+          <td> # </td>
+          <td> <%= @request.winner %> </td>
+          <td> <%= @request.aasm_state %> </td>
+          <td>
+            <% if @request.selected? %>
+              <% if @request.winner == applicant.id %>
+              <%= link_to("付款给TA", "#", :class => "btn btn-sm btn-danger") %>
+              <% else %>
+                下次再合作吧👻
+              <% end %>
+            <% elsif @request.request_made? %>
+              <%= link_to("选我选我选我！", choose_account_request_path(@request.token,:winner => applicant),:method => :post, :class => "btn btn-sm btn-danger") %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

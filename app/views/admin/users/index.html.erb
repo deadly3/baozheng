@@ -1,35 +1,47 @@
-<br><br>
-<table class="table table-boldered">
+<div>
+ <h3>全部用户</h3>
+</div>
+
+<hr>
+
+<table class="table table-bordered">
+
+
   <thead>
     <tr>
       <th>Email</th>
-      <th>是否管理员</th>
-      <th>切换身份</th>
+      <th>昵称</th>
+      <th>身份</th>
+      <th>权限</th>
       <th>创建时间</th>
-      </tr>
+    </tr>
   </thead>
 
-
-
-
   <tbody>
-    <%= @users.each do |user| %>
+    <% @users.each do |user| %>
     <tr>
       <td>
         <%= user.email  %>
       </td>
       <td>
-        <%= user.is_admin %>
+        <%= user.nickname %>
       </td>
       <td>
         <% if user.is_admin %>
-          <%= link_to("解除管理员", make_user_admin_user_path(user) , method: :get, :class => "btn btn-xs btn-default") %>
+          <%= "达人" %>
         <% else %>
-          <%= link_to("设为管理员", make_admin_admin_user_path(user), :method => :post,  :class => "btn btn-xs btn-default") %>
+          <%= "申请人" %>
+          <% end %>
+      </td>
+      <td>
+        <% if user.is_admin %>
+          <%= link_to("设为申请人", make_user_admin_user_path(user.token) , method: :post, :class => "btn btn-sm btn-warning") %>
+        <% else %>
+          <%= link_to("设为达人", make_admin_admin_user_path(user.token), :method => :post,  :class => "btn btn-sm btn-info") %>
         <% end %>
       </td>
       <td>
-        <%= user.created_at %>
+        <%= user.created_at.strftime("%F") %>
       </td>
     </tr>
   <% end %>
