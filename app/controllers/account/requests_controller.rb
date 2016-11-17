@@ -66,6 +66,16 @@ class Account::RequestsController < ApplicationController
     redirect_to :back
   end
 
+  def make_payment
+    @request = Request.find_by_token(params[:id])
+      if @request.paid?
+        flash[:warning] = '已经付过啦'
+      else
+        @request.make_payment!
+      end
+    redirect_to :back
+  end
+
   private
 
   def request_params
