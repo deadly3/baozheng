@@ -1,13 +1,37 @@
-<h1>Your conversations</h1>
-<p><%= link_to 'Start conversation', new_message_path, class: 'btn btn-lg btn-primary' %></p>
-<ul>
-  <%= @conversations.each do |conversation| %>
-    <li class="list-group-item clearfix">
-      <%= conversation.receipts %>
-      <%= link_to conversation.subject, conversation_path(conversation) %>
-    </li>
-  <% end %>
-</ul>
+<div class="col-md-8 col-md-offset-2">
 
-<hr>
-<%#= render 'common/contacts' %>
+
+    訂單 <%= @request.id %> - <%= @request.title %>
+
+    <hr>
+    <!-- 查看历史信息 -->
+    <% if @messages.present? %>
+    <% @messages.each do |m| %>
+        <% if m.sender == current_user%>
+          <div class="text-right" style="background-color:#e5f7ff; margin-bottom: 3px; font-size: 1.2em;">
+            <%= m.body %>
+          </div>
+        <% else %>
+          <p>
+            <% if m.sender.nickname.present?%>
+                <%= m.sender.nickname %>
+            <% else %>
+                <%= m.sender.email %>
+            <% end %>
+            说:
+            <%= m.body %>
+          </p>
+        <% end %>
+    <% end %>
+
+    <% end %>
+
+    <%= form_tag request_conversations_path(@request.token), method: :post do %>
+      <div class="form-group">
+        <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+      </div>
+      <%= submit_tag "Send Message", class: 'btn btn-primary' %>
+    <% end %>
+
+
+</div>

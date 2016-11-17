@@ -1,0 +1,11 @@
+<h1>Your conversations</h1>
+<ul>
+  <% @conversations.each do |conversation| %>
+    <li class="list-group-item clearfix">
+      <%= render_conversation_request(conversation.request_id) %> - <%= conversation.created_at.to_s(:short) %>
+    </li>
+  <% end %>
+</ul>
+
+<hr>
+<%#= render 'common/contacts' %>

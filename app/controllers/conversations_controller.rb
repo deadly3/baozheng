@@ -1,30 +1,27 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_mailbox
-  before_action :get_conversation, except: [:index]
-  layout 'account'
+
 
   def index
-    @conversations = @mailbox.conversations
+    @request = Request.find_by_token(params[:request_id])
+
+    @conversation = @request.conversation
+
+    @messages = @conversation.messages if @conversation.present?
+
   end
 
-  def show
-  end
+  def create
+    @request = Request.find_by_token(params[:request_id])
+    @conversation = @request.conversation
 
-  def reply
-    current_user.reply_to_conversation(@conversation, params[:body])
-    flash[:success] = 'Reply sent'
-    redirect_to conversation_path(@conversation)
-  end
-
-  private
-
-    def get_mailbox
-      @mailbox ||= current_user.mailbox
+    if @conversation.blank?
+      current_user.send_message(@request.user , params[:body] , @request.title, @request )
+    else
+      current_user.reply_to_conversation(@conversation, params[:body])
     end
 
-    def get_conversation
-      @conversation ||= @mailbox.conversations.find(params[:id])
-    end
+    redirect_to request_conversations_path(@request.token)
 
+  end
 end
