@@ -3,16 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-h1,h3,p,a,button{
-  font-family: fantasy;
-}
+
 
 .bz-part-1{
     height: 550px;
 }
 
-.bz-part-1-bg{
-  height: 400px;
+.bz-part-1-bg {
+  height: 500px;
   width: 100%;
   position: absolute;
   background-position: center center;
@@ -24,14 +22,17 @@ h1,h3,p,a,button{
 }
 
 .bz-part-1-bg-gray{
-height: 300px;
+height: 290px;
 width: 70%;
+margin-top: 40px;
+margin-left: 120px;
 position: absolute;
 background-position: center center;
-background-size: cover;
-z-index:2;
-opacity:0.45;
+
+z-index:1;
+opacity:0.5;
 }
+
 
 
 #bz-part-1-bg-gray-id
@@ -40,15 +41,14 @@ opacity:0.45;
 }
 
 
-.headh1content{
-  margin-top: 150px;
-  line-height: 75px;
-  z-index:3;
+.bz-part-1-text-1{
+  margin-top: 50px;
+  z-index:2;
 }
 
 .title-text{
   text-align: center;
-  z-index:3;
+  z-index:2;
 }
 
 .headfontsize h1{
@@ -57,13 +57,59 @@ opacity:0.45;
 }
 
 .headfontsize p{
+  font-size: 13pt;
   color: #fcc4b6;
+}
+
+.btn-bz-user-sign-up{
+margin-top: 50px;
+line-height: 50px;
 }
 
 .bz-part-2-block-1{
   text-align: center;
 }
 
+.bz-part-2-row{
+  text-align: center;
+}
+
+.bz-part-2-step-1-pic{
+  width: 100%
+}
+
+.bz-part-2-step-2-pic{
+  width: 100%
+}
+
+.bz-part-2-step-3-pic{
+  width: 100%
+}
+
+
 .bz-part-3-block-1-text{
   text-align: center;
+    margin-top: 70px;
+}
+
+.bz-part-4-block-1-text{
+  text-align: center;
+}
+
+.bz-part-5{
+    text-align: center;
+}
+
+
+.bz-part-5-text-h1{
+  text-align: center;
+}
+.navbar-brand{
+  background-position: -5px -5px;
+}
+
+
+.site-footer{
+  padding-top: 20px;
+
 }
