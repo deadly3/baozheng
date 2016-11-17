@@ -115,8 +115,8 @@ ActiveRecord::Schema.define(version: 20161117061023) do
     t.string   "image"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.integer  "user_id"
     t.boolean  "is_hidden",   default: true
+    t.integer  "user_id"
   end
 
 end
