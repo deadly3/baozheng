@@ -2,11 +2,11 @@ class Account::ConversationsController < ApplicationController
   before_action :authenticate_user!
   before_action :get_mailbox
   before_action :get_conversation, except: [:index]
-  
+
   layout "account"
 
   def index
-    @conversations = @mailbox.conversations
+    @conversations = current_user.mailbox.conversations
   end
 
   def show

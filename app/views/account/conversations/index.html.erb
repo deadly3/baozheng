@@ -1,10 +1,8 @@
 <h1>Your conversations</h1>
-<p><%= link_to 'Start conversation', new_message_path, class: 'btn btn-lg btn-primary' %></p>
 <ul>
-  <%= @conversations.each do |conversation| %>
+  <% @conversations.each do |conversation| %>
     <li class="list-group-item clearfix">
-      <%= conversation.receipts %>
-      <%= link_to conversation.subject, conversation_path(conversation) %>
+      <%= render_conversation_request(conversation.request_id) %> - <%= conversation.created_at.to_s(:short) %>
     </li>
   <% end %>
 </ul>

@@ -1,5 +1,9 @@
 <div class="col-md-12">
 
+
+    訂單 <%= @request.id %> - <%= @request.title %>
+
+    <hr>
     <!-- 查看历史信息 -->
     <% if @messages.present? %>
     <% @messages.each do |m| %>
