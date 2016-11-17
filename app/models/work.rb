@@ -33,6 +33,4 @@ class Work < ApplicationRecord
     self.save
   end
 
-
-
 end
