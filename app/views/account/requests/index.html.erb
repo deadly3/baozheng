@@ -13,6 +13,7 @@
       <th>编辑订单</th>
       <th>创建时间</th>
       <th>抢单状态</th>
+      <th> </th>
       </tr>
   </thead>
 
@@ -55,6 +56,8 @@
         目前没有达人愿意解救你，你们家真是太乱了好吗💩
       <% end %>
     </td>
+
+    <td> <%= link_to("發起對話", request_conversations_path(r.token), :class => "btn btn-default") %>  </td>
   </tr>
   <% end %>
 </tbody>
