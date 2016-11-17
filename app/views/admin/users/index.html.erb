@@ -3,7 +3,7 @@
   <%= link_to("变更密码", edit_user_registration_path, class: "btn btn-default") %>
 </div>
 
-<table class="table table-boldered">
+<table class="table table-bordered">
 
 <hr>
 
@@ -11,6 +11,7 @@
     <tr>
       <th>Email</th>
       <th>昵称</th>
+      <th>身份</th>
       <th>权限</th>
       <th>创建时间</th>
     </tr>
@@ -25,16 +26,18 @@
       <td>
         <%= user.nickname %>
       </td>
-
       <td>
         <% if user.is_admin %>
-          <%= "管理员 " %>
-          ／
-          <%= link_to("解除权限", make_user_admin_user_path(user) , method: :post, :class => "btn btn-s") %>
+          <%= "达人" %>
         <% else %>
-          <%= "普通用户 " %>
-          ／
-          <%= link_to("设为管理员", make_admin_admin_user_path(user), :method => :post,  :class => "btn btn-s") %>
+          <%= "申请人" %>
+          <% end %>
+      </td>
+      <td>
+        <% if user.is_admin %>
+          <%= link_to("设为申请人", make_user_admin_user_path(user) , method: :post, :class => "btn btn-sm btn-warning") %>
+        <% else %>
+          <%= link_to("设为达人", make_admin_admin_user_path(user), :method => :post,  :class => "btn btn-sm btn-info") %>
         <% end %>
       </td>
       <td>
