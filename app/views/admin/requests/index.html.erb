@@ -40,16 +40,17 @@
       </td>
       <td>
         <%= r.aasm_state %>
+        <br>达人<%= r.winner %>胜出
       </td>
       <td>
-        <% if r.request_made? %>
+        <% if r.winner.present? && r.winner == current_user.id %>
+          <%= link_to("厉害了，订单是你的了","#",class: "btn btn-success btn-sm",disabled: :true)%>
+        <% elsif r.winner.present? && r.winner != current_user.id %>
+          <%= link_to("订单被别人抢走了","#",class: "btn btn-info btn-sm",disabled: :true)%>
+        <% elsif !r.winner.present? && !r.applicants.include?(current_user) %>
           <%= link_to("抢单！", join_applicants_admin_request_path(r.token), method: :post, class: "btn btn-danger") %>
-        <% elsif !r.winner.present?%>
-          <a href="#" class="btn btn-warning" disabled> 已抢单 </a>
-        <% elsif r.winner.present? && r.winner == current_user.id %>
-          <a href="#" class="btn btn-success" disabled> 厉害了，订单是你的了 </a>
-        <% else r.winner.present? && !r.winner == current_user.id %>
-          <a href="#" class="btn btn-info" disabled> 订单已经被人抢走了 </a>
+        <% elsif r.applicants.present? && r.applicants.include?(current_user) %>
+          <%= link_to("已抢单","#",class: "btn btn-warning btn-sm",disabled: :true)%>
         <% end %>
       </td>
     </tr>
