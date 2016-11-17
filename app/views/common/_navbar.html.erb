@@ -43,7 +43,7 @@
                         <li><%= link_to("会员登入", new_user_session_path) %></li>
                       <% else %>
                         <li><%= link_to("🗂 我的订单", account_requests_path(current_user.token)) %> </li>
-                        <li><%= link_to("💌 我的消息", conversations_path) %> </li>
+                        <li><%= link_to("💌 我的消息", account_conversations_path) %> </li>
                         <li class="dropdown">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                               <% if current_user.nickname.present?%>
