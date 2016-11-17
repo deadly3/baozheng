@@ -1,0 +1,45 @@
+<div class="pull-left">
+  <%= link_to("添加作品", new_admin_work_path, class: "btn btn-default" ) %>
+</div>
+
+<br><br>
+
+<table class="table table-bordered">
+
+  <thead>
+    <tr>
+      <th>图片</th>
+      <th>作品名称</th>
+      <th>描述</th>
+      <th>参考价格</th>
+      <th>作者</th>
+    </tr>
+  </thead>
+  <% @works.each do |work| %>
+  <tr>
+    <td>
+      <% if work.image.present? %>
+        <%= image_tag(work.image.thumb.url, class:"thumbnail") %>
+      <% else %>
+        <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
+      <% end %>
+    </td>
+    <td>
+      <%= render_work_status(work) %>
+      <%= work.title%>
+    </td>
+    <td>
+      <%= work.description %>
+    </td>
+    <td>
+      <%= work.price %>
+    </td>
+    <td>
+      达人<%= work.user_id %>
+    </td>
+    <!-- <td>
+      #
+    </td> -->
+  </tr>
+  <% end %>
+</table>
