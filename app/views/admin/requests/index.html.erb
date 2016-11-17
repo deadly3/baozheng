@@ -1,4 +1,8 @@
-<br><br>
+<div>
+ <h3>全部订单</h3>
+</div>
+
+<hr>
 
 <table class="table table-bordered">
   <thead>
@@ -6,10 +10,10 @@
       <th>主题</th>
       <th>当前照片</th>
       <th>理想照片</th>
-      <th>用户</th>
+      <th>发单用户</th>
       <th>创建时间</th>
-      <th>当前状态</th>
-      <th>抢单</th>
+      <th>合作对象</th>
+      <th>订单状态</th>
       </tr>
   </thead>
   <tbody>
@@ -38,15 +42,13 @@
         <% end %>
       </td>
       <td>
-        <%= r.created_at.strftime("%F") %>
+        <%= r.created_at.strftime("%F %T") %>
       </td>
       <td>
-        <%= r.aasm_state %>
-        <br>达人<%= r.winner %>胜出
-      </td>
-      <td>
-        <% if r.winner.present? && r.winner == current_user.id %>
-          <%= link_to("厉害了，订单是你的了","#",class: "btn btn-success btn-sm",disabled: :true)%>
+        <% if r.paid? %>
+          对方已支付，你俩可以开始整了！
+        <% elsif r.winner.present? && r.winner == current_user.id %>
+          <%= link_to("厉害了，订单是你的了，等待对方付款","#",class: "btn btn-success btn-sm",disabled: :true)%>
         <% elsif r.winner.present? && r.winner != current_user.id %>
           <%= link_to("订单被别人抢走了","#",class: "btn btn-info btn-sm",disabled: :true)%>
         <% elsif !r.winner.present? && !r.applicants.include?(current_user) %>

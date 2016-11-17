@@ -12,7 +12,7 @@
 #  updated_at     :datetime         not null
 #  aasm_state     :string           default("request_made")
 #  token          :string
-#  winner         :string           default("")
+#  winner         :integer
 #
 
 class Request < ApplicationRecord
@@ -30,6 +30,10 @@ class Request < ApplicationRecord
 
   before_create :generate_token
 
+  def generate_token
+    self.token = SecureRandom.uuid
+  end
+
   # def join_applicants!(user)
   #   applicants << user
   # end
@@ -38,9 +42,7 @@ class Request < ApplicationRecord
     applicants.include?(user)
   end
 
-  def generate_token
-    self.token = SecureRandom.uuid
-  end
+
 
   include AASM
 

@@ -1,13 +1,58 @@
 <div class="col-md-12">
 
-  <h2 class="text-center"> 已抢单达人 </h2>
+  <br>
+    <h3 class="text-center"> 订单明细 </h3>
+  <br>
+
+
+<table class="table table-bordered">
+
+  <thead>
+    <tr>
+      <th colspan="12">
+      订单编号：<%= @request.token %>
+      </th>
+    </tr>
+    <tr>
+      <th>主题</th>
+      <th>当前照片</th>
+      <th>梦想照片</th>
+      <th>预算</th>
+      <th>创建时间</th>
+      </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+    <td>
+      <%= @request.title %>
+    </td>
+    <td>
+      <% if @request.before_picture.present? %>
+        <%= image_tag(r.before_picture.thumb.url, class:"thumbnail") %>
+      <% else %>
+        <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
+      <% end %>
+    </td>
+    <td>
+      <% if @request.dream_picture.present? %>
+        <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
+      <% else %>
+        <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
+      <% end %>
+    </td>
+    <td>
+    </td>
+    <td>
+      <%= @request.created_at.strftime("%F %T") %>
+    </td>
+  </tr>
+
+</tbody>
+</table>
+
 <br>
-<br>
-订单编号：<%= @request.token %>
-<br>
-订单详情放这里
-<br>
-<br>
+  <h3 class="text-center"> 已抢单达人 </h3>
 
   <table class="table table-bordered">
     <thead>
@@ -27,12 +72,15 @@
           <td> <%= applicant.id %>
             <%#= link_to(applicant.id, user_path(user)) %> </td>
           <td> # </td>
-          <td> <%= @request.winner %> </td>
-          <td> <%= @request.aasm_state %> </td>
+          <td> #  </td>
+          <td> # </td>
           <td>
+            <% if @request.paid? %>
+              已支付，你俩可以开始整了！
+            <% end  %>
             <% if @request.selected? %>
               <% if @request.winner == applicant.id %>
-              <%= link_to("付款给TA", "#", :class => "btn btn-sm btn-danger") %>
+              <%= link_to("掏钱整！", make_payment_account_request_path, :method => :post,:data => { :confirm => "真整啊?" }, :class => "btn btn-sm btn-danger") %>
               <% else %>
                 下次再合作吧👻
               <% end %>

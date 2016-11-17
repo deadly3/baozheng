@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 
   def index
-    @requests = Request.all.recent
+    @requests = Request.all.request_made.recent
   end
 
   def new
@@ -24,17 +24,17 @@ class RequestsController < ApplicationController
     @request = Request.find_by_token(params[:id])
   end
 
-  def apply
+  def join_applicants
+    #作为admin加入到  当前request的申请者 collection
     @request = Request.find_by_token(params[:id])
-      if @request.applied?
-        flash[:warning] = '已经抢过这个单了哟~'
-      else
-        @request.apply!
-        @request.user = current_user
-        current_user.join!(@request)
-        @request.save
-      end
-    redirect_to :back
+    if !@request.has_been_applied_by?(current_user)
+       @request.applicants << current_user
+      flash[:notice] = "已抢单！"
+      redirect_to :back
+    else
+      flash[:alert] = "已经抢过这个单了哟~"
+      redirect_to :back
+    end
   end
 
   private
