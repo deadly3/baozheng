@@ -8,15 +8,21 @@ class Admin::UsersController < ApplicationController
   end
 
   def make_admin
-    @user = User.find(params[:id])
+    @user = User.find_by_token(params[:id])
     @user.make_admin!
     redirect_to :back
   end
 
   def make_user
-    @user = User.find(params[:id])
+    @user = User.find_by_token(params[:id])
     @user.make_user!
     redirect_to :back
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:token)
   end
 
 end
