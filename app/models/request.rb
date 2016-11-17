@@ -25,6 +25,8 @@ class Request < ApplicationRecord
   has_many :request_relationships
   has_many :applicants, through: :request_relationships, source: :user
 
+  has_one :conversation, class_name: "Conversation", foreign_key: "request_id"
+
   mount_uploader :before_picture, BeforePictureUploader
   mount_uploader :dream_picture, DreamPictureUploader
 
