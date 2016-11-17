@@ -39,7 +39,7 @@
     <td>
       <%= link_to("修改", edit_account_request_path(r.token), :class => "btn btn-xs btn-default") %>
       |
-      <%= link_to("删除", account_request_path(r.token), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-xs btn-default") %>
+      <%= link_to("删除", account_request_path(r.token), :method => :delete, :data => { :confirm => "确认删除吗？" }, :class => "btn btn-xs btn-default") %>
     </td>
     <td>
       <%= r.created_at.strftime("%F %T") %>
