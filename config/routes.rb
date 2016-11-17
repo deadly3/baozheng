@@ -39,6 +39,7 @@ Rails.application.routes.draw do
       member do
         post :applied
         post :join_applicants
+        get :joined_requests
       end
     end
   end

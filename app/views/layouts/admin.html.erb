@@ -23,7 +23,7 @@
                     <%= link_to(content_tag(:i, " 我的作品", class: "fa fa-file-o"), admin_works_path) %>
                   </li>
                   <li>
-                    <%= link_to(content_tag(:i, " 我的订单", class: "fa fa-list"), admin_works_path) %>
+                    <%= link_to(content_tag(:i, " 我的抢单", class: "fa fa-list"), joined_requests_admin_request_path(current_user.token)) %>
                   </li>
 
                   <hr>
