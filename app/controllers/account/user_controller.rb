@@ -10,16 +10,11 @@ class Account::UserController < ApplicationController
       render :edit
     end
   end
-  # 
-  # def display
-  #   @request = Request.find_by_token(params[:id])
-  #   @users = request.applicants
-  # end
 
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :description, :avatar)
+    params.require(:user).permit(:nickname, :description, :avatar, :token)
   end
 
 end
