@@ -39,12 +39,15 @@ Rails.application.routes.draw do
       member do
         post :applied
         post :join_applicants
-
       end
     end
   end
 
-  resources :requests
+  resources :requests do
+    member do
+      post :join_applicants
+    end
+  end
 
   resources :users
 
