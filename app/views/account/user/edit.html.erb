@@ -15,11 +15,21 @@
       <% if current_user.avatar.present? %>
         <%= image_tag(current_user.avatar.thumb.url) %>
       <% else %>
+        <!-- <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%> -->
         <%= image_tag current_user.gravatar_url(:size => 100) %>
+
       <% end %>
       <br>
       <br>
-      <%= f.input :avatar, as: :file, :label => "请上传头像图片" %>
+      <%#= f.input :avatar, as: :file, :label => "请上传头像图片" %>
+<!-- change upload botton -->
+      <label class="btn btn-primary">
+        请上传头像图片
+        <span style="display:none;">
+          <%= f.input :avatar, as: :file %>
+        </span>
+      </label>
+<!-- end of change -->
     </div>
 
     <div>
@@ -32,8 +42,12 @@
 
     <div class="form-actions">
       <%= f.button :submit, "更新保存" %>
-      <a href=""><button class="btn btn-default" name="button">取消返回</button></a>
-    </div>
+      <%= link_to("取消返回", account_user_path, :class => "btn btn-default") %>
+    <% end %>
 
-  <% end %>
+      </div>
+
+
+
+
 </div>
