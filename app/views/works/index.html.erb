@@ -14,7 +14,7 @@
       <th>作者</th>
     </tr>
   </thead>
-  <% @works.each do |work| %>
+  <% @works.shuffle.each do |work| %>
   <tr>
     <td>
       <% if work.image.present? %>
