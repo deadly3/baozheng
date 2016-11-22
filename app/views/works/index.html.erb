@@ -3,44 +3,42 @@
 <hr>
 <br>
 
-<table class="table table-bordered">
+<% @works.shuffle.each do |work| %>
+<div class="col-sm-12">
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <%= work.title%></h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <tbody>
+                <td>
+                    <% if work.image.present? %>
+                    <%= image_tag(work.image.thumb.url, class:"thumbnail") %>
+                <% else %>
+                    <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
+                    <% end %>
+                </td>
+                <td>
+                    <%= work.description %>
+                </td>
+                <td>
+                    参考价格<%= work.price %>
+                </td>
+                <td>
+                    达人<%= work.user_id %>
+                </td>
+              </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+<% end %>
 
-  <thead>
-    <tr>
-      <th>图片</th>
-      <th>作品名称</th>
-      <th>描述</th>
-      <th>参考价格</th>
-      <th>作者</th>
-    </tr>
-  </thead>
-  <% @works.shuffle.each do |work| %>
-  <tr>
-    <td>
-      <% if work.image.present? %>
-        <%= image_tag(work.image.thumb.url, class:"thumbnail") %>
-      <% else %>
-        <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
-      <% end %>
-    </td>
-    <td>
-      <%= render_work_status(work) %>
-      <%= work.title%>
-    </td>
-    <td>
-      <%= work.description %>
-    </td>
-    <td>
-      <%= work.price %>
-    </td>
-    <td>
-      达人<%= work.user_id %>
-    </td>
 
-  </tr>
-  <% end %>
-</table>
+
 
 <div class="text-center">
-  <%= will_paginate @works %>
+    <%= will_paginate @works %>
 </div>
