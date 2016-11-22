@@ -17,11 +17,16 @@
     <%= f.input :current_password, required: true %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "更新密码" %>
+  <div class="devise-form-actions row">
+    <div class="col-md-4">
+      <%= f.button :submit, "更新密码", :class => "btn btn-primary" %>
+      <%= link_to("取消返回", account_user_path(current_user.id), :class => "btn btn-info") %>
+    </div>
+
+   <div class="col-md-3 col-md-offset-5">
+            <%= link_to "删除我的账户", registration_path(resource_name), :class => "btn btn-warning",
+                data: { confirm: "真的删除账户吗？" }, method: :delete %>
+        </div>
   </div>
+
 <% end %>
-
-
-
-<p class="pull-right"><%= link_to "删除我的账户", registration_path(resource_name), :style=>'color: red;' , data: { confirm: "真的删除账户吗？" }, method: :delete %></p>
