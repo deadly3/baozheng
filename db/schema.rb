@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117114715) do
+ActiveRecord::Schema.define(version: 20161122063646) do
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.string  "unsubscriber_type"
@@ -105,6 +105,9 @@ ActiveRecord::Schema.define(version: 20161117114715) do
     t.text     "description"
     t.string   "avatar"
     t.string   "token"
+    t.integer  "age"
+    t.string   "district"
+    t.string   "sex"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

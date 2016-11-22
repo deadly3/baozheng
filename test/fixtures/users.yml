@@ -20,6 +20,9 @@
 #  description            :text
 #  avatar                 :string
 #  token                  :string
+#  age                    :integer
+#  district               :string
+#  sex                    :string
 #
 # Indexes
 #
