@@ -25,10 +25,14 @@
     <div>
       <%= f.input :nickname, label:"昵称" %>
       <%= f.input :description, label:"个性签名" %>
+      <%= f.input :年龄, label:"年龄", collection: 18..40, prompt: "请选择年龄", selected: 28 %>
+      <%= f.input :性别, label:"性别", collection: ["男", "女"], prompt: "请选择性别", selected: "女" %>
+      <%= f.input :地区, label:"地区", collection: ["北京", "上海", "广州", "深圳"], prompt: "请选择地区", selected: "北京" %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "更新" %>
+      <%= f.button :submit, "更新保存" %>
+      <a href=""><button class="btn btn-default" name="button">取消返回</button></a>
     </div>
 
   <% end %>
