@@ -57,7 +57,7 @@
       <% end %>
     </td>
 
-    <td> <%= link_to("發起對話", request_conversations_path(r.token), :class => "btn btn-default") %>  </td>
+    <td> <%= link_to("發起對話", account_user_conversation_path(r.user.token), :class => "btn btn-default") %>  </td>
   </tr>
   <% end %>
 </tbody>
