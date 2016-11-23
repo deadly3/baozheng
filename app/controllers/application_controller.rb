@@ -7,10 +7,9 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     added_attrs = [:nickname, :email, :password, :password_confirmation, :remember_me]
-    si_attrs = [:email, :password, :remember_me]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
-    devise_parameter_sanitizer.permit :sign_in, keys: si_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+    devise_parameter_sanitizer.permit(:sign_in, keys: [ :email, :password, :remember_me])
   end
 
   def require_is_admin
