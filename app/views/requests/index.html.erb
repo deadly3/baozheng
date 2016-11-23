@@ -25,14 +25,14 @@
         <% if r.before_picture.present? %>
           <%= image_tag(r.before_picture.thumb.url, class:"thumbnail") %>
         <% else %>
-          <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
+          <%= image_tag("http://placehold.it/200x200&text=before_pic", class:"thumbnail")%>
         <% end %>
       </td>
       <td>
         <% if r.dream_picture.present? %>
           <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
         <% else %>
-          <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
+          <%= image_tag("http://placehold.it/200x200&text=dream_pic", class:"thumbnail")%>
         <% end %>
       </td>
       <td>
