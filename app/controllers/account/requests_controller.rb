@@ -76,6 +76,12 @@ class Account::RequestsController < ApplicationController
     redirect_to :back
   end
 
+  def rating
+    @request = Request.find_by_token(params[:id])
+    
+    winner_id = @request.winner
+    @winner = User.find(winner_id)
+  end
   private
 
   def request_params

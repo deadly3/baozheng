@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :user
     resources :requests do
       member do
+        get :rating
         get :display
         post :choose
         post :make_payment

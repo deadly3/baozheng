@@ -22,6 +22,7 @@
 class Request < ApplicationRecord
   belongs_to :user
 
+
   has_many :request_relationships
   has_many :applicants, through: :request_relationships, source: :user
 

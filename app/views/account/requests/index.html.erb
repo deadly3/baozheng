@@ -14,6 +14,7 @@
       <th class="text-center">创建时间</th>
       <th class="text-center">抢单状态</th>
       <th class="text-center">对话状况</th>
+      <th class="text-center">发起评价</th>
       </tr>
   </div>
 
@@ -60,7 +61,9 @@
     </td>
 
     <td> <%= link_to("發起對話", request_conversations_path(r.token), :class => "btn btn-danger") %>  </td>
+    <td> <%= link_to("发起评价", rating_account_request_path(r.token), :class => "btn btn-danger") %>  </td>
   </tr>
   <% end %>
+
 </tbody>
 </table>
