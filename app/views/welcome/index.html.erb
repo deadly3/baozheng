@@ -1,74 +1,25 @@
-<!-- <h1> Hello World! </h1>
-
-<%= link_to("全网订单", admin_requests_path, class: "btn btn-lg btn-primary pull-left") %>
-
-<%= link_to("发起订单", new_request_path, class: "btn btn-lg btn-primary pull-right") %> -->
-
 <!DOCTYPE html>
 
 <html>
-
-    <!-- head部分 开始 -->
-    <!-- <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <div class="container-fluid">
-
-            <div class="bz-logo">
-                <a href="#">
-                    <img src="http://ww2.sinaimg.cn/large/65e4f1e6jw1f9tpq71wkwj208o089jrq.jpg" style="width: 70px" "height: 70px">
-                </a>
-            </div>
-            <title>包整</title>
-
-            <div class="collapse navbar-collapse navbar-ex1-collapse" id="bs-example-navbar-collapse-1">
-
-                <div class="bz-button-head">
-                    <button type="button" class="btn btn-primary">发要求</button>
-                </div>
-                <div class="bz-button-head">
-                    <button type="button" class="btn btn-primary">看达人</button>
-                </div>
-                <div class="bz-button-head">
-                    <button type="button" class="btn btn-primary">接任务</button>
-                </div>
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li>
-                        <a href="/users/sign_up">注册会员</a>
-                    </li>
-                    <li>
-                        <a href="/users/sign_in">会员登录</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </head> -->
-    <!-- head部分 结束 -->
-
-    <!-- body第1部分 开始-->
     <body>
         <div class="bz-part-1">
-            <br>
-            <br>
-            <div class="bz-part-1-bg" id="bz-part-1-bg-id"></div>
+          <div class="bz-part-1-bg" id="bz-part-1-bg-id"></div>
             <div class="container-fluid">
-                <div class="bz-part-1-bg-gray" id="bz-part-1-bg-gray-id"></div>
+              <!-- <div class="bz-part-1-bg-gray" id="bz-part-1-bg-gray-id"></div> -->
+
                 <div class="row">
                     <div class="title-text">
                         <div class="col-md-12 headfontsize">
                             <h1 class="bz-part-1-text-1">
-                                学习5分钟，狂赚50万
+                                房间赏心悦目，空间感大一倍
                             </h1>
-                            <p>北京二环房价10万/每平方<br>
-                                5分钟学会整理，多出5平方空间，瞬间节省50万</p>
-                            <br>
-
-                            <p>订制个性化收纳方案
-                            <br>听达人分享整理技巧
-                            <br>房间干净，心情清爽
-                            <br>下次搬家，说走就走</p><br>
+                            <br><br>
+                            <p>订制个性化收纳方案<br>
+                            <br>听达人分享整理技巧<br>
+                            <br>房间干净，心情清爽<br>
+                            <br>下次搬家，说走就走</p>
                             <div class='btn-bz-user-sign-up'>
-                                <a class="btn btn-danger btn-lg" href="#">立即注册，赠送达人整理手册</a>
+                              <%= link_to("立即注册，赠送达人整理手册", new_user_registration_path, class:"btn btn-danger btn-lg") %>
                             </div>
                         </div>
                     </div>
