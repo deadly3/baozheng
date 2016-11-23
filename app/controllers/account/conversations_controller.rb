@@ -17,9 +17,9 @@ class Account::ConversationsController < ApplicationController
   def reply
 
     @mailbox ||= current_user.mailbox
-
-    @mailbox = current_user.mailbox
     @conversation = @mailbox.conversations.find(params[:id])
+    current_user.reply_to_conversation(@conversation, params[:body])
+    
     flash[:success] = "Reply sent"
     redirect_to account_conversation_path(@conversation)
   end
