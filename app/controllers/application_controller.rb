@@ -1,6 +1,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    added_attrs = [:unickname, :email, :password, :password_confirmation, :remember_me]
+    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+  end
+
   def require_is_admin
     if !current_user.admin?
       flash[:alert] = 'You are not admin'
@@ -26,4 +36,14 @@ class ApplicationController < ActionController::Base
   #   redirect_to request.referer || path
   # end
 
+
+    private
+
+    def sign_up_params
+      params.require(:user).permit(:nickname, :email, :password, :password_confirmation)
+    end
+
+    def account_update_params
+      params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :current_password)
+    end
 end

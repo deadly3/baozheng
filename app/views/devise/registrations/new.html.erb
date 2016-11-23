@@ -30,6 +30,7 @@
 
                   <div class="form-inputs">
                     <%= f.input :email, required: true, autofocus: true, placeholder:"请检查邮箱已输入正确" %>
+                    <%= f.input :nickname, :label => "昵称", required: true, placeholder:"请输入您的昵称" %>
                     <%= f.input :password, required: true, placeholder:"请输入英文和数字组合，最少#{@minimum_password_length}位" if @minimum_password_length %>
                     <%= f.input :password_confirmation, required: true, placeholder:"请再次输入密码" %>
                   </div>
