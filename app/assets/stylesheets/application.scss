@@ -48,8 +48,9 @@ footer {
 }
 
 .navbar.navbar-fixed-top.fixed-theme {
-    background-color: salmon;
-    border-color: #080808;
+    background-color: #fff9e5;
+    // border-color: #080808;
+    border-color: salmon;
     box-shadow: 0 0 5px rgba(0,0,0,.8);
 }
 
@@ -66,7 +67,7 @@ footer {
 .navbar.navbar-fixed-top.fixed-theme,
 .navbar-brand,
 .navbar-container{
-    background-color: grey;
+    // background-color: grey;
     transition: 0.8s;
     -webkit-transition:  0.8s;
 }
