@@ -36,7 +36,6 @@
                   <% end %>
                 </td>
                 <td style="width: 200px;">
-                  <%= link_to "kandingdan", request_path(r.token), class: "btn btn-default" %>
                   <%= link_to("發起對話", request_conversations_path(r.token), :class => "btn btn-default") %>
                   <% if r.has_been_applied_by?(current_user) %>
                   <a href="#" class="btn btn-warning" disabled> 已抢单 </a>
