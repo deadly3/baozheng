@@ -33,6 +33,8 @@ Rails.application.routes.draw do
       resources :users
     end
     resources :conversations
+
+    resources :works
   end
   #./用户中心
 
