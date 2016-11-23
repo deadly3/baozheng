@@ -1,15 +1,57 @@
-<h2>Log in</h2>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+		<!-- Website CSS style -->
+		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <!-- Website Font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+	</head>
 
-<%= render "devise/shared/links" %>
+    <body>
+  		<div class="container">
+  			<div class="row main">
+  				<div class="panel-heading">
+  	               <div class="panel-title text-center">
+  	               		<h2 class="title">用户登录</h2>
+  	               		<hr />
+  	               	</div>
+  	            </div>
+  				<div class="main-login main-center">
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="form-inputs">
+                <%= f.input :email, required: false, autofocus: true %>
+                <%= f.input :password, required: false %>
+                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+              </div>
+
+                  <br>
+
+                  <div class="form-actions" >
+                    <%= f.button :submit, "登入", :class => "btn btn-primary btn-lg btn-block login-button"%>
+                  </div>
+
+
+
+                  <% end %>
+
+                  <br>
+
+                  <div class="form-actions" align=center>
+                  <%= render "devise/shared/links" %>
+                  </div>
+
+  					</form>
+  				</div>
+  			</div>
+  		</div>
+
+  		<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+  	</body>
+  </html>
