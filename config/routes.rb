@@ -32,7 +32,14 @@ Rails.application.routes.draw do
       end
       resources :users
     end
-    resources :conversations
+    resources :conversations do
+      member do
+        post :reply
+      end
+    end
+    resources :user_conversations
+
+    resources :works
   end
   #./用户中心
 
@@ -67,6 +74,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :requests
   end
+
+  resources :designers
 
   resources :requests do
     member do

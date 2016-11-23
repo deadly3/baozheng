@@ -1,0 +1,16 @@
+
+<table class="table tabler-borderd">
+<% @designers.each do |designer| %>
+
+  <tr>
+    <td>
+      <%= designer.id %> <%= designer.nickname %>
+    </td>
+
+    <td>
+      <%= link_to("查看达人", designer_path(designer.token)) %>
+    </td>
+  </tr>
+<% end %>
+
+</table>
