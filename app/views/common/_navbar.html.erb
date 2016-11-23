@@ -15,9 +15,11 @@
             <ul class="nav navbar-nav navbar-left">
                 <li> <%= link_to("➕ 发订单", new_request_path) %> </li>
                 <li> <%= link_to("📦 看作品", works_path) %> </li>
-                <% if current_user && current_user.is_admin?%>
+                <% if current_user && current_user.is_designer?%>
                   <li> <%= link_to("🙋🏻 抢订单", requests_path) %> </li>
                 <% end %>
+                <li> <%= link_to("达人广场", designers_path) %> </li>
+
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -43,10 +45,16 @@
                       <ul class="dropdown-menu">
                         <li><%= link_to("用户中心", account_user_path(current_user.token)) %></li>
                         <br>
-                        <% if current_user.admin? %>
-                        <li> <%= link_to("达人后台", admin_works_path) %> </li>
+                        <% if current_user.is_designer? %>
+                        <li> <%= link_to("达人后台", account_works_path) %> </li>
                         <hr>
                         <% end %>
+
+                        <% if current_user.is_admin? %>
+                        <li> <%= link_to("管理員后台", account_works_path) %> </li>
+                        <hr>
+                        <% end %>
+
                         <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>
                        </ul>
                     </li>

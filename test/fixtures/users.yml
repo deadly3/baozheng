@@ -23,6 +23,7 @@
 #  age                    :integer
 #  district               :string
 #  sex                    :string
+#  is_designer            :boolean          default(FALSE)
 #
 # Indexes
 #
