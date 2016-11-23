@@ -6,46 +6,50 @@
 
 <hr>
 <br>
-
+<%# TODO: too ugly but performance, fix later %>
 <% @requests.each do |r| %>
 <div class="col-sm-12">
-    <div class="panel panel-warning">
+    <%= link_to request_path(r.token) do %>
+      <div class="panel panel-warning">
         <div class="panel-heading">
-            <h3 class="panel-title">
-                <%= r.title%></h3>
-        </div>
-        <div class="panel-body">
+          <h3 class="panel-title">
+            <%= r.title%></h3>
+          </div>
+          <div class="panel-body">
             <table class="table table-bordered">
-                <tbody>
+              <tbody>
                 <td style="width: 210px;">
-                    <% if r.dream_picture.present? %>
-                      <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
-                    <% else %>
-                      <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
-                    <% end %>
+                  <% if r.dream_picture.present? %>
+                  <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
+                  <% else %>
+                  <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
+                  <% end %>
                 </td>
                 <td>
-                    <%= r.description %>
+                  <%= r.description %>
                 </td>
                 <td style="width: 200px;">
-                    <% if r.user.nickname.present?%>
-                      <%= r.user.nickname %>
-                    <% else %>
-                      <%= r.user.email %>
-                    <% end %>
+                  <% if r.user.nickname.present?%>
+                  <%= r.user.nickname %>
+                  <% else %>
+                  <%= r.user.email %>
+                  <% end %>
                 </td>
                 <td style="width: 200px;">
+                  <%= link_to "kandingdan", request_path(r.token), class: "btn btn-default" %>
                   <%= link_to("發起對話", request_conversations_path(r.token), :class => "btn btn-default") %>
                   <% if r.has_been_applied_by?(current_user) %>
-                    <a href="#" class="btn btn-warning" disabled> 已抢单 </a>
-                    <%= link_to "去看自己抢的单吧", joined_requests_admin_request_path(r.token), class: "btn btn-default" %>
+                  <a href="#" class="btn btn-warning" disabled> 已抢单 </a>
+                  <%= link_to "去看自己抢的单吧", joined_requests_admin_request_path(r.token), class: "btn btn-default" %>
                   <% else %>
-                    <%= link_to("整！", join_applicants_admin_request_path(r.token), method: :post, class: "btn btn-danger") %>
+                  <%= link_to("整！", join_applicants_admin_request_path(r.token), method: :post, class: "btn btn-danger") %>
                   <% end %>
                 </td>
               </tbody>
-        </table>
-    </div>
+            </table>
+          </div>
+          <!-- /.div -->
+    <% end %>
   </div>
 </div>
 <% end %>
