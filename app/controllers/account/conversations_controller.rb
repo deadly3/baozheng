@@ -11,7 +11,7 @@ class Account::ConversationsController < ApplicationController
   def show
     @mailbox = current_user.mailbox
     @conversation = @mailbox.conversations.find(params[:id])
-    @receipts = @conversation.receipts.collect(&:receiver)
+    @receipts = @conversation.receipts.collect(&:receiver).uniq
   end
 
   def reply
