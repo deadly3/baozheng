@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
+// 以下是首屏图片
 
 .bz-part-1{
     height: 550px;
@@ -18,31 +18,25 @@
 }
 
 #bz-part-1-bg-id{
-  background-image: url(http://ww3.sinaimg.cn/large/65e4f1e6jw1f9tumre3yoj21jk0m8q99.jpg);
+  background-image: url(http://hoop8.com/1611D/oROMK4DU.jpg);
 }
-
-.bz-part-1-bg-gray{
-height: 290px;
-width: 70%;
-margin-top: 40px;
-margin-left: 120px;
-position: absolute;
-background-position: center center;
-
-z-index:1;
-opacity:0.5;
+.navbar {
+    margin-bottom: 0 ;
 }
+// 以上是首屏图片
 
 
-
+// 以下是半透明图层
 #bz-part-1-bg-gray-id
 {
   background-image: url(http://ww1.sinaimg.cn/large/65e4f1e6jw1f9tvnx628wj20f208q742.jpg);
 }
 
+// 以上是半透明图层
 
+// 以下是首屏图片的文字
 .bz-part-1-text-1{
-  margin-top: 50px;
+  margin-top: 80px;
   z-index:2;
 }
 
@@ -51,19 +45,26 @@ opacity:0.5;
   z-index:2;
 }
 
+.body-text{
+  text-align: right;
+  margin-right: 80px;
+  z-index:2;
+}
+
 .headfontsize h1{
   font-size: 40pt;
-  color: #fb5e37;
+  color: #333333;
 }
 
 .headfontsize p{
   font-size: 13pt;
-  color: #fcc4b6;
+  color: #333333;
 }
 
 .btn-bz-user-sign-up{
 margin-top: 50px;
 line-height: 50px;
+
 }
 
 .bz-part-2-block-1{
