@@ -7,11 +7,7 @@
 
 <div align="center">
 
-  <% if current_user.avatar.present? %>
-    <%= image_tag(current_user.avatar.thumb.url) %>
-  <% else %>
-    <%= image_tag current_user.gravatar_url(:size => 200) %>
-  <% end %>
+<%= render 'common/avatar' %>
   <hr>
 
 
@@ -39,7 +35,7 @@
 <br>
 用户头像
 <br>
-<%= render 'common/avatar' %>
+
 <hr>
 
 用户邮箱

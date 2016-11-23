@@ -1,5 +1,6 @@
 <% if current_user.avatar.present?%>
   <%= image_tag(current_user.avatar.url) %>
 <% else %>
-  <%= image_tag current_user.gravatar_url %>
+  <%= image_tag("http://ww2.sinaimg.cn/large/65e4f1e6jw1fa0zy5uvkuj20rz0p6dgj.jpg", class:"thumbnail")%>
+
 <% end %>
