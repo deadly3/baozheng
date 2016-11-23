@@ -7,17 +7,19 @@
 
   <thead>
     <tr>
-      <th>主题</th>
-      <th>当前照片</th>
-      <th>梦想照片</th>
-      <th>编辑订单</th>
-      <th>创建时间</th>
-      <th>抢单状态</th>
-      <th> </th>
+      <th class="text-center">主题</th>
+      <th class="text-center">当前照片</th>
+      <th class="text-center">梦想照片</th>
+      <th class="text-center">编辑订单</th>
+      <th class="text-center">创建时间</th>
+      <th class="text-center">抢单状态</th>
+      <th class="text-center">对话状况</th>
       </tr>
+  </div>
+
   </thead>
 
-  <tbody>
+  <tbody align="center">
   <% @requests.each do |r| %>
   <tr>
     <td>
@@ -38,9 +40,9 @@
       <% end %>
     </td>
     <td>
-      <%= link_to("修改", edit_account_request_path(r.token), :class => "btn btn-xs btn-default") %>
+      <%= link_to("修改", edit_account_request_path(r.token), :class => "btn btn-warning") %>
       |
-      <%= link_to("删除", account_request_path(r.token), :method => :delete, :data => { :confirm => "确认删除吗？" }, :class => "btn btn-xs btn-default") %>
+      <%= link_to("删除", account_request_path(r.token), :method => :delete, :data => { :confirm => "确认删除吗？" }, :class => "btn btn-info") %>
     </td>
     <td>
       <%= r.created_at.strftime("%F %T") %>
@@ -57,7 +59,7 @@
       <% end %>
     </td>
 
-    <td> <%= link_to("發起對話", request_conversations_path(r.token), :class => "btn btn-default") %>  </td>
+    <td> <%= link_to("發起對話", request_conversations_path(r.token), :class => "btn btn-danger") %>  </td>
   </tr>
   <% end %>
 </tbody>

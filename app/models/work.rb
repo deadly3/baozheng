@@ -33,5 +33,5 @@ class Work < ApplicationRecord
     self.save
   end
 
-  scope :published, -> {where(is_hidden: false)}
+  scope :published, -> {where(is_hidden: false).order("created_at DESC")}
 end
