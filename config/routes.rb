@@ -32,7 +32,11 @@ Rails.application.routes.draw do
       end
       resources :users
     end
-    resources :conversations
+    resources :conversations do
+      member do
+        post :reply
+      end
+    end
     resources :user_conversations
 
     resources :works
