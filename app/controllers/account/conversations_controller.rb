@@ -5,13 +5,13 @@ class Account::ConversationsController < ApplicationController
 
   def index
     @mailbox ||= current_user.mailbox
-    @conversations = current_user.mailbox.conversations
+    @conversations = @mailbox.conversations
   end
 
   def show
     @mailbox = current_user.mailbox
     @conversation = @mailbox.conversations.find(params[:id])
-    @receipts = @conversation.receipts.collect(&:receiver).uniq!
+    @receipts = @conversation.receipts.collect(&:receiver)
   end
 
   def reply
