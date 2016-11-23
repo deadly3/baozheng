@@ -1,8 +1,11 @@
-<h1>Your conversations</h1>
+<h2>Your conversations</h2>
+<hr>
 <ul>
   <% @conversations.each do |conversation| %>
     <li class="list-group-item clearfix">
-      <%= render_conversation_request(conversation.request_id) %> - <%= conversation.created_at.to_s(:short) %>
+      <%= conversation.last_sender.nickname %> - <%= conversation.last_message.body %> - <%= conversation.created_at.to_s(:short) %>
+
+      <%= link_to("查看", account_conversation_path(conversation), :class => "pull-right") %>
     </li>
   <% end %>
 </ul>

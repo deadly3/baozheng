@@ -1,0 +1,8 @@
+<h2> 与 <%= @designer.nickname %> 对话 </h2>
+
+<%= form_tag account_user_conversation_path(@designer.token), method: :put do %>
+<div class="form-group">
+    <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+</div>
+<%= submit_tag "Send Message", class: 'btn btn-primary' %>
+<% end %>

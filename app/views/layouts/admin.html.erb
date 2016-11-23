@@ -10,24 +10,13 @@
 
     <body>
 
-        <div class="container-fluid">
+        <div class="container main">
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
-            <div class="row">
+            <div class="row main">
               <div class="col-md-2 margin-left:20px; ">
                 <h3 style="max-width: 250px;margin-left: 28px;"><i class="fa fa-user-circle fa-1x"> 达人后台</i></h3>
 
-                <ul class="list-group" style="max-width: 250px; padding-top:15px; margin-left: 20px;">
-                  <li class="list-group-item active text-center" >
-                  达人看板
-                  </li>
-                  <li class="list-group-item">
-                    <%= link_to(content_tag(:i, " 我的作品", class: "fa fa-file-o"), admin_works_path) %>
-                  </li>
-                  <li class="list-group-item">
-                    <%= link_to(content_tag(:i, " 我的抢单", class: "fa fa-list"), joined_requests_admin_request_path(current_user.token)) %>
-                  </li>
-                </ul>
                   <ul class="list-group" style="max-width: 250px; padding-top:15px; margin-left: 20px;">
                     <li class="list-group-item active text-center" >
                       管理员看板

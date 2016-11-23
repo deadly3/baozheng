@@ -26,7 +26,7 @@
       <% if work.image.present? %>
         <%= image_tag(work.image.thumb.url, class:"thumbnail") %>
       <% else %>
-        <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
+        <%= image_tag("http://placehold.it/200x200&text=work", class:"thumbnail")%>
       <% end %>
     </td>
     <td>
