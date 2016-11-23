@@ -10,6 +10,7 @@
       <th>主题</th>
       <th>当前照片</th>
       <th>理想照片</th>
+      <th>订单描述</th>
       <th>创建时间</th>
       <th>发单用户</th>
       <th>合作对象</th>
@@ -20,7 +21,7 @@
     <% @requests.each do |r| %>
     <tr>
       <td>
-        <%= r.title %>
+        <%= link_to(r.title, account_request_path(r.token)) %>
       </td>
       <td>
         <% if r.before_picture.present? %>
@@ -36,6 +37,10 @@
           <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
         <% end %>
       </td>
+      <td>
+        <%= r.description %>
+      </td>
+
       <td>
         <%= r.created_at.strftime("%F %T") %>
       </td>
@@ -63,3 +68,7 @@
     </tr>
   <% end %>
 </table>
+
+<div class="text-center">
+    <%= will_paginate @requests %>
+</div>

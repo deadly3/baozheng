@@ -1,6 +1,7 @@
 // Place all the styles related to the requests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .image {
   width: 100px;
   height: 100px;
@@ -13,4 +14,13 @@
   // text-align: center;
   // text-align: justify;
   font-size: 1em;
+}
+
+#outPopUp {
+  position: center;
+  width: 400px;
+  height: 200px;
+
+  top: 50%;
+  left: 50%;
 }
