@@ -15,9 +15,11 @@
             <ul class="nav navbar-nav navbar-left">
                 <li> <%= link_to("➕ 发订单", new_request_path) %> </li>
                 <li> <%= link_to("📦 看作品", works_path) %> </li>
-                <% if current_user && current_user.is_admin?%>
+                <% if current_user && current_user.is_designer?%>
                   <li> <%= link_to("🙋🏻 抢订单", requests_path) %> </li>
                 <% end %>
+                <li> <%= link_to("达人广场", designers_path) %> </li>
+
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

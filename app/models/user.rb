@@ -50,6 +50,24 @@ class User < ApplicationRecord
 
   acts_as_messageable
 
+
+
+
+  include Gravtastic
+  gravtastic :size => 50, :default => "mm"
+
+  scope :all_except, ->(user) { where.not(id: user) }
+
+  mount_uploader :avatar, AvatarUploader
+
+  def self.designer
+    where(:is_designer => true )
+  end
+
+  def self.recent
+    order("id DESC")
+  end
+
   def admin?
    is_admin
   end
@@ -63,15 +81,6 @@ class User < ApplicationRecord
     self.is_admin = true
     self.save
   end
-
-
-  include Gravtastic
-  gravtastic :size => 50, :default => "mm"
-
-  scope :all_except, ->(user) { where.not(id: user) }
-
-  mount_uploader :avatar, AvatarUploader
-
 
 
   def send_message(recipients, msg_body, subject, request, sanitize_text = true, attachment = nil, message_timestamp = Time.now)

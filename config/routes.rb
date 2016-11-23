@@ -70,6 +70,8 @@ Rails.application.routes.draw do
     resources :requests
   end
 
+  resources :designers
+
   resources :requests do
     member do
       post :join_applicants
