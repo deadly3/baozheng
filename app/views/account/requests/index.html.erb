@@ -13,7 +13,7 @@
       <th>编辑订单</th>
       <th>创建时间</th>
       <th>抢单状态</th>
-      <th> </th>
+      <th>开始对话</th>
       </tr>
   </thead>
 
@@ -62,3 +62,7 @@
   <% end %>
 </tbody>
 </table>
+
+<div class="text-center">
+    <%= will_paginate @requests %>
+</div>

@@ -3,7 +3,7 @@ class Account::RequestsController < ApplicationController
   layout "account"
 
   def index
-    @requests = Request.where(:user_id => current_user.id).recent
+    @requests = Request.paginate(:page => params[:page], :per_page => 8)
   end
 
   def new
