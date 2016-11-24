@@ -36,12 +36,13 @@
                   <% end %>
                 </td>
                 <td style="width: 200px;">
-                  <%= link_to("發起對話", request_conversations_path(r.token), :class => "btn btn-default") %>
+                  <%= link_to("发起对话", account_user_conversation_path(r.user.token) , :class => "btn btn-danger pull-right") %> 
+                  <%= link_to("抢单并发起会话", request_conversations_path(r.token), :class => "btn btn-default") %>
                   <% if r.has_been_applied_by?(current_user) %>
-                  <a href="#" class="btn btn-warning" disabled> 已抢单 </a>
-                  <%= link_to "去看自己抢的单吧", joined_requests_admin_request_path(r.token), class: "btn btn-default" %>
+                    <a href="#" class="btn btn-warning" disabled> 已抢单 </a>
+                    <%= link_to "去看自己抢的单吧", joined_requests_admin_request_path(r.token), class: "btn btn-default" %>
                   <% else %>
-                  <%= link_to("整！", join_applicants_admin_request_path(r.token), method: :post, class: "btn btn-danger") %>
+                    <%= link_to("整！", join_applicants_admin_request_path(r.token), method: :post, class: "btn btn-danger") %>
                   <% end %>
                 </td>
               </tbody>
