@@ -1,9 +1,9 @@
 <br>
-<%= link_to("发起订单", new_request_path, class: "btn btn-danger pull-left") %>
+<%= link_to("开始整理房间", new_request_path, class: "btn btn-danger pull-left") %>
 
 <br><br>
 
-<table class="table table-bordered">
+<table class="table">
 
   <thead>
     <tr>
@@ -13,7 +13,6 @@
       <th>编辑订单</th>
       <th>创建时间</th>
       <th>抢单状态</th>
-      <th> </th>
       </tr>
   </thead>
 
@@ -23,28 +22,33 @@
     <td>
       <%= link_to(r.title, account_request_path(r.token)) %>
     </td>
+
     <td>
       <% if r.before_picture.present? %>
-        <%= image_tag(r.before_picture.thumb.url, class:"thumbnail") %>
+      <%= image_tag(r.before_picture.thumb.url, class:"thumbnail") %>
       <% else %>
-        <%= image_tag("http://placehold.it/200x200&text=before_pic", class:"thumbnail")%>
+      <%= image_tag("http://placehold.it/200x200&text=before_pic", class:"thumbnail")%>
       <% end %>
     </td>
+
     <td>
       <% if r.dream_picture.present? %>
-        <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
+      <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
       <% else %>
-        <%= image_tag("http://placehold.it/200x200&text=dream_pic", class:"thumbnail")%>
+      <%= image_tag("http://placehold.it/200x200&text=dream_pic", class:"thumbnail")%>
       <% end %>
     </td>
+
     <td>
       <%= link_to("修改", edit_account_request_path(r.token), :class => "btn btn-xs btn-default") %>
       |
       <%= link_to("删除", account_request_path(r.token), :method => :delete, :data => { :confirm => "确认删除吗？" }, :class => "btn btn-xs btn-default") %>
     </td>
+
     <td>
       <%= r.created_at.strftime("%F %T") %>
     </td>
+
     <td>
       <% if r.winner.present? && r.paid? %>
         <%= link_to("已付款", "#", :class => "btn btn-xs btn-success", disabled: true) %>
@@ -57,7 +61,6 @@
       <% end %>
     </td>
 
-    <td> <%= link_to("發起對話", account_user_conversation_path(r.user.token), :class => "btn btn-default") %>  </td>
   </tr>
   <% end %>
 </tbody>

@@ -13,11 +13,11 @@
 
   <%# TODO: 点击方框就可以上传图片，并且直接预览所上传的图 %>
   <div class="row main">
-    <div class="col-md-6 table table-bordered" style="height: 200px; padding-left: 30px; padding-right: 30px;">
-      <%= f.input :before_picture, :label =>  "我房间现在的样子" %>
-    </div>
-    <div class="col-md-6 table table-bordered" style="height: 200px;">
+    <div class="col-md-6 col-sm-6" style="height: 200px;">
       <%= f.input :dream_picture, :label =>  "想变化后的样子", class: "block image" %>
+    </div>
+    <div class="col-md-6 col-sm-6" style="height: 200px; padding-left: 30px; padding-right: 30px;">
+      <%= f.input :before_picture, :label =>  "我房间现在的样子" %>
     </div>
   </div>
 
