@@ -64,17 +64,18 @@
 
 
               <ul class="dropdown-menu">
-                <li><%= link_to("用户中心", account_user_path(current_user.token)) %></li>
+
+                <li><%= link_to("😎 用户中心", account_user_path(current_user.token)) %></li>
                 <li role="separator" class="divider"></li>
                 <% if current_user.is_designer? %>
-                  <li> <%= link_to("达人后台", account_works_path) %> </li>
+                  <li> <%= link_to("🐼 达人后台", designers_path) %> </li>
                   <li role="separator" class="divider"></li>
                 <% end %>
                 <% if current_user.is_admin? %>
-                  <li> <%= link_to("管理員后台", account_works_path) %> </li>
+                  <li> <%= link_to("🐮 管理員后台", admin_users_path) %> </li>
                   <hr>
                 <% end %>
-                <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>
+                <li> <%= link_to("⛔️ 登出", destroy_user_session_path, method: :delete) %> </li>
                </ul>
             </li>
           <% end %>
@@ -84,3 +85,4 @@
     </div><!--/.nav-collapse -->
   </div>
 </nav>
+🐼
