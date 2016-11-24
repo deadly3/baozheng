@@ -10,6 +10,10 @@
     <td>
       <%= link_to("查看达人", designer_path(designer.token)) %>
     </td>
+
+    <td>
+      <%= link_to("发起对话", account_user_conversation_path(designer.token) , :class => "btn btn-danger pull-right") %> 
+    </td>
   </tr>
 <% end %>
 
