@@ -1,55 +1,59 @@
-<h2 class="text-center">全部可抢订单</h2>
+<h2 class="text-center">全部订单前台</h2>
+
+<div class="text-left">
+  <%= will_paginate @requests %>
+</div>
 
 <hr>
 <br>
+<%# TODO: too ugly but performance, fix later %>
+<% @requests.each do |r| %>
+<div class="col-sm-12">
+    <%= link_to request_path(r.token) do %>
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <%= r.title%></h3>
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered">
+              <tbody>
+                <td style="width: 210px;">
+                  <% if r.dream_picture.present? %>
+                  <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
+                  <% else %>
+                  <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
+                  <% end %>
+                </td>
+                <td>
+                  <%= r.description %>
+                </td>
+                <td style="width: 200px;">
+                  <% if r.user.nickname.present?%>
+                  <%= r.user.nickname %>
+                  <% else %>
+                  <%= r.user.email %>
+                  <% end %>
+                </td>
+                <td style="width: 200px;">
+                  <%= link_to("發起對話", request_conversations_path(r.token), :class => "btn btn-default") %>
+                  <% if r.has_been_applied_by?(current_user) %>
+                  <a href="#" class="btn btn-warning" disabled> 已抢单 </a>
+                  <%= link_to "去看自己抢的单吧", joined_requests_admin_request_path(r.token), class: "btn btn-default" %>
+                  <% else %>
+                  <%= link_to("整！", join_applicants_admin_request_path(r.token), method: :post, class: "btn btn-danger") %>
+                  <% end %>
+                </td>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.div -->
+    <% end %>
+  </div>
+</div>
+<% end %>
 
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>主题</th>
-      <th>当前照片</th>
-      <th>理想照片</th>
-      <th>发单用户</th>
-      <th>创建时间</th>
-      <th>抢单</th>
-      </tr>
-  </thead>
-  <tbody>
-    <% @requests.each do |r| %>
-    <tr>
-      <td>
-        <%= r.title %>
-      </td>
-      <td>
-        <% if r.before_picture.present? %>
-          <%= image_tag(r.before_picture.thumb.url, class:"thumbnail") %>
-        <% else %>
-          <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
-        <% end %>
-      </td>
-      <td>
-        <% if r.dream_picture.present? %>
-          <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
-        <% else %>
-          <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
-        <% end %>
-      </td>
-      <td>
-        <% if r.user.present? %>
-        <%= r.user.nickname %>
-        <% end %>
-      </td>
-      <td>
-        <%= r.created_at.strftime("%F %T") %>
-      </td>
-      <td>
-        <% if r.has_been_applied_by?(current_user) %>
-          <a href="#" class="btn btn-warning" disabled> 已抢单 </a>
-        <% else %>
-          <%= link_to("整！", join_applicants_admin_request_path(r.token), method: :post, class: "btn btn-danger") %>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<div class="text-center">
+  <%= will_paginate @requests %>
+</div>

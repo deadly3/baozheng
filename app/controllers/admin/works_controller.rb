@@ -4,7 +4,8 @@ class Admin::WorksController < ApplicationController
   layout "admin"
 
   def index
-    @works = Work.order("id DESC")
+    @works = Work.published.paginate(:page => params[:page], :per_page => 8)
+    # @works = Work.order("id DESC")
   end
 
   def new
