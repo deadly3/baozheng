@@ -51,6 +51,9 @@ h6 {
 }
 .bg-light-gray {
   background-color: #eeeeee;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
 }
 .bg-darkest-gray {
   background-color: #222222;
@@ -104,11 +107,10 @@ fieldset[disabled] .btn-primary.active {
   background-color: #fed136;
   border-color: #fed136;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
   font-weight: 700;
   border-radius: 3px;
   font-size: 18px;
-  padding: 20px 40px;
+  padding: 20px 20px;
 }
 .btn-xl:hover,
 .btn-xl:focus,
@@ -257,7 +259,7 @@ header .intro-text .intro-heading {
 @media (min-width: 768px) {
   header .intro-text {
     padding-top: 30px;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
   }
   header .intro-text .intro-lead-in {
     font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -275,18 +277,21 @@ header .intro-text .intro-heading {
   }
 }
 section {
-  padding: 100px 0;
+  padding: 500px 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 section h2.section-heading {
   font-size: 40px;
+  color: black;
   margin-top: 0;
   margin-bottom: 15px;
 }
 section h3.section-subheading {
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: none;
-
+  color: #333333;
   font-weight: 400;
   margin-bottom: 75px;
 }
@@ -551,13 +556,15 @@ aside.clients img {
   margin: 50px auto;
 }
 section#contact {
-  background-color: #222222;
-  background-image: url('../img/map-image.png');
+  background-color: #f7e7ca;
+  background-image: url('http://hoop8.com/1611D/QxgZ0qYb.jpg');
   background-position: center;
   background-repeat: no-repeat;
+  padding-top: 100px;
+  padding-bottom: 50px;
 }
 section#contact .section-heading {
-  color: white;
+  color: #333333;
 }
 section#contact .form-group {
   margin-bottom: 25px;
