@@ -1,3 +1,130 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+
+<div class="container">
+    <div class="row">
+
+
+
+        <div class="col-md-12">
+
+            <div class="panel panel-default panel-table">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col col-xs-6">
+                    <h3 class="panel-title">您创建过的订单</h3>
+                  </div>
+                  <div class="col col-xs-6 text-right">
+                    <%= link_to("发起订单", new_account_request_path, class: "btn btn-primary") %>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <% @requests.each do |r| %>
+                <table class="table table-striped table-bordered table-list">
+                  <thead>
+                    <tr>
+                        <th><em class="fa fa-cog"> 编辑订单</em></th>
+                        <th>订单主题</th>
+                        <th>当前照片</th>
+                        <th>梦想照片</th>
+                        <th>创建时间</th>
+                        <th>抢单状态</th>
+                        <th>开始对话</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                          <tr>
+                            <td align="center">
+                              <!-- <a class="btn btn-default">
+                                <em class="fa fa-pencil"> -->
+                                <%#= link_to("fa fa-pencil", edit_account_request_path(r.token), class: "btn btn-default") %>
+                              <!-- </em>
+                            </a> -->
+
+                            <%= link_to("修改", edit_account_request_path(r.token), :class => "btn btn-xs btn-default") %>
+
+                            <%= link_to edit_account_request_path(r.token), class: "btn btn-default" do %>
+                              <i class="fa fa-pencil"></i>
+                            <% end %>
+
+
+
+                              |
+                              <a class="btn btn-danger">
+                                <em class="fa fa-trash">
+                                <%= link_to("删除", account_request_path(r.token), :method => :delete, :data => { :confirm => "确认删除吗？" }) %>
+                              </em>
+                            </a>
+                            </td>
+                            </td>
+                            <td class="hidden-xs">
+                              <%= link_to(r.title, account_request_path(r.token)) %>
+                            </td>
+                            <td>
+                              <% if r.before_picture.present? %>
+                                <%= image_tag(r.before_picture.thumb.url, class:"thumbnail") %>
+                              <% else %>
+                                <%= image_tag("http://placehold.it/200x200&text=before_pic", class:"thumbnail")%>
+                              <% end %>
+                            </td>
+                            <td>
+                              <% if r.dream_picture.present? %>
+                                <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
+                              <% else %>
+                                <%= image_tag("http://placehold.it/200x200&text=dream_pic", class:"thumbnail")%>
+                              <% end %>
+                            </td>
+                            <td>
+                              <%= r.created_at.strftime("%F %T") %>
+                            </td>
+                            <td>
+                              <% if r.winner.present? && r.paid? %>
+                                <%= link_to("已付款", "#", :class => "btn btn-xs btn-success", disabled: true) %>
+                              <% elsif r.winner.present? && !r.paid? %>
+                                <%= link_to("支付", make_payment_account_request_path(r.token),:method => :post, :class => "btn btn-xs btn-danger") %>
+                              <% elsif r.applicants.present? %>
+                                <%= link_to("查看已抢单达人", display_account_request_path(r.token),:method => :get, :class => "btn btn-xs btn-warning") %>
+                              <% else %>
+                                暂时没有达人帮你整理，请等待💩
+                              <% end %>
+                            </td>
+                            <td>
+                              <%= link_to("发起对话", account_user_conversation_path(r.user.token), :class => "btn btn-info") %>
+                            </td>
+
+
+                          </tr>
+                        </tbody>
+                </table>
+                <% end %>
+              </div>
+              <div class="panel-footer">
+                <div class="row">
+                  <div class="col col-xs-4">Page 1 of 5
+                  </div>
+                  <div class="col col-xs-8">
+                    <ul class="pagination hidden-xs pull-right">
+                      <li><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                    </ul>
+                    <ul class="pagination visible-xs pull-right">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+</div></div></div>
+
+
+
+
+
 <br>
 <%= link_to("发起订单", new_account_request_path, class: "btn btn-danger pull-left") %>
 
