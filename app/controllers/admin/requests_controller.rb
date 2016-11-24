@@ -4,7 +4,7 @@ class Admin::RequestsController < ApplicationController
   layout "admin"
 
   def index
-    @requests = Request.paginate(:page => params[:page], :per_page => 8)
+    @requests = Request.paginate(:page => params[:page], :per_page => 8).recent
   end
 
   def show
