@@ -17,4 +17,6 @@ class Account::UserConversationsController < ApplicationController
 
     redirect_to account_conversation_path(conversation)
   end
+
+
 end
