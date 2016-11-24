@@ -72,13 +72,17 @@ class User < ApplicationRecord
    is_admin
   end
 
+  def designer?
+    is_designer
+  end
+  
   def make_user!
-    self.is_admin = false
+    self.is_designer = false
     self.save
   end
 
   def make_admin!
-    self.is_admin = true
+    self.is_designer = true
     self.save
   end
 

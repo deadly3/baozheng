@@ -1,6 +1,6 @@
 class Admin::RequestsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :require_is_admin
+  before_filter :require_is_designer
   layout "admin"
 
   def index
