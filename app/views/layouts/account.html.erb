@@ -1,35 +1,53 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title> 包整 </title>
-        <%= csrf_meta_tags %>
-
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
-
+<html lang="en">
     <body>
+
+      <head>
+          <title> 包整 </title>
+          <%= csrf_meta_tags %>
+
+          <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+          <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      </head>
 
         <div class="container">
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
             <div class="row main">
-              <div class="col-md-2 margin-left:20px;">
-                <h3 style="max-width: 250px;margin-left: 28px;"><i class="fa fa-user fa-1x "> 用户中心</i></h3>
-                <ul class="list-group" style="max-width: 250px; padding-top:15px; margin-left: 20px;">
-                  <li class="list-group-item"> <%= link_to(content_tag(:i, " 我的订单", class: "fa fa-tasks fa"), account_requests_path) %> </li>
-                  <li class="list-group-item"> <%= link_to(content_tag(:i, " 我的消息", class: "fa fa-envelope"), account_conversations_path) %> </li>
-                  <li class="list-group-item"> <%= link_to(content_tag(:i, " 用户资料", class: "fa fa-address-card"), edit_account_user_path(current_user.token)) %> </li>
-                  <li class="list-group-item"> <%= link_to(content_tag(:i, " 变更密码", class: "fa fa-key"), edit_user_registration_path) %> </li>
-                </ul>
-              </div>
 
-              <div class="col-md-10">
-                <%= yield %>
-              </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+
+              <h3 style="max-width: 250px;"><i class="fa fa-user fa-1x "> 用户中心</i></h3>
+
+            <li class="active"> <%= link_to(content_tag(:i, " 我的订单", class: "fa fa-tasks fa"), account_requests_path) %></li>
+            <li class="active"> <%= link_to(content_tag(:i, " 我的消息", class: "fa fa-envelope"), account_conversations_path) %> </li>
+            <li class="active"> <%= link_to(content_tag(:i, " 用户资料", class: "fa fa-address-card"), edit_account_user_path(current_user.token)) %> </li>
+            <li class="active"> <%= link_to(content_tag(:i, " 变更密码", class: "fa fa-key"), edit_user_registration_path) %> </li>
+          </ul>
         </div>
+        <div class="col-sm-8 col-md-10">
+          <%= yield %>
+        </div>
+  </div>
+</div>
+  <%= render "common/footer" %>
 
-        <%= render "common/footer" %>
+</body>
 
-    </body>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
 </html>
