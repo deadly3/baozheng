@@ -22,7 +22,7 @@
                       达人看板
                     </li>
                    <li class="list-group-item">
-                     <%= link_to(content_tag(:i, " 我的抢单", class: "fa fa-list"), joined_requests_admin_request_path(current_user.token)) %>                   </li>
+                     <%= link_to(content_tag(:i, " 我的抢单", class: "fa fa-list"), designer_requests_path(current_user.token)) %>                   </li>
                    <li class="list-group-item">
                      <%= link_to(content_tag(:i, " 我的作品", class: "fa fa-file-o"), admin_works_path) %>
                    </li>

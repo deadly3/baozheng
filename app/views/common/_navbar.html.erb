@@ -69,7 +69,7 @@
                 <li role="separator" class="divider"></li>
                 <% if current_user.is_designer? %>
 
-                  <li> <%= link_to("达人后台", designer_works_path(current_user)) %> </li>
+                  <li> <%= link_to("达人后台", designer_requests_path(current_user)) %> </li>
                   <li role="separator" class="divider"></li>
                 <% end %>
                 <% if current_user.is_admin? %>
