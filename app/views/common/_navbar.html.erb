@@ -37,7 +37,7 @@
             <li><%= nav_link("我的消息", account_conversations_path) %> </li>
           <% elsif current_user.is_designer?%>
             <li><%= nav_link("我的抢单", designer_requests_path(current_user.token)) %> </li>
-            <li><%= nav_link("我的消息", account_conversations_path) %> </li>
+            <li><%= nav_link("我的消息", designer_conversations_path) %> </li>
           <% end %>
 
           <% if current_user %>
