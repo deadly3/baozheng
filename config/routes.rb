@@ -83,6 +83,28 @@ Rails.application.routes.draw do
     end
   end
 
+  #达人后台
+  namespace :designer do
+    resources :user
+    resources :works do
+      member do
+        post :publish
+        post :hide
+      end
+    end
+    resources :requests do
+      member do
+        post :applied
+        post :join_applicants
+        get :joined_requests
+      end
+    end
+
+    resources :works
+  end
+  #./达人后台
+
+
   resources :users
 
   resources :works

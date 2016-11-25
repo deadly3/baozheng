@@ -1,0 +1,2 @@
+module Designer::WorksHelper
+end

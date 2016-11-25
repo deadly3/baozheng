@@ -1,11 +1,12 @@
 <h2 class="text-center">全部订单前台</h2>
 
-<div class="text-left">
+<hr>
+
+<div class="text-center">
   <%= will_paginate @requests %>
 </div>
 
-<hr>
-<br>
+
 <%# TODO: too ugly but performance, fix later %>
 <% @requests.each do |r| %>
 <div class="col-sm-12">
@@ -22,7 +23,7 @@
                   <% if r.dream_picture.present? %>
                   <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
                   <% else %>
-                  <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%>
+                  <%= image_tag("http://placehold.it/200x200&text=dream_picture", class:"thumbnail")%>
                   <% end %>
                 </td>
                 <td>
@@ -43,6 +44,7 @@
                   <% else %>
                     <a href="#" class="btn btn-warning" disabled> 已抢单 </a>
                     <%= link_to "去看自己抢的单吧", joined_requests_admin_request_path(r.token), class: "btn btn-default" %>
+                    <%= link_to "和用户会话" %>
                   <% end %>
                 </td>
               </tbody>

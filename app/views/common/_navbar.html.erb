@@ -19,7 +19,7 @@
                 <% end %>
                 <li> <%= link_to("达人广场", designers_path) %> </li>
 ======= -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top affix">
   <div class="container">
     <div class="navbar-header">
       <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -33,26 +33,26 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-left">
           <% unless current_user && current_user.is_designer && !current_user.is_admin%>
-            <li> <%= link_to("⭕️ 整理房间！", new_request_path) %> </li>
+            <li> <%= nav_link("整理房间！", new_request_path) %> </li>
           <% end %>
-          <li> <%= link_to("⭕️ 看作品", works_path) %> </li>
+          <li> <%= nav_link("看作品", works_path) %> </li>
           <% if current_user && current_user.is_designer?%>
-            <li> <%= link_to("⭕️ 抢订单", requests_path) %> </li>
+            <li> <%= nav_link("抢订单", requests_path) %> </li>
           <% end %>
-          <li> <%= link_to("⭕️ 达人广场", designers_path) %> </li>
+          <li> <%= nav_link("达人广场", designers_path) %> </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <% if !current_user %>
-            <li><%= link_to("免费注册", new_user_registration_path) %> </li>
-            <li><%= link_to("会员登入", new_user_session_path) %></li>
+            <li><%= nav_link("免费注册", new_user_registration_path) %> </li>
+            <li><%= nav_link("会员登入", new_user_session_path) %></li>
           <% else %>
 
             <% if !current_user.is_admin?%>
-              <li><%= link_to("🗂 我的订单", account_requests_path(current_user.token)) %> </li>
+              <li><%= nav_link("我的订单", account_requests_path(current_user.token)) %> </li>
             <% end %>
-            <li><%= link_to("💌 我的消息", account_conversations_path) %> </li>
-            <li class="dropdown">
+            <li><%= nav_link("我的消息", account_conversations_path) %> </li>
+            <li class="dropdown nav-drop">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <% if current_user.nickname.present?%>
                      <%= current_user.nickname %>
@@ -65,17 +65,25 @@
 
               <ul class="dropdown-menu">
 
-                <li><%= link_to("😎 用户中心", account_user_path(current_user.token)) %></li>
+                <li><%= link_to("用户中心", account_user_path(current_user.token)) %></li>
                 <li role="separator" class="divider"></li>
                 <% if current_user.is_designer? %>
-                  <li> <%= link_to("🐼 达人后台", designers_path) %> </li>
+
+                  <li> <%= link_to("达人后台", designer_works_path(current_user)) %> </li>
                   <li role="separator" class="divider"></li>
                 <% end %>
                 <% if current_user.is_admin? %>
-                  <li> <%= link_to("🐮 管理員后台", admin_users_path) %> </li>
+                  <li> <%= link_to("管理員后台", admin_users_path) %> </li>
+<!--
+                  <li> <%= link_to("达人后台", joined_requests_admin_request_path(current_user)) %> </li>
+                  <li role="separator" class="divider"></li>
+                <% end %>
+                <% if current_user.is_admin? %>
+                  <li> <%= link_to("管理員后台", admin_users_path) %> </li> -->
+
                   <hr>
                 <% end %>
-                <li> <%= link_to("⛔️ 登出", destroy_user_session_path, method: :delete) %> </li>
+                <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>
                </ul>
             </li>
           <% end %>
