@@ -1,26 +1,18 @@
-<<<<<<< HEAD
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
-=======
-<br>
-<%= link_to("开始整理房间", new_request_path, class: "btn btn-danger pull-left") %>
->>>>>>> develop
+
 
 <div class="container">
     <div class="row">
+<br><br>
 
-<<<<<<< HEAD
 
-
-        <div class="col-md-12">
-
+        <div class="col-md-9">
             <div class="panel panel-default panel-table">
               <div class="panel-heading">
                 <div class="row">
                   <div class="col col-xs-6">
-                    <h3 class="panel-title">您创建过的订单</h3>
-                  </div>
-                  <div class="col col-xs-6 text-right">
-                    <%= link_to("发起订单", new_account_request_path, class: "btn btn-primary") %>
+                    <h3 class="panel-title">订单列表 &nbsp &nbsp<%= link_to("发起新订单", new_account_request_path, class: "btn btn-primary") %> </h3>
                   </div>
                 </div>
               </div>
@@ -31,8 +23,6 @@
                     <tr>
                         <th><em class="fa fa-cog"> 编辑订单</em></th>
                         <th>订单主题</th>
-                        <th>当前照片</th>
-                        <th>梦想照片</th>
                         <th>创建时间</th>
                         <th>抢单状态</th>
                         <th>开始对话</th>
@@ -53,20 +43,6 @@
                               <%= link_to(r.title, account_request_path(r.token)) %>
                             </td>
                             <td>
-                              <% if r.before_picture.present? %>
-                                <%= image_tag(r.before_picture.thumb.url, class:"thumbnail") %>
-                              <% else %>
-                                <%= image_tag("http://placehold.it/200x200&text=before_pic", class:"thumbnail")%>
-                              <% end %>
-                            </td>
-                            <td>
-                              <% if r.dream_picture.present? %>
-                                <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
-                              <% else %>
-                                <%= image_tag("http://placehold.it/200x200&text=dream_pic", class:"thumbnail")%>
-                              <% end %>
-                            </td>
-                            <td>
                               <%= r.created_at.strftime("%F %T") %>
                             </td>
                             <td>
@@ -77,7 +53,7 @@
                               <% elsif r.applicants.present? %>
                                 <%= link_to("查看已抢单达人", display_account_request_path(r.token),:method => :get, :class => "btn btn-xs btn-warning") %>
                               <% else %>
-                                暂时没有达人帮你整理，请等待💩
+                                暂无人接单，可以去达人广场逛逛哦
                               <% end %>
                             </td>
                             <td>
@@ -122,7 +98,7 @@
                 </div>
 
                 </div></div></div></div>
-=======
+<!-- =======
 <table class="table">
 
   <thead>
@@ -185,4 +161,4 @@
   <% end %>
 </tbody>
 </table>
->>>>>>> develop
+>>>>>>> develop -->
