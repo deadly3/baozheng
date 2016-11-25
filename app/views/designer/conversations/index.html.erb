@@ -1,10 +1,14 @@
-<h3>我的消息</h3>
-
+<h3>我的对话</h3>
+<hr>
 <ul>
   <% @conversations.each do |conversation| %>
     <li class="list-group-item clearfix">
       <%= conversation.last_sender.nickname %> - <%= conversation.last_message.body %> - <%= conversation.created_at.to_s(:short) %>
-      <%= link_to("查看", account_conversation_path(conversation), :class => "pull-right") %>
+
+      <%= link_to("查看", designer_conversation_path(conversation), :class => "pull-right") %>
     </li>
   <% end %>
 </ul>
+
+<hr>
+<%#= render 'common/contacts' %>

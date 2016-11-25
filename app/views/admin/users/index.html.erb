@@ -27,17 +27,17 @@
         <%= user.nickname %>
       </td>
       <td>
-        <% if user.is_admin %>
+        <% if user.is_designer %>
           <%= "达人" %>
         <% else %>
           <%= "申请者" %>
           <% end %>
       </td>
       <td>
-        <% if user.is_admin %>
+        <% if user.is_designer %>
           <%= link_to("设为申请人", make_user_admin_user_path(user.token) , method: :post, :class => "btn btn-sm btn-warning") %>
         <% else %>
-          <%= link_to("设为达人", make_admin_admin_user_path(user.token), :method => :post,  :class => "btn btn-sm btn-info") %>
+          <%= link_to("设为达人", make_admin_admin_user_path(user.token), method: :post, :class => "btn btn-sm btn-info") %>
         <% end %>
       </td>
       <td>
