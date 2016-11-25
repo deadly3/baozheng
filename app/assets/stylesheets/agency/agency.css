@@ -228,7 +228,6 @@ fieldset[disabled] .btn-xl.active {
   }
 }
 header {
-  background-image: url('http://hoop8.com/1611D/8xyolyOA.jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -239,6 +238,11 @@ header {
   text-align: center;
   color: #333333;
 }
+
+#landing-page {
+  background-image: url('http://hoop8.com/1611D/8xyolyOA.jpg');
+}
+
 header .intro-text {
   padding-top: 100px;
   padding-bottom: 50px;

@@ -1,20 +1,144 @@
-
+<!--
 <table class="table tabler-borderd">
-<% @designers.each do |designer| %>
+<%# @designers.each do |designer| %>
 
   <tr>
     <td>
-      <%= designer.id %> <%= designer.nickname %>
+      <%#= designer.id %> <%#= designer.nickname %>
     </td>
 
     <td>
-      <%= link_to("查看达人", designer_path(designer.token)) %>
+      <%#= link_to("查看达人", designer_path(designer.token)) %>
     </td>
 
     <td>
-      <%= link_to("发起对话", account_user_conversation_path(designer.token) , :class => "btn btn-danger pull-right") %> 
+      <%#= link_to("发起对话", account_user_conversation_path(designer.token) , :class => "btn btn-danger pull-right") %>
     </td>
   </tr>
-<% end %>
+<%# end %>
 
 </table>
+
+ -->
+
+
+
+<div class="content-wrap" style="margin-top: 70px;">
+  <div class="row">
+
+    <main class="col-md-8 main">
+      <header class="post-head">
+        <h1 class="post-title">玄关收纳</h1>
+        <div class="post-meta">
+          <span class="author">作者：
+            <a href="#">
+              <%= link_to User.find(2).nickname, designer_path(User.find(2).token) %>
+            </a>
+          </span>
+          <!-- . -->
+          <time class="post-date"></time>
+        </div>
+      </header>
+
+      <br>
+
+      <div class="featured-media" style="width: 80%;">
+        <%= image_tag "portfolio/organize1.jpg", class: "img-responsive" %>
+      </div>
+
+      <footer class="post-footer clearfix" style="margin-top: 0px;">
+        <div class="pull-left tag-list">
+          <i class="fa fa-folder-open-o"></i>
+
+          <a href="#">
+            <%= link_to("查看达人", designer_path(User.find(2).token), class: "btn btn-default") %>
+          </a>
+          <a href="#">
+            <%= link_to("发起对话", account_user_conversation_path(User.find(2).token), :class => "btn btn-primary") %>
+          </a>
+
+        </div>
+      </footer>
+      <hr> <br><br><br>
+    </main>
+
+
+    <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+
+    <main class="col-md-8 main">
+      <header class="post-head">
+        <h1 class="post-title">厨房收纳</h1>
+        <div class="post-meta">
+          <span class="author">作者：
+            <a href="#">
+              <%= link_to User.find(3).nickname, designer_path(User.find(3).token) %>
+            </a>
+          </span>
+          <!-- . -->
+          <time class="post-date"></time>
+        </div>
+      </header>
+
+      <br>
+
+      <div class="featured-media" style="width: 80%;">
+        <%= image_tag "portfolio/organize2.jpg", class: "img-responsive" %>
+      </div>
+
+      <footer class="post-footer clearfix" style="margin-top: 0px;">
+        <div class="pull-left tag-list">
+          <i class="fa fa-folder-open-o"></i>
+
+          <a href="#">
+            <%= link_to("查看达人", designer_path(User.find(3).token), class: "btn btn-default") %>
+          </a>
+          <a href="#">
+            <%= link_to("发起对话", account_user_conversation_path(User.find(3).token), :class => "btn btn-primary") %>
+          </a>
+
+        </div>
+      </footer>
+      <hr> <br><br><br>
+    </main>
+
+
+    <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+
+    <main class="col-md-8 main">
+      <header class="post-head">
+        <h1 class="post-title">衣橱收纳</h1>
+        <div class="post-meta">
+          <span class="author">作者：
+            <a href="#">
+              <%= link_to User.find(4).nickname, designer_path(User.find(4).token) %>
+            </a>
+          </span>
+          .
+          <time class="post-date"></time>
+        </div>
+      </header>
+
+      <br>
+
+      <div class="featured-media" style="width: 80%;">
+        <%= image_tag "portfolio/organize3.jpg", class: "img-responsive" %>
+      </div>
+
+      <footer class="post-footer clearfix" style="margin-top: 0px;">
+        <div class="pull-left tag-list">
+          <i class="fa fa-folder-open-o"></i>
+
+          <a href="#">
+            <%= link_to("查看达人", designer_path(User.find(4).token), class: "btn btn-default") %>
+          </a>
+          <a href="#">
+            <%= link_to("发起对话", account_user_conversation_path(User.find(4).token), :class => "btn btn-primary") %>
+          </a>
+
+        </div>
+      </footer>
+      <hr> <br><br><br>
+    </main>
+
+  </div>
+</div>
