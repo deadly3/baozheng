@@ -19,31 +19,40 @@
               <div class="panel-body">
                 <% @requests.each do |r| %>
                 <table class="table table-striped table-bordered table-list">
-                  <thead>
-                    <tr>
+                  <thead >
+                    <tr >
+                        <th colspan="2" ><%= r.created_at.strftime("%F %T") %> &nbsp &nbsp
+                          订单编号 <%= r.token %></th>
+                        <th>
+                          <%= link_to("联系达人", account_user_conversation_path(r.user.token), :class => "btn btn-info btn-sm") %>
+                        </th>
                         <th><em class="fa fa-cog"> 编辑订单</em></th>
-                        <th>订单主题</th>
-                        <th>创建时间</th>
                         <th>抢单状态</th>
-                        <th>开始对话</th>
                     </tr>
                   </thead>
                   <tbody>
                           <tr>
+                            <td class="hidden-xs" colspan="2" >
+                              <% if r.before_picture.present? %>
+                                <%= image_tag(r.before_picture.thumb.url,  width:"100px") %>
+                              <% else %>
+                                <%= image_tag("http://placehold.it/200x200&text=before_pic",  width:"100px")%>
+                              <% end %>
+                              &nbsp &nbsp <%= link_to(r.title, account_request_path(r.token)) %>
+                              &nbsp &nbsp <%= r.description %>
+                            </td>
+
+                            <td>
+
+                            </td>
                             <td align="center">
                               <%= link_to edit_account_request_path(r.token), class: "btn btn-default" do %>
                               <i class="fa fa-pencil"></i>
                             <% end %>
-                              |
+
                               <%= link_to account_request_path(r.token), class: "btn btn-danger", :method => :delete, :data => { :confirm => "确认删除吗？" } do %>
                               <i class="fa fa-trash"></i>
                               <% end %>
-                            </td>
-                            <td class="hidden-xs">
-                              <%= link_to(r.title, account_request_path(r.token)) %>
-                            </td>
-                            <td>
-                              <%= r.created_at.strftime("%F %T") %>
                             </td>
                             <td>
                               <% if r.winner.present? && r.paid? %>
@@ -53,11 +62,8 @@
                               <% elsif r.applicants.present? %>
                                 <%= link_to("查看已抢单达人", display_account_request_path(r.token),:method => :get, :class => "btn btn-xs btn-warning") %>
                               <% else %>
-                                暂无人接单，可以去达人广场逛逛哦
+                                暂无人接单
                               <% end %>
-                            </td>
-                            <td>
-                              <%= link_to("发起对话", account_user_conversation_path(r.user.token), :class => "btn btn-info") %>
                             </td>
 
 
@@ -69,6 +75,7 @@
               </div>
 
               <!-- 底部的分页，要实现真实效果，问过YY比较复杂，故暂时不做 -->
+              <!-- 小鹿的注释写的很好，值得表扬-->
               <!-- <div class="panel-footer">
                 <div class="row">
                   <div class="col col-xs-4">页面选择
@@ -98,67 +105,3 @@
                 </div>
 
                 </div></div></div></div>
-<!-- =======
-<table class="table">
-
-  <thead>
-    <tr>
-      <th>主题</th>
-      <th>当前照片</th>
-      <th>梦想照片</th>
-      <th>编辑订单</th>
-      <th>创建时间</th>
-      <th>抢单状态</th>
-      </tr>
-  </thead>
-
-  <tbody>
-  <% @requests.each do |r| %>
-  <tr>
-    <td>
-      <%= link_to(r.title, account_request_path(r.token)) %>
-    </td>
-
-    <td>
-      <% if r.before_picture.present? %>
-      <%= image_tag(r.before_picture.thumb.url, class:"thumbnail") %>
-      <% else %>
-      <%= image_tag("http://placehold.it/200x200&text=before_pic", class:"thumbnail")%>
-      <% end %>
-    </td>
-
-    <td>
-      <% if r.dream_picture.present? %>
-      <%= image_tag(r.dream_picture.thumb.url, class:"thumbnail") %>
-      <% else %>
-      <%= image_tag("http://placehold.it/200x200&text=dream_pic", class:"thumbnail")%>
-      <% end %>
-    </td>
-
-    <td>
-      <%= link_to("修改", edit_account_request_path(r.token), :class => "btn btn-xs btn-default") %>
-      |
-      <%= link_to("删除", account_request_path(r.token), :method => :delete, :data => { :confirm => "确认删除吗？" }, :class => "btn btn-xs btn-default") %>
-    </td>
-
-    <td>
-      <%= r.created_at.strftime("%F %T") %>
-    </td>
-
-    <td>
-      <% if r.winner.present? && r.paid? %>
-        <%= link_to("已付款", "#", :class => "btn btn-xs btn-success", disabled: true) %>
-      <% elsif r.winner.present? && !r.paid? %>
-        <%= link_to("支付", make_payment_account_request_path(r.token),:method => :post, :class => "btn btn-xs btn-danger") %>
-      <% elsif r.applicants.present? %>
-        <%= link_to("查看已抢单达人", display_account_request_path(r.token),:method => :get, :class => "btn btn-xs btn-warning") %>
-      <% else %>
-        目前没有达人愿意帮你整，你们家真是太乱了好吗💩
-      <% end %>
-    </td>
-
-  </tr>
-  <% end %>
-</tbody>
-</table>
->>>>>>> develop -->

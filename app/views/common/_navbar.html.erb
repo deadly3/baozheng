@@ -35,7 +35,7 @@
           <% elsif !current_user.is_designer? && !current_user.is_admin?%>
             <li><%= nav_link("我的订单", account_requests_path(current_user.token)) %> </li>
             <li><%= nav_link("我的消息", account_conversations_path) %> </li>
-          <% elsif current_user.is_designer?%>
+          <% elsif current_user.is_designer? && !current_user.is_admin?%>
             <li><%= nav_link("我的抢单", designer_requests_path(current_user.token)) %> </li>
             <li><%= nav_link("我的消息", designer_conversations_path) %> </li>
           <% end %>
@@ -50,7 +50,7 @@
                   <% if !current_user.is_designer? && !current_user.is_admin?%>
                   <li><%= link_to("用户中心", account_user_path(current_user.token)) %></li>
                   <li role="separator" class="divider"></li>
-                <% elsif current_user.is_designer? %>
+                <% elsif current_user.is_designer? && !current_user.is_admin? %>
                     <li> <%= link_to("达人后台", designer_requests_path(current_user.token)) %> </li>
                     <li role="separator" class="divider"></li>
                 <% elsif current_user.is_admin? %>
