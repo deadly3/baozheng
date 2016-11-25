@@ -99,7 +99,12 @@ Rails.application.routes.draw do
         get :joined_requests
       end
     end
-
+    resources :conversations do
+      member do
+        post :reply
+      end
+    end
+    resources :user_conversations
 
     resources :works
   end

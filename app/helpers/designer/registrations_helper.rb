@@ -1,0 +1,2 @@
+module Designer::RegistrationsHelper
+end
