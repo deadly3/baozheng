@@ -3,6 +3,17 @@ class Account::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_account_update_params, only: [:update]
 
 layout "account", only: [:edit]
+
+protected
+
+def after_sign_up_path_for(resource)
+  designers_path # Or :prefix_to_your_route
+end
+
+def after_log_in_path_for(resource)
+  designers_path
+end
+
   # GET /resource/sign_up
   # def new
   #   super
