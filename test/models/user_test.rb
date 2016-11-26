@@ -24,6 +24,8 @@
 #  district               :string
 #  sex                    :string
 #  is_designer            :boolean          default(FALSE)
+#  rating                 :integer
+#  commit                 :string
 #
 # Indexes
 #
