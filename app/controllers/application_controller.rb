@@ -19,6 +19,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_is_designer
+    if !current_user.designer?
+      flash[:alert] = "你还不是达人，成为达人，开始接单吧"
+      redirect_to "/"
+    end
+  end
+
 
   def avatar!
     if current_user.avatar.present?

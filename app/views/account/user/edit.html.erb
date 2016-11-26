@@ -17,7 +17,6 @@
       <% else %>
         <!-- <%= image_tag("http://placehold.it/200x200", class:"thumbnail")%> -->
         <%= image_tag current_user.gravatar_url(:size => 100) %>
-
       <% end %>
       <br>
       <br>
@@ -33,6 +32,7 @@
     </div>
 
     <div>
+      <br>
       <%= f.input :nickname, label:"昵称" %>
       <%= f.input :description, label:"个性签名" %>
       <%= f.input :age, label:"年龄", collection: 18..40, prompt: "请选择年龄", selected: 28 %>

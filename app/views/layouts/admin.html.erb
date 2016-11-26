@@ -14,20 +14,38 @@
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
             <div class="row main">
+<!-- <<<<<<< HEAD -->
 
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-4 col-md-2 sidebar">
+        <div class="col-md-2 sidebar">
           <ul class="nav nav-sidebar">
 
-              <h3 style="max-width: 250px;"><i class="fa fa-user fa-1x "> 管理员后台</i></h3>
+              <h3 style="max-width: 250px;">管理员后台</h3>
 
             <li class="active"> <%= link_to(content_tag(:i, " 全部用户", class: "fa fa-users"), admin_users_path) %></li>
             <li class="active"> <%= link_to(content_tag(:i, " 全部订单", class: "fa fa-archive"), admin_requests_path) %> </li>
-          </ul>
-        </div>
-        <div class="col-sm-8 col-md-10">
-          <%= yield %>
+          </ul> -->
+ <!-- ======= -->
+             <div class="col-sm-4 col-md-2 margin-left:20px; ">
+                <h3 style="max-width: 250px;margin-left: 28px;"> 管理员后台</h3>
+
+                  <ul class="list-group" style="max-width: 250px; padding-top:15px; margin-left: 20px;">
+
+                   <li class="list-group-item">
+                    <%= link_to(content_tag(:i, " 全部用户", class: "fa fa-users"), admin_users_path) %>
+                   </li>
+                   <li class="list-group-item">
+                    <%= link_to(content_tag(:i, " 全部订单", class: "fa fa-archive"), admin_requests_path) %>
+                   </li>
+
+                </ul>
+              </div>
+
+              <div class="col-md-10">
+                <%= yield %>
+              </div>
+<!-- >>>>>>> develop -->
         </div>
   </div>
 </div>

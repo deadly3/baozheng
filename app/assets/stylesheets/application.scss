@@ -10,14 +10,11 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require bootstrap-custom.scss
+ *= require agency/agency.css
  *= require_self
  *= require font-awesome
  */
-
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome";
 
 
 
@@ -107,3 +104,23 @@ footer {
     border-right: 1px solid #eee;
   }
 }
+
+ body{
+   padding-top: 70px;
+ }
+ .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+   background-color: black;
+   color: #fed136;
+ }
+
+.dropdown-menu{
+  background-color: #000;
+  li > .a:hover {
+    background-color: #000!important;
+  }
+}
+ .nav-drop{
+   a{
+    //  background-color: black;
+   }
+ }

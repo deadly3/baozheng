@@ -1,219 +1,151 @@
-<!DOCTYPE html>
+          <header id="landing-page">
+              <div class="container">
+                  <div class="intro-text" style="padding-top: 90px;">
+                      <div class="intro-heading">房间赏心悦目，空间感大一倍</div>
+                          <div class="intro-lead-in">
+                          <br>订制个性化收纳方案
+                          <br>听达人分享整理技巧
+                          <br>房间干净，心情清爽
+                          <br>下次搬家，说走就走
+                          <br><br>
+                          </div>
+                        <%= link_to("立即注册，赠送达人整理手册", new_user_registration_path, class:"page-scroll btn btn-xl") %>
+                  </div>
+              </div>
+          </header>
 
-<html>
-    <body>
-        <div class="bz-part-1">
-          <div class="bz-part-1-bg" id="bz-part-1-bg-id"></div>
-            <div class="container-fluid">
-              <!-- <div class="bz-part-1-bg-gray" id="bz-part-1-bg-gray-id"></div> -->
 
+<!-- 线上服务流程 -->
+          <section id="services">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-12 text-center" >
+                          <h2 class="section-heading" >线上服务流程</h2>
+                          <h3 class="section-subheading text-muted">简单便捷的服务流程，帮您轻松搞定室内杂务。</h3>
+                      </div>
+                  </div>
+                  <div class="row text-center" style="background-color: white">
+                      <div class="col-md-4">
+                        <img src="http://ww3.sinaimg.cn/large/65e4f1e6jw1f9tx2nkwycj20hs08cgmb.jpg" style="width:100%">
+                          <h4 class="service-heading" >发起整理需求</h4>
+                          <p class="text-muted">上传自己预期的照片，简单说明整理需求。达人进行抢单，了解对方需求。由用户选定一名达人进行合作并付款。</p>
+                      </div>
+                      <div class="col-md-4">
+                        <img src="http://ww3.sinaimg.cn/large/65e4f1e6jw1f9tx2nijm7j20hs08caam.jpg" style="width:100%">
+
+                          <h4 class="service-heading">线上指导</h4>
+                          <p class="text-muted">达人给出解决方案，用户购置相关物品，由达人在线指导整理。</p>
+                      </div>
+                      <div class="col-md-4">
+                        <img src="http://ww4.sinaimg.cn/large/65e4f1e6jw1f9tx2ngeycj20hs08cmy4.jpg" style="width:100%">
+
+                          <h4 class="service-heading">焕然一新</h4>
+                          <p class="text-muted">房间焕然一新，发朋友圈炫耀！如果你满意达人提供的服务，记得给好评哦。</p>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+
+<!-- 优选达人作品 -->
+        <section id="portfolio" class="bg-light-gray">
+            <div class="container" >
                 <div class="row">
-                    <div class="title-text">
-                        <div class="col-md-12 headfontsize">
-                            <h1 class="bz-part-1-text-1">
-                                房间赏心悦目，空间感大一倍
-                            </h1>
-                            <br><br>
-                            <p>订制个性化收纳方案<br>
-                            <br>听达人分享整理技巧<br>
-                            <br>房间干净，心情清爽<br>
-                            <br>下次搬家，说走就走</p>
-                            <div class='btn-bz-user-sign-up'>
-                              <%= link_to("立即注册，赠送达人整理手册", new_user_registration_path, class:"btn btn-danger btn-lg") %>
-                            </div>
-                        </div>
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">达人优选作品</h2>
+                        <h3 class="section-subheading text-muted">点击你喜欢的作品，和达人发起会话！</h3>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- body第1部分 结束-->
-
-        <!-- body第2部分 开始-->
-
-        <div class="bz-part-2">
-            <div class="container-fluid">
-                <div class="bz-part-2-block-1">
-                    <div class="bz-part-2-block-1-text">
-                        <h1 class="bz-part-2-block-1-text-h1">线上解决方案</h1>
-                        <p>达人手把手指导，让整理房间如有神助</p>
-                    </div>
-                    <div class="bz-part-2-row">
-                      <center>
-                        <div class="bz-part-2-step-1 col-md-4">
-                            <div class="bz-part-2-step-1-pic" >
-                              <img src="http://ww3.sinaimg.cn/large/65e4f1e6jw1f9tx2nkwycj20hs08cgmb.jpg" style="width:100%">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 portfolio-item">
+                        <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                            <div class="portfolio-hover">
                             </div>
-                                <div class="bz-part-2-step-1-text">
-                                    <a href="#">
-                                    <h3>发出需求</h3>
-                                    </a>
-                                  <p>发起定制，与达人确定需求。</p>
-                                </div>
-                        </div>
-
-                        <div class="bz-part-2-step-2 col-md-4">
-                            <div class="bz-part-2-step-2-pic">
-                              <img src="http://ww3.sinaimg.cn/large/65e4f1e6jw1f9tx2nijm7j20hs08caam.jpg" style="width:100%">
-                            </div>
-                                <div class="bz-part-2-step-2-text">
-                                    <a href="#">
-                                    <h3>达人接单</h3>
-                                    </a>
-                                  <p>达人给出解决方案，用户购置物品，<br>达人指导整理。</p>
-                                </div>
-                        </div>
-
-                        <div class="bz-part-2-step-3 col-md-4">
-                            <div class="bz-part-2-step-3-pic">
-                              <img src="http://ww4.sinaimg.cn/large/65e4f1e6jw1f9tx2ngeycj20hs08cmy4.jpg" style="width:100%">
-                            </div>
-                                <div class="bz-part-2-step-3-text">
-                                    <a href="#">
-                                    <h3>焕然一新</h3>
-                                    </a>
-                                  <p>房间焕然一新，分享至朋友圈。</p>
-                                </div>
-                        </div>
-                            <br>
-                            <br>
-                            <br>
-                          </center>
+                            <%= image_tag "portfolio/organize1.jpg", class: "img-responsive"%>
+                        </a>
+                        <div class="portfolio-caption">
+                            <h4>玄关收纳</h4>
+                            <p class="text-muted">@正一宏洪</p>
                         </div>
                     </div>
-                </div>
-                <!-- body第2部分第2分支 直接发起任务，暂时不做-->
-                <!-- <div class="bz-part-2-block-2">
-                </div>  -->
-        </div>
-        <!-- body第2部分 结束-->
+                    <div class="col-md-4 col-sm-6 portfolio-item">
+                        <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                            <div class="portfolio-hover">
 
-        <!-- body第3部分 开始-->
-
-
-        <div class="bz-part-3">
-            <div class="container">
-
-                <div class="bz-part-3-1">
-                    <div class="bz-part-3-block-1-text">
-                        <h1 class="bz-part-3-block-1-text-h1">达人优选作品</h1>
-                        <p>以下，是让你跪下的作品</p>
+                            </div>
+                            <%= image_tag "portfolio/organize2.jpg", class: "img-responsive"%>
+                        </a>
+                        <div class="portfolio-caption">
+                            <h4>厨房收纳</h4>
+                            <p class="text-muted">@深泽直人</p>
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="bz-part-3-1">
-                            <a href="#">
-                                <img src="http://ww1.sinaimg.cn/large/65e4f1e6jw1f9txiract9j20l406c0tk.jpg" style="width:100%" class="img-thumbnail"></a>
-                            <br><br>
-                            <div class="quan-1">
-                                <div class="bz-part-3-1-1 col-md-3">
-                                    <a href="#">
-                                        <img src="http://ww2.sinaimg.cn/large/65e4f1e6jw1f9txt0oy2aj205k05kt8n.jpg" style="width:100px" class="img-circle"></a>
-                                </div>
-                                <div class="bz-part-3-1-2 col-md-3">
-                                    <h3>我叫达人林丹丹</h3>
-                                </div>
-                                <div class="bz-part-3-1-3 col-md-3">
-                                    <h3>波西米亚火辣风</h3>
-                                </div>
-                                <div class="bz-part-3-1-4 col-md-3">
-                                    <p>简介：在浓郁当中，带有一点热情，热情当中，带有一点火辣，总体偏向波西米亚，令你化繁为简，从此你家的林丹，天天回家</p>
-                                <br></div>
+                    <div class="col-md-4 col-sm-6 portfolio-item">
+                        <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                            <div class="portfolio-hover">
+
                             </div>
+                            <%= image_tag "portfolio/organize3.jpg", class: "img-responsive"%>
+                        </a>
+                        <div class="portfolio-caption">
+                            <h4>衣橱收纳</h4>
+                            <p class="text-muted">@山下英子</p>
                         </div>
-
-                        <div class="bz-part-3-2">
-                            <a href="#">
-                                <img src="http://ww3.sinaimg.cn/large/65e4f1e6jw1f9txir9ia8j20l4062jsn.jpg" style="width:100%" class="img-thumbnail"></a>
-                            <br><br>
-
-                            <div class="quan-2">
-                                <div class="bz-part-3-2-1 col-md-3">
-                                    <a href="#">
-                                        <img src="http://ww4.sinaimg.cn/large/65e4f1e6jw1f9txt0mpcaj205k05k74j.jpg" style="width:100px" class="img-circle"></a>
-                                </div>
-                                <div class="bz-part-3-2-2 col-md-3">
-                                    <h3>我叫达人王毛毛</h3>
-                                </div>
-                                <div class="bz-part-3-2-3 col-md-3">
-                                    <h3>快速远离纠结风</h3>
-                                </div>
-                                <div class="bz-part-3-2-4 col-md-3">
-                                    <p>简介：从此你再也不需要纠结，每天都出处于丢丢丢的狂暴状态，你在眼中没有一物需要保留，丢丢丢，令你一秒做出爽快决定</p>
-                                  <br></div>
-                            </div>
-                        </div>
-                        <div class="bz-part-3-3">
-                            <a href="#">
-                                <img src="http://ww3.sinaimg.cn/large/65e4f1e6jw1f9txir5lt2j20l40623zn.jpg" style="width:100%" class="img-thumbnail"></a>
-                        <br><br>
-
-                            <div class="quan-3">
-                                <div class="bz-part-3-3-1 col-md-3">
-                                    <a href="#">
-                                        <img src="http://ww2.sinaimg.cn/large/65e4f1e6jw1f9txt0hdcpj205k05kq2x.jpg" style="width:100px" class="img-circle"></a>
-                                </div>
-                                <div class="bz-part-3-3-2 col-md-3">
-                                    <h3>我叫达人钱多多</h3>
-                                </div>
-                                <div class="bz-part-3-3-3 col-md-3">
-                                    <h3>帝王简约奢华风</h3>
-                                </div>
-
-                                <div class="bz-part-3-3-4 col-md-3">
-                                    <p>简介：你首先必须一定，在北京二环内先买套房，然后舒展你的手脚，抖擞你的精神，稍微象征性的整理一下，令你立马节省100万的空间</p>
-                                  <br></div>
-                            </div>
-                        </div>
-
-
-
                     </div>
 
                 </div>
             </div>
+        </section>
 
-        </div>
-        <!-- body第3部分 结束-->
 
-        <!-- body第4部分 开始-->
-
-        <div class="bz-part-4">
+  <!-- 合作伙伴 -->
+        <aside class="clients">
             <div class="container">
-                <div class="bz-part-4-block-1">
-                    <div class="bz-part-4-block-1-text">
-                        <h1 class="bz-part-4-block-1-text-h1">合作伙伴</h1>
-                        <p>各大家居品牌，密切交流合作</p>  <br>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <a href="#">
+                          <%= image_tag "logos/logo1.png", class: "img-responsive img-centered"%>
+                        </a>
                     </div>
-                    <div class="row">
-                        <div class="bz-part-4 col-md-3">
-                            <a href="#">
-                                <img src="http://ww2.sinaimg.cn/large/65e4f1e6jw1f9ty9i9bn3j20go09tmxn.jpg" style="width:200px" ></a>
+                    <div class="col-md-3 col-sm-6">
+                        <a href="#">
+                          <%= image_tag "logos/logo2.jpeg", class: "img-responsive img-centered"%>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <a href="#">
+                          <%= image_tag "logos/logo3.jpeg", class: "img-responsive img-centered"%>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <a href="#">
+                          <%= image_tag "logos/logo4.png", class: "img-responsive img-centered"%>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
 
+        <!-- Call to Action Section -->
+        <section id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading color=black">明天清晨醒来，房间像刚收拾过一样整洁。</h2>
+                        <h3 class="section-subheading text-muted">现在注册获取50元优惠券。</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                            <div class="row">
+                                <div class="clearfix"></div>
+                                <div class="col-lg-12 text-center">
+                                    <div id="success"></div>
+
+                                      <%= link_to("立即注册！", new_user_registration_path, class:"page-scroll btn btn-xl") %>
+                                </div>
                             </div>
-
-                            <div class="bz-part-4 col-md-3">
-                                <a href="#">
-                                    <img src="http://ww2.sinaimg.cn/large/65e4f1e6jw1f9u2k9h07xj207h04ywf3.jpg" style="width:200px"></a>
-
-                                </div>
-
-                                <div class="bz-part-4 col-md-3">
-                                    <a href="#">
-                                        <img src="http://ww4.sinaimg.cn/large/65e4f1e6jw1f9ty9i453vg20f108lq3d.gif" style="width:250px"></a>
-
-                                    </div>
-                                    <div class="bz-part-4 col-md-3">
-                                        <a href="#">
-                                            <img src="http://ww3.sinaimg.cn/large/65e4f1e6jw1f9u58kbfy5j20f404c3yw.jpg" style="width:300px"></a>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- body第4部分 结束-->
-
-                                <!-- body第5部分 开始-->
-                                <br><br><br>
-                                <div class="bz-part-5">
-                                    <div class="container-fluid">
-
-                                        <div class="bz-part-5-text" &
+                    </div>
+                </div>
+            </div>
+        </section>

@@ -1,0 +1,2 @@
+module Designer::ConversationsHelper
+end

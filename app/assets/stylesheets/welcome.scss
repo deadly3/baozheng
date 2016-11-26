@@ -3,114 +3,124 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 // 以下是首屏图片
-
-.bz-part-1{
-    height: 550px;
-}
-
-.bz-part-1-bg {
-  height: 500px;
-  width: 100%;
-  position: absolute;
-  background-position: center center;
-  background-size: cover;
-}
-
-#bz-part-1-bg-id{
-  background-image: url(http://hoop8.com/1611D/oROMK4DU.jpg);
-}
-.navbar {
-    margin-bottom: 0 ;
-}
-// 以上是首屏图片
-
-
-// 以下是半透明图层
-#bz-part-1-bg-gray-id
-{
-  background-image: url(http://ww1.sinaimg.cn/large/65e4f1e6jw1f9tvnx628wj20f208q742.jpg);
-}
-
-// 以上是半透明图层
-
-// 以下是首屏图片的文字
-.bz-part-1-text-1{
-  margin-top: 80px;
-  z-index:2;
-}
-
-.title-text{
-  text-align: center;
-  z-index:2;
-}
-
-.body-text{
-  text-align: right;
-  margin-right: 80px;
-  z-index:2;
-}
-
-.headfontsize h1{
-  font-size: 40pt;
-  color: #333333;
-}
-
-.headfontsize p{
-  font-size: 13pt;
-  color: #333333;
-}
-
-.btn-bz-user-sign-up{
-margin-top: 50px;
-line-height: 50px;
-
-}
-
-.bz-part-2-block-1{
-  text-align: center;
-}
-
-.bz-part-2-row{
-  text-align: center;
-}
-
-.bz-part-2-step-1-pic{
-  width: 100%
-}
-
-.bz-part-2-step-2-pic{
-  width: 100%
-}
-
-.bz-part-2-step-3-pic{
-  width: 100%
-}
-
-
-.bz-part-3-block-1-text{
-  text-align: center;
-    margin-top: 70px;
-}
-
-.bz-part-4-block-1-text{
-  text-align: center;
-}
-
-.bz-part-5{
-    text-align: center;
-}
-
-
-.bz-part-5-text-h1{
-  text-align: center;
-}
-.navbar-brand{
-  background-position: -5px -5px;
-}
-
-
-.site-footer{
-  padding-top: 20px;
-
-}
+// 
+// .bz-part-1{
+//     height: 550px;
+// }
+//
+// .bz-part-1-bg {
+//   height: 500px;
+//   width: 100%;
+//   position: absolute;
+//   background-position: center center;
+//   background-size: cover;
+// }
+//
+// #bz-part-1-bg-id{
+//   background-image: url(http://hoop8.com/1611D/oROMK4DU.jpg);
+// }
+//
+// // 以上是首屏图片
+//
+//
+// // 以下是半透明图层
+// #bz-part-1-bg-gray-id
+// {
+//   background-image: url(http://ww1.sinaimg.cn/large/65e4f1e6jw1f9tvnx628wj20f208q742.jpg);
+// }
+//
+// // 以上是半透明图层
+//
+// // 以下是首屏图片的文字
+// .bz-part-1-text-1{
+//   margin-top: 80px;
+//   z-index:2;
+// }
+//
+// .title-text{
+//   text-align: center;
+//   z-index:2;
+// }
+//
+// .body-text{
+//   text-align: right;
+//   margin-right: 80px;
+//   z-index:2;
+// }
+//
+// .headfontsize h1{
+//   font-size: 40pt;
+//   color: #333333;
+// }
+//
+// .headfontsize p{
+//   font-size: 13pt;
+//   color: #333333;
+// }
+//
+// .btn-bz-user-sign-up{
+// margin-top: 50px;
+// line-height: 50px;
+//
+// }
+//
+// .bz-part-2-block-1{
+//   text-align: center;
+// }
+//
+// .bz-part-2-row{
+//   text-align: center;
+// }
+//
+// .bz-part-2-step-1-pic{
+//   width: 100%
+// }
+//
+// .bz-part-2-step-2-pic{
+//   width: 100%
+// }
+//
+// .bz-part-2-step-3-pic{
+//   width: 100%
+// }
+//
+//
+// .bz-part-3-block-1-text{
+//   text-align: center;
+//     margin-top: 70px;
+// }
+//
+// .bz-part-4-block-1-text{
+//   text-align: center;
+// }
+//
+// .bz-part-5{
+//     text-align: center;
+// }
+//
+//
+// .bz-part-5-text-h1{
+//   text-align: center;
+// }
+// .navbar-brand{
+//   background-position: -5px -5px;
+// }
+//
+//
+// .site-footer{
+//   padding-top: 20px;
+//
+// }
