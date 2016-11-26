@@ -14,6 +14,6 @@ class Designer::UserController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :description, :avatar, :token)
+    params.require(:user).permit(:nickname, :description, :age, :district, :sex, :avatar, :token)
   end
 end
