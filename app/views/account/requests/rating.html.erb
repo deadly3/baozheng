@@ -24,9 +24,56 @@
     </div>
       <hr>
 
+
 5 star<br>
 
 
 commit <br>
 
 submit
+<div class="col-md-4 col-md-offset-4">
+    <h2>以下是评价系统</h2>
+
+    <hr>
+    <%= simple_form_for @feedback ,url: rating_submit_account_request_path do |f| %>
+<br>
+
+
+    <%= f.input :rating,:as => :hidden ,id: 'feedback_rating'%>
+    <%= f.input :user_id ,value: @winner.id %>
+    <%= f.input :commit %>
+
+
+
+    <div id="rating-for-message-1" class="text-center"></div>
+    <br>
+    <%= f.submit "评价完成", class: "btn btn-default outline", :disable_with => 'Submiting...' %>
+		<br>
+    <% end %>
+</div>
+
+<!-- <link rel="stylesheet" href="jquery.raty.css"> -->
+<!-- <script src="jquery.raty.js"></script> -->
+
+<div></div>
+
+<!-- 律师端的评价系统 -->
+          <script>
+          //$('div').raty({ starType: 'i' });
+          $(function() {
+            // 初始化rating选框
+            function initRating(obj) {
+              obj.raty({
+                path:"/",
+                starOff: 'star-off.png',
+                starOn: 'star-on.png',
+                size: 32,
+                click: function(score, evt) {
+                  $('#feedback_rating').val(score);
+                }
+              });
+            };
+            var ratableObj = $('#rating-for-message-1');
+            initRating(ratableObj);
+          });
+          </script>

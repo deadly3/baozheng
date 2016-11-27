@@ -27,10 +27,11 @@ Rails.application.routes.draw do
     resources :requests do
       member do
         get :rating
-        get :feedback
         get :display
         post :choose
         post :make_payment
+        
+        post :rating_submit
       end
       resources :users
     end
