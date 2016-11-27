@@ -14,6 +14,7 @@
           <%= render :partial => "shared/admin_homepage_extra" %>
         <% end %>
 </div>
+<div
       <hr><div align="left">
       达人简介
       <p><%= @winner.description %></p>
@@ -24,13 +25,6 @@
     </div>
       <hr>
 
-
-5 star<br>
-
-
-commit <br>
-
-submit
 <div class="col-md-4 col-md-offset-4">
     <h2>以下是评价系统</h2>
 
@@ -39,7 +33,7 @@ submit
 <br>
 
 
-    <%= f.input :rating,:as => :hidden ,id: 'feedback_rating'%>
+    <%= f.input :rating, :as => :hidden %>
     <%= f.input :user_id ,value: @winner.id %>
     <%= f.input :commit %>
 
@@ -52,8 +46,8 @@ submit
     <% end %>
 </div>
 
-<!-- <link rel="stylesheet" href="jquery.raty.css"> -->
-<!-- <script src="jquery.raty.js"></script> -->
+<link rel="stylesheet" href="jquery.raty.css">
+<script src="jquery.raty.js"></script>
 
 <div></div>
 

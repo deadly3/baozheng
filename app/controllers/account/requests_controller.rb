@@ -89,7 +89,7 @@ end
 
 def rating_submit
   rate = Feedback.create(rate_params)
-  binding.pry
+
   redirect_to '/'
 
 # 接受来自前一个页面的rating，然后生成一个新的rating数据
