@@ -4,6 +4,10 @@ class WorksController < ApplicationController
     @works = Work.published.paginate(:page => params[:page], :per_page => 8)
   end
 
+  def show
+    @work = Work.find(params[:id])
+    @designer = @work.user
+  end
   private
 
   def work_params
