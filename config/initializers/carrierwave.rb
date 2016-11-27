@@ -3,17 +3,17 @@ CarrierWave.configure do |config|
     config.storage :fog
     config.fog_credentials = {
       provider:              'AWS',
-      aws_access_key_id:     ENV["AKIAIHIWVL6XSG2FBBJA"],      # 你的 key
+      aws_access_key_id:     ENV["AWS_ACCESS_KEY_ID"],      # 你的 key
 
 
-      aws_secret_access_key: ENV["KWBq6NYAm9dBdSrROeE3dbXtekve2LastdZTu0oh"],      # 你的 secret key
+      aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],      # 你的 secret key
 
 
       region:                'us-west-2' # 你的 S3 bucket 的 Region 位置
 
 
     }
-    config.fog_directory  = ENV["baozheng101"] # 你设定的 bucket name
+    config.fog_directory  = ENV["AWS_BUCKET_NAME"] # 你设定的 bucket name
 
 
 
