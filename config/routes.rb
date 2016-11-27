@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :user
     resources :requests do
       member do
+        get :rating
         get :feedback
         get :display
         post :choose
@@ -41,12 +42,6 @@ Rails.application.routes.draw do
     resources :user_conversations
 
     resources :works
-    resources :feedbacks do
-      collection do
-        post :rating
-        post :commit
-      end
-    end
   end
   #./用户中心
 
@@ -71,7 +66,6 @@ Rails.application.routes.draw do
         get :joined_requests
       end
     end
-    resources :feedbacks
   end
   # ./管理后台
 
@@ -116,7 +110,6 @@ Rails.application.routes.draw do
     resources :user_conversations
 
     resources :works
-    resources :feedbacks
   end
   #./达人后台
 
