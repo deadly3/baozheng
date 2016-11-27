@@ -90,7 +90,7 @@ end
 def rating_submit
   rate = Feedback.create(rate_params)
 
-  redirect_to '/'
+  redirect_to account_requests_path
 
 # 接受来自前一个页面的rating，然后生成一个新的rating数据
 end
