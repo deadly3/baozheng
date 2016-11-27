@@ -14,7 +14,6 @@ module Baozheng
     # -- all .rb files in that directory are automatically loaded.
 
   config.i18n.default_locale = :"zh-CN"
-  config.assets.initialize_on_precompile = false
 
 
   end
