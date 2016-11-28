@@ -2,7 +2,6 @@ class Feedback < ApplicationRecord
   belongs_to :user
 
   validates :user_id, presence: true
-  validates :commit, presence: true
   validates :rating, presence: true, numericality: { greater_than: 0}
 end
 
