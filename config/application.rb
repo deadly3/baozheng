@@ -1,5 +1,6 @@
 require_relative 'boot'
 require "devise"
+require "devise-i18n"
 require 'rails/all'
 
 
