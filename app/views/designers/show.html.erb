@@ -1,56 +1,9 @@
-<div id="coverphoto-designer" class="" style="background-image:url(https://s.yimg.com/pw/images/coverphoto03_h.jpg.v3)">
-  <div class="position col-md-offset-1">
-    <div class="coverphoto-gradient">
-    </div>
-    <div>
-      <% if @designer.avatar.present? %>
-        <%= image_tag(@designer.avatar.url, class:"avatar-designer-show ")%>
-      <% else %>
-        <%= image_tag("http://placehold.it/200x200&text=avatar", class:"avatar-designer-show")%>
-      <% end %>
-    </div>
-    <div class="title-block-content ">
-      <h1 class="title title-link-included pull-left">
-        <%= @designer.nickname %>  的主页
-      </h1>
-      <%= link_to(content_tag(:i, "发起对话", class: "fa fa-paper-plane" ), account_user_conversation_path(@designer.token ) , :class => "designer-conversation-btn pull-left") %>
-    </div>
-    <h2 class="">个人简介</h2>
-    <h3 class="text-right ">
-      <% if @designer.description.present? %>
-        <%= @designer.description %>
-      <% else %>
-        这个达人很酷,还没有自我简介。
-      <% end %>
-    </h3>
-  </div>
-</div>
-
-<div class="" style="height: 50px; margin-bottom: 20px;">
-</div>
-<hr>
-
-<!-- <div id="" class="designer-main col-md-offset-1 col-sm-offset-1" style="background-color: #f3f5f6;">
-  <h2>个人简介</h2>
-  <h3 class="text-right">
-
-  </h3>
-  <hr>
-  <h2>作品总览</h2>
-  <div class="row works-group">
-
-
-
-
-  </div>
-</div> -->
-
-
 <%= render 'designer/header' %>
 
 <div class="publicaciones-blog-home">
   <div class="container" style="margin-left: -15px;">
     <div class="" style="margin-top: -70px; ">
+      <br>
       <h2>作品总览</h2>
       <div class="row-page row" >
 
