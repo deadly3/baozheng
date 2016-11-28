@@ -1,5 +1,6 @@
 require_relative 'boot'
-
+require "devise"
+require "devise-i18n"
 require 'rails/all'
 
 
@@ -14,7 +15,6 @@ module Baozheng
     # -- all .rb files in that directory are automatically loaded.
 
   config.i18n.default_locale = :"zh-CN"
-
 
 
   end

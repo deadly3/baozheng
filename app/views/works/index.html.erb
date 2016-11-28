@@ -6,6 +6,7 @@
       <div class="col-md-4 col-sm-6 portfolio-item" >
         <%= link_to(work_path(work), class:"portfolio-link") do %>
             <div class="portfolio-hover">
+
             </div>
             <% if work.image.present? %>
                 <%= image_tag(work.image.thumb.url, class:"img-responsive") %>
