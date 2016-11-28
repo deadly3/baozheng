@@ -27,8 +27,7 @@
                           <%= link_to("联系达人", account_user_conversation_path(r.user.token), :class => "btn btn-info btn-sm") %>
                         </th>
                         <th><em class="fa fa-cog"> 编辑订单</em></th>
-                        <th>抢单状态</th>
-                        <th>发起评价</th>
+                        <th>订单状态</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -57,7 +56,7 @@
                             </td>
                             <td>
                               <% if r.winner.present? && r.paid? %>
-                                <%= link_to("已付款", "#", :class => "btn btn-success", disabled: true) %>
+                              <%= link_to("发起评价", rating_account_request_path(r.token), :class => "btn btn-info") %>
                               <% elsif r.winner.present? && !r.paid? %>
                                 <%= link_to("支付", make_payment_account_request_path(r.token),:method => :post, :class => "btn btn-danger") %>
                               <% elsif r.applicants.present? %>
@@ -66,14 +65,6 @@
                                 暂无人接单
                               <% end %>
                             </td>
-                            <td>
-                              <% if r.winner.present? && r.paid? %>
-                              <%= link_to("发起评价", rating_account_request_path(r.token), :class => "btn btn-danger") %>
-                              <% else %>
-                              <%= link_to("发起评价", "#", :class => "btn btn-danger", disabled: true)  %>
-                              <% end %>
-                            </td>
-
                           </tr>
                         </tbody>
                 </table>
