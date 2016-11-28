@@ -8,6 +8,7 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
     @designer = @work.user
   end
+
   private
 
   def work_params
