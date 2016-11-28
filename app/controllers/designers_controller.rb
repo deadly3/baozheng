@@ -7,5 +7,6 @@ class DesignersController < ApplicationController
 
   def show
     @designer = User.find_by_token(params[:id])
+    @works = @designer.works
   end
 end

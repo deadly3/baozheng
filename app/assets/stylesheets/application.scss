@@ -11,10 +11,11 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap-custom.scss
- *= require agency/agency.css
  *= require_self
- *= require font-awesome
+ *= require designers.scss
  *= require works.scss
+ *= require agency/agency.css
+ *= require font-awesome
  */
 
 
