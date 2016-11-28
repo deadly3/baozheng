@@ -47,7 +47,7 @@ class User < ApplicationRecord
   has_many :requests
   has_many :request_relationships
   has_many :applied_requests, :through => :request_relationships, :source => :request
-
+  has_many :feedbacks
   acts_as_messageable
 
 
@@ -75,7 +75,7 @@ class User < ApplicationRecord
   def designer?
     is_designer
   end
-  
+
   def make_user!
     self.is_designer = false
     self.save

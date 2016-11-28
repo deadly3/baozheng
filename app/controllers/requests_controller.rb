@@ -43,4 +43,7 @@ class RequestsController < ApplicationController
     params.require(:request).permit(:title, :description, :user_id, :before_picture, :dream_picture, :token, :aasm_state)
   end
 
+
+  
+
 end

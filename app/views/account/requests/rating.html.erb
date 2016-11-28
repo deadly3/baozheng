@@ -1,0 +1,69 @@
+<header>
+  <div class="user_background_image">
+  </div>
+</header>
+
+<div align="center">
+  <br>
+<h4>欢迎来到 达人评价页面
+  <br>请为我的服务 评价五星哦^ ^
+</h4>
+    <%= render 'common/avatar' %>
+        <h4><%= @winner.nickname %></h4>
+        <% if current_user.is_admin %>
+          <%= render :partial => "shared/admin_homepage_extra" %>
+        <% end %>
+</div>
+  <div class="row">
+      <hr><div class="col-md-6" align="left">
+      <h4>达人简介</h4>
+      <p><%= @winner.description %></p>
+      <h4>达人性别</h4>
+      <p><%= @winner.sex %></p>
+      <h4>达人所在地区</h4>
+      <p><%= @winner.district %></p>
+    </div>
+
+<div class="col-md-6 " align="right">
+    <h4>感谢您的金玉良言</h4>
+
+    <%= simple_form_for @feedback ,url: rating_submit_account_request_path do |f| %>
+
+    <%= f.input :rating, :as => :hidden %>
+    <%= f.input :user_id ,:as => :hidden , input_html: { value: @winner.id } %>
+    <%= f.input :commit, label:"请输入您的评价"%>
+
+
+
+    <div id="rating-for-message-1" class="text-center"></div>
+    <br>
+    <%= f.submit "评价完成", class: "btn btn-info", :disable_with => 'Submiting...' %>
+		<br>
+    <% end %>
+</div>
+</div>
+<!-- <link rel="stylesheet" href="jquery.raty.css">
+<script src="jquery.raty.js"></script> -->
+
+<div></div>
+
+<!-- 律师端的评价系统 -->
+          <script>
+          //$('div').raty({ starType: 'i' });
+          $(function() {
+            // 初始化rating选框
+            function initRating(obj) {
+              obj.raty({
+                path:"/",
+                starOff: 'star-off.png',
+                starOn: 'star-on.png',
+                size: 32,
+                click: function(score, evt) {
+                  $('#feedback_rating').val(score);
+                }
+              });
+            };
+            var ratableObj = $('#rating-for-message-1');
+            initRating(ratableObj);
+          });
+          </script>
