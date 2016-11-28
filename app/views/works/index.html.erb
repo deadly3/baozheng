@@ -6,7 +6,7 @@
       <div class="row-page row">
 
         <% @works.each do |work| %>
-            <div class="col-page col-sm-4 col-md-3">
+            <div class="col-page col-sm-4 col-md-3" style="padding-left: 0px;">
               <%= link_to(designer_path(work.user.token), class:"fondo-publicacion-home") do %>
                 <!-- <a href=""  class="fondo-publicacion-home"> -->
                   <div class="img-publicacion-home">
@@ -78,45 +78,25 @@
 
 
 <section id="portfolio" class="bg-light-gray">
-    <div class="container" >
-        <div class="row">
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                    <div class="portfolio-hover">
-                    </div>
-                    <%= image_tag "portfolio/organize1.jpg", class: "img-responsive"%>
-                    <!-- <img class="" src="https://placeholdit.imgix.net/~text?txtsize=34&amp;txt=&amp;w=500&amp;h=300"> -->
-                </a>
-                <div class="portfolio-caption">
-                    <h4>玄关收纳</h4>
-                    <p class="text-muted">@正一宏洪</p>
+  <div class="container" >
+    <div class="row">
+        <% @works.each do |work| %>
+        <%= link_to(designer_path(work.user.token), class:"protfolio-link") do %>
+        <% end %>
+          <div class="col-md-4 col-sm-6 portfolio-item" style="padding-left: 0px;">
+            <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                <div class="portfolio-hover">
                 </div>
+                <%= image_tag "portfolio/organize1.jpg", class: "img-responsive"%>
+                <!-- <img class="" src="https://placeholdit.imgix.net/~text?txtsize=34&amp;txt=&amp;w=500&amp;h=300"> -->
+            </a>
+            <div class="portfolio-caption">
+                <h4>玄关收纳</h4>
+                <p class="text-muted">@正一宏洪</p>
             </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                    <div class="portfolio-hover">
-
-                    </div>
-                    <%= image_tag "portfolio/organize2.jpg", class: "img-responsive"%>
-                </a>
-                <div class="portfolio-caption">
-                    <h4>厨房收纳</h4>
-                    <p class="text-muted">@深泽直人</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                    <div class="portfolio-hover">
-
-                    </div>
-                    <%= image_tag "portfolio/organize3.jpg", class: "img-responsive"%>
-                </a>
-                <div class="portfolio-caption">
-                    <h4>衣橱收纳</h4>
-                    <p class="text-muted">@山下英子</p>
-                </div>
-            </div>
-
         </div>
+        <% end %>
+
     </div>
+  </div>
 </section>
