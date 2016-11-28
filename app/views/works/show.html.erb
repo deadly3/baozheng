@@ -13,7 +13,8 @@
       <h1 class="title title-link-included pull-left">
         <%= @designer.nickname %>  的主页
       </h1>
-      <%= link_to(content_tag(:i, "发起对话", class: "fa fa-paper-plane" ), account_user_conversation_path(@designer.token ) , :class => "designer-conversation-btn pull-left") %>
+      <%= link_to(content_tag(:i, "发起对话", class: "fa fa-paper-plane"), account_user_conversation_path(@designer.token) , :class => "designer-conversation-btn pull-left") %>
+      <%= link_to("发起对话", account_user_conversation_path(@designer.token) , :class => "designer-conversation-btn pull-left") %>
     </div>
   </div>
 </div>

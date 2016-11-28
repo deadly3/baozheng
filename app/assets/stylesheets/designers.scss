@@ -69,8 +69,9 @@
     min-width: 80px;
 
     position: relative;
+    margin-left: auto;
     padding-left: 32px;
-    top: 28px;
+    top: 27px;
     left: 30px;
 
 
@@ -81,9 +82,9 @@
     font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
     font-weight: 600;
     font-size: 16px;
-    text-align: center;
+    text-align: left;
     text-decoration: none;
-    transition: all .15s ease-in-out;
+    // transition: all .15s ease-in-out;
     border-radius: 3px;
     border: none;
     cursor: pointer;

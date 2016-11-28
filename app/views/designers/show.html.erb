@@ -15,6 +15,14 @@
       </h1>
       <%= link_to(content_tag(:i, "发起对话", class: "fa fa-paper-plane" ), account_user_conversation_path(@designer.token ) , :class => "designer-conversation-btn pull-left") %>
     </div>
+    <h2 class="">个人简介</h2>
+    <h3 class="text-right ">
+      <% if @designer.description.present? %>
+        <%= @designer.description %>
+      <% else %>
+        这个达人很酷,还没有自我简介。
+      <% end %>
+    </h3>
   </div>
 </div>
 
@@ -38,20 +46,11 @@
 </div> -->
 
 
-
+<%= render 'designer/header' %>
 
 <div class="publicaciones-blog-home">
   <div class="container" style="margin-left: -15px;">
-    <div class="" style="margin-top: -70px;">
-      <h2 class="">个人简介</h2>
-      <h3 class="text-right ">
-        <% if @designer.description.present? %>
-          <%= @designer.description %>
-        <% else %>
-          这个达人很酷,还没有自我简介。
-        <% end %>
-      </h3>
-      <hr>
+    <div class="" style="margin-top: -70px; ">
       <h2>作品总览</h2>
       <div class="row-page row" >
 
