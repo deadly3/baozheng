@@ -8,7 +8,11 @@
 <div align="center">
 
 <%= render 'common/avatar' %>
-<%= link_to "申请成为达人", new_work_path, class: "btn btn-lg btn-primary" %>
+<% unless current_user.is_candidate %>
+  <%= link_to "申请成为达人", new_work_path, class: "btn btn-lg btn-primary" %>
+<% else %>
+  <label class="label label-success">已经申请成为达人，请等待审核</label>
+<% end %>
   <hr>
 
 
