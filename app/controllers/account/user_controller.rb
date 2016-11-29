@@ -4,7 +4,7 @@ class Account::UserController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      redirect_to account_user_path(current_user)
+      redirect_to account_user_path(current_user.token)
       flash[:notice] = "改好了 #{current_user.nickname}"
     else
       render :edit
