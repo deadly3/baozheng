@@ -26,9 +26,12 @@ Rails.application.routes.draw do
     resources :user
     resources :requests do
       member do
+        get :rating
         get :display
         post :choose
         post :make_payment
+
+        post :rating_submit
       end
       resources :users
     end
@@ -47,8 +50,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users do
       member do
-        post :make_admin
-        post :make_user
+        post :make_designer
+        post :make_not_designer
+        post :reject
+        post :accept
       end
     end
     resources :works do
@@ -76,6 +81,7 @@ Rails.application.routes.draw do
   end
 
   resources :designers
+
 
   resources :requests do
     member do

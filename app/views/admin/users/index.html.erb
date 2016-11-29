@@ -16,6 +16,7 @@
       <th>昵称</th>
       <th>身份</th>
       <th>权限</th>
+      <th>申请处理</th>
       <th>创建时间</th>
     </tr>
   </thead>
@@ -38,13 +39,19 @@
       </td>
       <td>
         <% if user.is_designer %>
-          <%= link_to("设为申请人", make_user_admin_user_path(user.token) , method: :post, :class => "btn btn-sm btn-warning") %>
+          <%= link_to("设为申请人", make_not_designer_admin_user_path(user.token) , method: :post, :class => "btn btn-sm btn-warning") %>
         <% else %>
-          <%= link_to("设为达人", make_admin_admin_user_path(user.token), method: :post, :class => "btn btn-sm btn-info") %>
+          <%= link_to("设为达人", make_designer_admin_user_path(user.token), method: :post, :class => "btn btn-sm btn-info") %>
         <% end %>
       </td>
       <td>
         <%= user.created_at.strftime("%F %T") %>
+      </td>
+      <td>
+        <% if user.is_candidate %>
+            <%= link_to("拒绝申请", reject_admin_user_path(user.token), method: :post, class: "btn btn-sm btn-default") %>
+            <%= link_to("通过申请", accept_admin_user_path(user.token), method: :post, :class => "btn btn-sm btn-info") %>
+        <% end %>
       </td>
     </tr>
   <% end %>

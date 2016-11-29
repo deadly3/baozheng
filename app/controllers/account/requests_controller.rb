@@ -77,10 +77,33 @@ class Account::RequestsController < ApplicationController
     redirect_to :back
   end
 
+
+def rating
+   @request = Request.find_by_token(params[:id])
+  #  winner_id = @request.winner
+  #  @winner = User.find(winner_id)
+  @winner = User.find(@request.winner)
+  @feedback = Feedback.new
+end
+
+
+def rating_submit
+  rate = Feedback.create(rate_params)
+
+  redirect_to account_requests_path
+
+# 接受来自前一个页面的rating，然后生成一个新的rating数据
+end
+
+
+
   private
 
   def request_params
     params.require(:request).permit(:title, :description, :user_id, :before_picture, :dream_picture, :token, :aasm_state)
   end
 
+  def rate_params
+    params.require(:feedback).permit(:user_id, :rating, :commit)
+  end
 end

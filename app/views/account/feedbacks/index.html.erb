@@ -1,0 +1,32 @@
+<header>
+  <div class="user_background_image">
+  </div>
+</header>
+
+<div align="center">
+  <br>
+<h4>欢迎来到 达人评价页面
+  <br>请为我的服务 评价五星哦^ ^
+</h4>
+    <%= render 'common/avatar' %>
+        <h4><%= @winner.nickname %></h4>
+        <% if current_user.is_admin %>
+          <%= render :partial => "shared/admin_homepage_extra" %>
+        <% end %>
+</div>
+      <hr><div align="left">
+      达人简介
+      <p><%= @winner.description %></p>
+      达人性别
+      <p><%= @winner.age %></p>
+      达人地区
+      <p><%= @winner.district %></p>
+    </div>
+      <hr>
+
+5 star<br>
+
+
+commit <br>
+
+submit

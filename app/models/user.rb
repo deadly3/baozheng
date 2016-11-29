@@ -24,6 +24,7 @@
 #  district               :string
 #  sex                    :string
 #  is_designer            :boolean          default(FALSE)
+#  is_candidate           :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -47,7 +48,7 @@ class User < ApplicationRecord
   has_many :requests
   has_many :request_relationships
   has_many :applied_requests, :through => :request_relationships, :source => :request
-
+  has_many :feedbacks
   acts_as_messageable
 
 
@@ -75,13 +76,13 @@ class User < ApplicationRecord
   def designer?
     is_designer
   end
-  
-  def make_user!
+
+  def make_not_designer!
     self.is_designer = false
     self.save
   end
 
-  def make_admin!
+  def make_designer!
     self.is_designer = true
     self.save
   end

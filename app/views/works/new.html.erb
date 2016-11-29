@@ -1,0 +1,13 @@
+<h1>上传作品，审核通过就能成为达人咯！</h1>
+
+<%= simple_form_for @work, url:works_path, method: :post do |f| %>
+
+
+<%= f.input :title, :label => "作品名称" %>
+<%= f.input :description, :label => "作品描述"  %>
+<%= f.input :price, :label => "参考价格"  %>
+<%= f.input :image %>
+<!-- <%= f.input :is_hidden %> -->
+<%= f.submit "提交作品并申请成为达人", class: "btn btn-primary" %>
+
+<% end %>

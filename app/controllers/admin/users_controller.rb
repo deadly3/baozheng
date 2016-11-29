@@ -7,15 +7,31 @@ class Admin::UsersController < ApplicationController
     @users = User.all_except(current_user)
   end
 
-  def make_admin
+  def make_designer
     @user = User.find_by_token(params[:id])
-    @user.make_admin!
+    @user.make_designer!
     redirect_to :back
   end
 
-  def make_user
+  def make_not_designer
     @user = User.find_by_token(params[:id])
-    @user.make_user!
+    @user.make_not_designer!
+    redirect_to :back
+  end
+
+  def accept
+    @user = User.find_by_token(params[:id])
+    @user.is_candidate = false
+    @user.save
+
+    @user.make_designer!
+    redirect_to :back
+  end
+
+  def reject
+    @user = User.find_by_token(params[:id])
+    @user.is_candidate = false
+    @user.save
     redirect_to :back
   end
 

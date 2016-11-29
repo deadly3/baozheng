@@ -1,13 +1,74 @@
 
-<div class="clearfix">
+<%= render 'designer/header' %>
 
-  <%= link_to("发起对话", account_user_conversation_path(@designer.token ) , :class => "btn btn-danger pull-right") %> 
+<!-- <div id="" class="designer-main col-md-offset-1 col-sm-offset-1" style="background-color: #f3f5f6;">
+  <h2>个人简介</h2>
+  <h3 class="text-right">
+
+  </h3>
+  <hr>
+  <h2>作品总览</h2>
+  <div class="row works-group">
+
+<<<<<<< HEAD
+
+
+=======
+  <%= link_to("发起对话", account_user_conversation_path(@designer.token ) , :class => "btn btn-danger pull-right") %>
   <h2> <%= @designer.nickname %> </h2>
 
 
 </div>
+
+<h2> <%= @designer.id %> </h2>
+
+
+
 <hr>
+>>>>>>> fb3bda8a58e4551f14df264509a20bf6e3e57984
 
-<h2> 过去作品列表 </h2>
+  </div>
+</div> -->
 
-TODO: put redmine here
+
+
+
+<div class="publicaciones-blog-home">
+  <div class="container" style="margin-left: -15px;">
+    <div class="" style="margin-top: -70px; ">
+      <br>
+      <h2>作品总览</h2>
+      <div class="row-page row" >
+
+        <% @works.each do |work| %>
+            <div class="col-page col-sm-6 col-md-4">
+              <%= link_to(work_path(work), class:"fondo-publicacion-home") do %>
+                <!-- <a href=""  class="fondo-publicacion-home"> -->
+                  <div class="img-publicacion-home" style="max-height: 600px;">
+                    <% if work.image.present? %>
+                        <%= image_tag(work.image.thumb.url, class:"img-responsive") %>
+                    <% else %>
+                        <%= image_tag("http://placehold.it/400x400&text=work", class:"img-responsive")%>
+                    <% end %>
+                  </div>
+                  <div class="contenido-publicacion-home">
+                    <h3><%= work.title %></h3>
+                    <!-- <p><%= work.description %></p> -->
+                  </div>
+                  <div class="mascara-enlace-blog-home">
+                    <span>
+                      <!-- <%= work.title %>: -->
+                      <p>
+                        <small><%= work.description %></small>
+                      </p>
+                    </span>
+                  </div>
+                <!-- </a> -->
+              <% end %>
+            </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

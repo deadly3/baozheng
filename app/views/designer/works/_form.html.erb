@@ -1,0 +1,10 @@
+<%= simple_form_for [:designer, @work] do |f| %>
+
+<%= f.input :title, :label => "作品名称" %>
+<%= f.input :description, :label => "作品描述"  %>
+<%= f.input :price, :label => "参考价格"  %>
+<%= f.input :image %>
+<%= f.input :is_hidden %>
+<%= f.submit "提交" %>
+
+<% end %>

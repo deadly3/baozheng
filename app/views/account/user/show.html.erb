@@ -8,6 +8,15 @@
 <div align="center">
 
 <%= render 'common/avatar' %>
+
+<% unless current_user.is_designer%>
+      <% unless current_user.is_candidate %>
+      <%= link_to "申请成为达人", new_work_path, class: "btn btn-lg btn-primary" %>
+      <% else %>
+      <label class="label label-success">已经申请成为达人，请等待审核</label>
+      <% end %>
+<% end %>
+
   <hr>
 
 
@@ -28,7 +37,7 @@
 <br>
 
 <hr>
-用户昵称-1
+用户昵称
 <h1><%= current_user.nickname %></h1>
 用户描述
 <h2><%= current_user.description %></h2>
