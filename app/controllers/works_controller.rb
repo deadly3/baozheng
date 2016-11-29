@@ -16,7 +16,7 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     @work.user = current_user
-    if @work.save
+    if !current_user.is_candidate && @work.save
       current_user.is_candidate = true
       current_user.save
       redirect_to account_user_path(current_user)
