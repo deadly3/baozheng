@@ -1,6 +1,6 @@
 <%= render 'designer/header' %>
 
-<div class="col-page" >
+<div class="col-page" style="padding-top: 50px;" >
   <%= link_to(designer_path(@work.user.token), class:"fondo-publicacion-home") do %>
     <!-- <a href=""  class="fondo-publicacion-home"> -->
       <div class="img-publicacion-home">
@@ -21,4 +21,24 @@
       </div>
     <!-- </a> -->
   <% end %>
+</div>
+
+<div class="col-page">
+  <div id="thing-title" >
+    <h1><%= @work.title %></h1>
+    <h2><%=  %></h2>
+  </div>
+  <nav> </nav>
+  <div class="sharing_cover hide">
+
+  </div>
+  <div id="thing_cover_wrapper">
+    <div id="thing_photos">
+      <div class="carosel carousel--extend reset-size">
+        <ul class="">
+
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
