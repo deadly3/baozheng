@@ -24,6 +24,7 @@
 #  district               :string
 #  sex                    :string
 #  is_designer            :boolean          default(FALSE)
+#  is_candidate           :boolean          default(FALSE)
 #
 # Indexes
 #
