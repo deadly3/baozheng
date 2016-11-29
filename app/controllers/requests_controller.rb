@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 
   def index
-    @requests = Request.recent.paginate(:page => params[:page], :per_page => 8)
+    @requests = Request.request_made.paginate(:page => params[:page], :per_page => 8).recent
   end
 
   def new
@@ -42,5 +42,8 @@ class RequestsController < ApplicationController
   def request_params
     params.require(:request).permit(:title, :description, :user_id, :before_picture, :dream_picture, :token, :aasm_state)
   end
+
+
+
 
 end

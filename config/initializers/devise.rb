@@ -1,6 +1,8 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+
+  config.secret_key = '2ec1bed508a219525bb4d37bab7bf1685c08950640573d59c2403daf8f70aeaf2ca826f94518f947a611bd6213a207d8c7e7c4b318bd2c6d8ae7260872f46132'
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -135,7 +137,7 @@ Devise.setup do |config|
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
   config.reconfirmable = true
-
+  # config.assets.initialize_on_precompile = false
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
 
