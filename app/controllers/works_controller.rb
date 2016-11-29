@@ -26,6 +26,7 @@ class WorksController < ApplicationController
     end
   end
 
+
   private
 
   def work_params
