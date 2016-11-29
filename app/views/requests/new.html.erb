@@ -5,21 +5,27 @@
 
 
 <div class="container main col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-12">
-
+<div class="row main">
   <%= simple_form_for @request do |f| %>
 
   <%= f.input :title, :label =>  "主题", placeholder: "我要美化／收纳／设计自己的房间" %>
   <%= f.input :description, :label =>  "描述", placeholder: "我有一个20平米的房间，想要收纳进一个大号的空气净化器" %>
 
   <%# TODO: 点击方框就可以上传图片，并且直接预览所上传的图 %>
-  <div class="row main">
-    <div class="col-md-6 col-sm-6 table table-bordered" style="height: 100px; padding-left: 30px; padding-right: 30px;">
-      <%= f.input :dream_picture, :label =>  "理想的图片", class: "block image" %>
+
+
+    <div class="col-md-6 col-sm-6 table table-bordered" >
+      <div class="new-insert-picture">
+        <%= f.input :dream_picture, :label =>  "理想的图片", class: "block image" %>
+      </div>
     </div>
-    <div class="col-md-6 col-sm-6 table table-bordered" style="height: 100px; padding-left: 30px; padding-right: 30px;">
-      <%= f.input :before_picture, :label =>  "我房间现在的图片" %>
+    <div class="col-md-6 col-sm-6 table table-bordered">
+      <div class="new-insert-picture">
+        <%= f.input :before_picture, :label =>  "我房间现在的图片" %>
     </div>
   </div>
+</div>
+
 
   <div class="row text-center" style="margin-top: -50px;" >
     <div class="col-md-3 col-md-offset-2">
@@ -30,5 +36,4 @@
     </div>
   </div>
   <% end %>
-
 </div>
