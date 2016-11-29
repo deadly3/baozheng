@@ -30,9 +30,6 @@
   </div>
 </div> -->
 
-
-
-
 <div class="publicaciones-blog-home">
   <div class="container" style="margin-left: -15px;">
     <div class="" style="margin-top: -70px; ">
@@ -63,12 +60,48 @@
                       </p>
                     </span>
                   </div>
-                <!-- </a> -->
+        <!-- </a> -->
               <% end %>
             </div>
         <% end %>
+        </div>
+  </div>
 
-      </div>
-    </div>
+        <h2>评论汇总</h2>
+
+        <% @feedbacks.each do |f| %>
+        <h1><%= f.commit %></h1>
+        <h1><%= f.id %></h1>
+        <div id="feedback-<%= f.id %>">
+
+
+        </div>
+
+        <% end %>
+
   </div>
 </div>
+
+  <script>
+
+
+  <% @feedbacks.each do |f| %>
+
+
+$(function() {
+  
+    // 锁定部分样式
+     $("#feedback-<%= f.id %>").raty({
+      path:"/",
+      starOff: 'star-off.png',
+      starOn: 'star-on.png',
+      size: 32,
+      readOnly: true,
+      score: '<%= f.rating %>'
+    });
+
+});
+
+  <% end %>
+
+          </script>
