@@ -39,13 +39,13 @@
                 <div class="row">
                 <div class="col-sm-4 col-md-2 sidebar">
                   <ul class="nav nav-sidebar">
-                <h3 style="max-width: 250px;margin-left: 12px;"><i class="fa fa-user fa-1x "> 用户中心</i></h3>
+                <h3 style="max-width: 250px;margin-left: 12px;"><i class="fa fa-user-circle-o "> 用户中心</i></h3>
 
+                <li class="active"> <%= link_to(content_tag(:i, " 个人主页", class: "fa fa-home"), account_user_path(current_user.token)) %></li>
                 <li class="active"> <%= link_to(content_tag(:i, " 我的订单", class: "fa fa-tasks fa"), account_requests_path) %></li>
                 <li class="active"> <%= link_to(content_tag(:i, " 我的消息", class: "fa fa-envelope"), account_conversations_path) %> </li>
-                <li class="active"> <%= link_to(content_tag(:i, " 用户资料", class: "fa fa-address-card"), edit_account_user_path(current_user.token)) %> </li>
+                <li class="active"> <%= link_to(content_tag(:i, " 用户资料", class: "fa fa-id-card"), edit_account_user_path(current_user.token)) %> </li>
                 <li class="active"> <%= link_to(content_tag(:i, " 变更密码", class: "fa fa-key"), edit_user_registration_path) %> </li>
-                <li class="active"> <%= link_to(content_tag(:i, " 成为达人", class: "fa fa-certificate"), new_work_path) %> </li>
 
 
 
