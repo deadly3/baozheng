@@ -1,12 +1,17 @@
 <% if current_user.avatar.present?%>
-  <%= image_tag(current_user.avatar.url) %>
+
+
+  <%= image_tag (current_user.avatar.url), alt: "用户头像",  :size => 150,
+                            class: "center-block img-square img-thumbnail img-responsive" %>
+
+
 
 
 <% elsif current_user.sex == "男" %>
-  <%= image_tag("http://ww3.sinaimg.cn/large/65e4f1e6jw1fa15jy55aaj2064064t8m.jpg", class:"thumbnail")%>
+  <%= image_tag("http://ww3.sinaimg.cn/large/65e4f1e6jw1fa15jy55aaj2064064t8m.jpg", class:"center-block img-circle img-thumbnail img-responsive")%>
 
 <% else %>
-  <%= image_tag("http://ww4.sinaimg.cn/large/65e4f1e6jw1fa15hp2h1fj20a10a174r.jpg", class:"thumbnail")%>
+  <%= image_tag("http://ww4.sinaimg.cn/large/65e4f1e6jw1fa15hp2h1fj20a10a174r.jpg", class:"center-block img-circle img-thumbnail img-responsive")%>
 <% end %>
 
 <!-- <%# else %>
