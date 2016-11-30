@@ -1,5 +1,6 @@
 class Feedback < ApplicationRecord
   belongs_to :user
+  belongs_to :request
 
   validates :user_id, presence: true
   validates :rating, presence: true, numericality: { greater_than: 0}
