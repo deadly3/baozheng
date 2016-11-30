@@ -55,6 +55,8 @@
         <% elsif r.applicants.present? && r.applicants.include?(current_user) %>
           <%= link_to("已抢单","#",class: "btn btn-warning btn-sm",disabled: :true)%>
         <% end %>
+        <br>
+        <%= link_to(content_tag(:i, " 发起对话", class: "fa fa-comments" ), account_user_conversation_path(r.user.token), class:"btn btn-sm btn-info"  ) %>
       </td>
     </tr>
   <% end %>
