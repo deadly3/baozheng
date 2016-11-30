@@ -103,6 +103,6 @@ end
   end
 
   def rate_params
-    params.require(:feedback).permit(:user_id, :rating, :commit)
+    params.require(:feedback).permit(:user_id, :rating, :request_id, :commit)
   end
 end
