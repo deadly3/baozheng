@@ -24,6 +24,7 @@ class Request < ApplicationRecord
 
   has_many :request_relationships
   has_many :applicants, through: :request_relationships, source: :user
+  has_one :feedback
 
   has_one :conversation, class_name: "Conversation", foreign_key: "request_id"
 
