@@ -38,6 +38,8 @@
           <% elsif current_user.is_designer? && !current_user.is_admin?%>
             <li><%= nav_link("我的抢单", designer_requests_path(current_user.token)) %> </li>
             <li><%= nav_link("我的消息", designer_conversations_path) %> </li>
+            
+            <li id="red-point"></li>
           <% end %>
 
           <% if current_user %>

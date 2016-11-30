@@ -126,3 +126,14 @@ footer {
     //  background-color: black;
    }
  }
+
+ #red-point {
+   width: 13px;
+   height: 13px;
+   border-radius: 100%;
+   background-color: red;
+   color: white;
+   position: relative;
+   left: -23px;
+   top: 13px;
+ }
