@@ -34,6 +34,7 @@
 
     <%= f.input :rating, :as => :hidden %>
     <%= f.input :user_id ,:as => :hidden , input_html: { value: @winner.id } %>
+    <%= f.input :request_id ,:as => :hidden , input_html: { value: @request.id } %>
     <%= f.input :commit, label:"请输入您的评价"%>
 
     <%= f.submit "评价完成", class: "btn btn-info text-left", :disable_with => '正在提交……' %>

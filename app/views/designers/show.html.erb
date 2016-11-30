@@ -30,9 +30,6 @@
   </div>
 </div> -->
 
-
-
-
 <div class="publicaciones-blog-home">
   <div class="container" style="margin-left: -15px;">
     <div class="" style="margin-top: -70px; ">
@@ -63,12 +60,66 @@
                       </p>
                     </span>
                   </div>
-                <!-- </a> -->
+        <!-- </a> -->
               <% end %>
             </div>
         <% end %>
+        </div>
+  </div>
 
-      </div>
-    </div>
+        <h2>评论汇总</h2>
+        <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>评论编号</th>
+            <th>评论时间</th>
+            <th>评论文字</th>
+            <th>评论星级</th>
+
+          </tr>
+        </thead>
+
+        <% @feedbacks.each do |f| %>
+        <tr>
+          <td>
+        <h5><%= f.id %></h5>
+      </td>
+      <td>
+        <h5><%= f.created_at %></h5>
+      </td>
+      <td>
+        <h5><%= f.commit %></h5>
+      </td>
+      <td>
+        <div id="feedback-<%= f.id %>">  </div>
+      </td>
+
+        <% end %>
+        </table>
+
+        <!-- <div class="text-center">
+            <%#= will_paginate(@feedbacks) %>
+        </div> -->
+
+
+
   </div>
 </div>
+<!-- 以下的目的 是把五角小星星再显示出来 -->
+  <script>
+  <% @feedbacks.each do |f| %>
+$(function() {
+    // 锁定部分样式
+     $("#feedback-<%= f.id %>").raty({
+      path:"/",
+      starOff: 'star-off.png',
+      starOn: 'star-on.png',
+      size: 32,
+      readOnly: true,
+      score: '<%= f.rating %>'
+    });
+
+});
+
+  <% end %>
+</script>

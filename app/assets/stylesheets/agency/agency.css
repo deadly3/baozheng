@@ -761,3 +761,15 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #fed136;
 }
+
+.new-insert-picture {
+  width: 200px;
+  height: 80px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 1px;
+  padding-bottom: 10px;
+}

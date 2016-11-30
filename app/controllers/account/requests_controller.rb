@@ -3,8 +3,7 @@ class Account::RequestsController < ApplicationController
   layout "account"
 
   def index
-    @requests = Request.where(:user_id => current_user.id).recent
-    @requests = Request.paginate(:page => params[:page], :per_page => 8).recent
+    @requests = current_user.requests.paginate(:page => params[:page], :per_page => 8).recent
   end
 
   def new
@@ -104,6 +103,6 @@ end
   end
 
   def rate_params
-    params.require(:feedback).permit(:user_id, :rating, :commit)
+    params.require(:feedback).permit(:user_id, :rating, :request_id, :commit)
   end
 end
