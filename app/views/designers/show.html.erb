@@ -1,26 +1,5 @@
-<div id="coverphoto-designer" class="" style="background-image:url(https://s.yimg.com/pw/images/coverphoto03_h.jpg.v3)">
-  <div class="position col-md-offset-1">
-    <div class="coverphoto-gradient">
-    </div>
-    <div>
-      <% if @designer.avatar.present? %>
-        <%= image_tag(@designer.avatar.url, class:"avatar-designer-show ")%>
-      <% else %>
-        <%= image_tag("http://placehold.it/200x200&text=avatar", class:"avatar-designer-show")%>
-      <% end %>
-    </div>
-    <div class="title-block-content ">
-      <h1 class="title title-link-included pull-left">
-        <%= @designer.nickname %>  的主页
-      </h1>
-      <%= link_to(content_tag(:i, "发起对话", class: "fa fa-paper-plane" ), account_user_conversation_path(@designer.token ) , :class => "designer-conversation-btn pull-left") %>
-    </div>
-  </div>
-</div>
 
-<div class="" style="height: 50px; margin-bottom: 20px;">
-</div>
-<hr>
+<%= render 'designer/header' %>
 
 <!-- <div id="" class="designer-main col-md-offset-1 col-sm-offset-1" style="background-color: #f3f5f6;">
   <h2>个人简介</h2>
@@ -51,21 +30,10 @@
   </div>
 </div> -->
 
-
-
-
 <div class="publicaciones-blog-home">
   <div class="container" style="margin-left: -15px;">
-    <div class="" style="margin-top: -70px;">
-      <h2 class="">个人简介</h2>
-      <h3 class="text-right ">
-        <% if @designer.description.present? %>
-          <%= @designer.description %>
-        <% else %>
-          这个达人很酷,还没有自我简介。
-        <% end %>
-      </h3>
-      <hr>
+    <div class="" style="margin-top: -70px; ">
+      <br>
       <h2>作品总览</h2>
       <div class="row-page row" >
 
@@ -92,12 +60,66 @@
                       </p>
                     </span>
                   </div>
-                <!-- </a> -->
+        <!-- </a> -->
               <% end %>
             </div>
         <% end %>
+        </div>
+  </div>
 
-      </div>
-    </div>
+        <h2>评论汇总</h2>
+        <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>评论编号</th>
+            <th>评论时间</th>
+            <th>评论文字</th>
+            <th>评论星级</th>
+
+          </tr>
+        </thead>
+
+        <% @feedbacks.each do |f| %>
+        <tr>
+          <td>
+        <h5><%= f.id %></h5>
+      </td>
+      <td>
+        <h5><%= f.created_at %></h5>
+      </td>
+      <td>
+        <h5><%= f.commit %></h5>
+      </td>
+      <td>
+        <div id="feedback-<%= f.id %>">  </div>
+      </td>
+
+        <% end %>
+        </table>
+
+        <!-- <div class="text-center">
+            <%#= will_paginate(@feedbacks) %>
+        </div> -->
+
+
+
   </div>
 </div>
+<!-- 以下的目的 是把五角小星星再显示出来 -->
+  <script>
+  <% @feedbacks.each do |f| %>
+$(function() {
+    // 锁定部分样式
+     $("#feedback-<%= f.id %>").raty({
+      path:"/",
+      starOff: 'star-off.png',
+      starOn: 'star-on.png',
+      size: 32,
+      readOnly: true,
+      score: '<%= f.rating %>'
+    });
+
+});
+
+  <% end %>
+</script>

@@ -5,4 +5,10 @@ class Account::WorksController < ApplicationController
   def index
     @works = current_user.works
   end
+
+  private
+
+    def work_params
+      params.require(:work).permit(:title, :description, :price, :image, :user_id, :is_hidden)
+    end
 end
