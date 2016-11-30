@@ -2,20 +2,23 @@
 <html lang="en">
     <body>
 
-      <head>
-          <title> 包整 </title>
-          <%= csrf_meta_tags %>
+        <head>
+            <title>
+                包整
+            </title>
+            <%= csrf_meta_tags %>
 
-          <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-          <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-          <%= stylesheet_link_tag    'jquery.raty', media: 'all', 'data-turbolinks-track': 'load' %>
-          <%= javascript_include_tag 'jquery.raty', 'data-turbolinks-track': 'load' %>
-      </head>
+            <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+            <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+            <%= stylesheet_link_tag    'jquery.raty', media: 'all', 'data-turbolinks-track': 'load' %>
+            <%= javascript_include_tag 'jquery.raty', 'data-turbolinks-track': 'load' %>
+        </head>
 
         <div class="container">
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
             <div class="row main">
+
 
 
     <!-- <div class="container-fluid">
@@ -55,16 +58,12 @@
                 <%= yield %>
               </div>
 
+
         </div>
 
-  </div>
+        <%= render "common/footer" %>
 
-
-  <%= render "common/footer" %>
-
-</body>
-
-
+    </body>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

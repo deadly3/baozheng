@@ -377,6 +377,11 @@ section h3.section-subheading {
     margin: 0 0 30px;
   }
 }
+.img-work-index {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+}
 .timeline {
   list-style: none;
   padding: 0;

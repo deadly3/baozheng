@@ -5,7 +5,7 @@ class Designer::WorksController < ApplicationController
 
     def index
 
-        @works = current_user.works.paginate(:page => params[:page], :per_page => 8)
+        @works = current_user.works.recent.paginate(:page => params[:page], :per_page => 6)
       # @works = Work.order("id DESC")
     end
 

@@ -54,9 +54,11 @@
                               <i class="fa fa-trash"></i>
                               <% end %>
                             </td>
+
                             <td>
                               <% if r.feedback.present? %>
-                              <p>您已经评论过啦</p>
+                              <p>您已经评价过啦</p>
+
                               <% elsif r.winner.present? && r.paid? %>
                               <%= link_to("发起评价", rating_account_request_path(r.token), :class => "btn btn-info") %>
                               <% elsif r.winner.present? && !r.paid? %>

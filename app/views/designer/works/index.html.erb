@@ -24,9 +24,9 @@
   <tr>
     <td>
       <% if work.image.present? %>
-        <%= image_tag(work.image.thumb.url, class:"thumbnail") %>
+        <%= image_tag(work.image.thumb.url, class:"img-responsive") %>
       <% else %>
-        <%= image_tag("http://placehold.it/200x200&text=work", class:"thumbnail")%>
+        <%= image_tag("http://placehold.it/200x200&text=work", class:"img-responsive")%>
       <% end %>
     </td>
     <td>
