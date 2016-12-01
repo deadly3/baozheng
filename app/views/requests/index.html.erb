@@ -4,34 +4,38 @@
 
 <div class="container">
 		<div class="row">
-			<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+			<div class="col-xs-12 col-sm-offset-2 col-sm-8">
 				<ul class="event-list">
           <% @requests.shuffle.each do |r| %>
-            <li>
-  						<time>
-  							<span class="day"> <%= r.created_at.strftime("%d") %> </span>
-  							<span class="month"><%= r.created_at.strftime("%b") %></span>
-  							<span class="year"><%= r.created_at.strftime("%y") %></span>
-  						</time>
-              <% if r.dream_picture.present? %>
-              <%= image_tag(r.dream_picture.thumb.url) %>
-              <% end %>
-  						<div class="info">
-  							<h2 class="title"><%= link_to(r.title,request_path(r.token)) %></h2>
-  							<p class="desc"><%= r.description%></p>
-  							<ul>
-									<li style="width:33%;">
-										<%= link_to(content_tag(:i, " 抢单并发起对话", class: "fa fa-comments" ), account_user_conversation_path(r.user.token)) %>
+						<% unless r.applicants.include?(current_user) %>
+								<li>
+									<time>
+										<span class="day"> <%= r.created_at.strftime("%d") %> </span>
+										<span class="month"><%= r.created_at.strftime("%b") %></span>
+										<span class="year"><%= r.created_at.strftime("%y") %></span>
+									</time>
+									<% if r.dream_picture.present? %>
+									<%= image_tag(r.dream_picture.thumb.url) %>
+									<% end %>
+									<div class="info">
+										<h2 class="title"><%= link_to(r.title,request_path(r.token)) %></h2>
+										<p class="desc"><%= r.description%></p>
+										<ul>
+											<li style="width:33%;">
+												<%= link_to(content_tag(:i, " 抢单并发起对话", class: "fa fa-comments" ), account_user_conversation_path(r.user.token)) %>
 
-									</li>
-  								<li style="width:34%;">
-										<%= link_to(content_tag(:i, " 抢单", class: "fa fa-hand-paper-o" ), join_applicants_designer_request_path(r.token), method: :post) %>
+											</li>
+											<li style="width:34%;">
+												<%= link_to(content_tag(:i, " 抢单", class: "fa fa-hand-paper-o" ), join_applicants_designer_request_path(r.token), method: :post) %>
 
-                  </li>
-  							</ul>
-  						</div>
+											</li>
+										</ul>
+									</div>
 
-  					</li>
+								</li>
+						<% else %>
+								<%= r %>
+						<% end %>
           <% end %>
           <div class="text-center">
             <%= will_paginate @requests %>

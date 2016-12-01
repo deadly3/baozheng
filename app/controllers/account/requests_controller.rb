@@ -12,6 +12,7 @@ class Account::RequestsController < ApplicationController
 
   def create
     @request = Request.new(request_params)
+
     @request.user = current_user
     if @request.save
       redirect_to account_requests_path
@@ -25,7 +26,6 @@ class Account::RequestsController < ApplicationController
     if @request.applicants.present?
       flash[:alert] = '已有人抢单的订单不可以进行修改💀'
       redirect_to :back
-    else
     end
   end
 
@@ -77,7 +77,7 @@ class Account::RequestsController < ApplicationController
       @request.winner = @user
       @request.choose!
       redirect_to :back
-    end    
+    end
   end
 
   def make_payment

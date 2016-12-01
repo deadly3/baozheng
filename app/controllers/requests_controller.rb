@@ -11,6 +11,7 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new(request_params)
+
     @request.user = current_user
     if @request.save
       redirect_to account_requests_path
@@ -26,7 +27,7 @@ class RequestsController < ApplicationController
   def join_applicants
     #作为admin加入到  当前request的申请者 collection
     @request = Request.find_by_token(params[:id])
-    if !@request.has_been_applied_by?(current_user)
+    unless @request.has_been_applied_by?(current_user)
        @request.applicants << current_user
       flash[:notice] = "已抢单！"
       redirect_to :back
