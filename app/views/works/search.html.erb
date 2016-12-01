@@ -1,0 +1,13 @@
+<%= render :partial => "works/search_bar" %>
+
+<br>
+<div class="search-result">
+
+  <table class="table table-borderd">
+    <% @works.each do |work| %>
+      <%= link_to(work.title, work_path(work)) %>
+      <hr>
+    <% end %>
+ </table>
+
+</div>
