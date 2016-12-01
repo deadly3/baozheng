@@ -54,15 +54,19 @@
                               <i class="fa fa-trash"></i>
                               <% end %>
                             </td>
+
                             <td>
-                              <% if r.winner.present? && r.paid? %>
+                              <% if r.feedback.present? %>
+                              <p>您已经评价过啦</p>
+
+                              <% elsif r.winner.present? && r.paid? %>
                               <%= link_to("发起评价", rating_account_request_path(r.token), :class => "btn btn-info") %>
                               <% elsif r.winner.present? && !r.paid? %>
                                 <%= link_to("支付", make_payment_account_request_path(r.token),:method => :post, :class => "btn btn-danger") %>
                               <% elsif r.applicants.present? %>
                                 <%= link_to("查看已抢单达人", display_account_request_path(r.token),:method => :get, :class => "btn btn-warning") %>
                               <% else %>
-                                暂无人接单
+                              <p>暂时没人接单哦</p>
                               <% end %>
                             </td>
                           </tr>

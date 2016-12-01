@@ -21,15 +21,13 @@
                   <div class="col-sm-4 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
                   <h3 style="max-width: 250px; margin-left: 12px;"><i class="fa fa-user fa-1x "> 达人后台</i></h3>
-
+                    <li class="active"> <%= link_to(content_tag(:i, " 个人主页", class: "fa fa-home"), designer_user_path(current_user.token)) %></li>
                     <li class="active"> <%= link_to(content_tag(:i, " 我的抢单", class: "fa fa-list"), designer_requests_path(current_user.token)) %></li>
-                    <li class="active"> <%= link_to(content_tag(:i, " 我的作品", class: "fa fa-file-o"), designer_works_path) %> </li>
+                    <li class="active"> <%= link_to(content_tag(:i, " 管理作品", class: "fa fa-picture-o"), designer_works_path) %> </li>
                     <li class="active"> <%= link_to(content_tag(:i, " 我的消息", class: "fa fa-envelope"), designer_conversations_path) %> </li>
-                    <li class="active"> <%= link_to(content_tag(:i, " 用户资料", class: "fa fa-address-card"), edit_designer_user_path(current_user.token)) %> </li>
+                    <li class="active"> <%= link_to(content_tag(:i, " 用户资料", class: "fa fa-id-card"), edit_designer_user_path(current_user.token)) %> </li>
                     <li class="active"> <%= link_to(content_tag(:i, " 变更密码", class: "fa fa-key"), edit_user_registration_path) %> </li>
-
                     </ul>
-
 
                   </div>
 

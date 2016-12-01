@@ -764,170 +764,296 @@ body {
 
 
 
-.portlet {
-    margin-bottom: 15px;
+
+.new-insert-picture {
+  width: 200px;
+  height: 80px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 1px;
+  padding-bottom: 10px;
 }
 
-.btn-white {
-    border-color: #cccccc;
-    color: #333333;
-    background-color: #ffffff;
+
+
+
+
+@import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic");
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
+body {
+padding: 60px 0px;
+background-color: rgb(255, 255, 255);
 }
 
-.portlet {
-    border: 1px solid;
+.event-list {
+list-style: none;
+font-family: 'Lato', sans-serif;
+margin: 0px;
+padding: 0px;
+}
+.event-list > li {
+background-color: rgb(255, 255, 255);
+box-shadow: 0px 0px 5px rgb(51, 51, 51);
+box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);
+padding: 0px;
+margin: 0px 0px 20px;
+}
+.event-list > li > time {
+display: inline-block;
+width: 100%;
+color: rgb(255, 255, 255);
+background-color:rgb(237, 56, 113);
+padding: 5px;
+text-align: center;
+text-transform: uppercase;
+}
+.event-list > li:nth-child(even) > time {
+background-color: #fed136;
+}
+.event-list > li > time > span {
+display: none;
+}
+.event-list > li > time > .day {
+display: block;
+font-size: 56pt;
+font-weight: 100;
+line-height: 1;
+}
+.event-list > li time > .month {
+display: block;
+font-size: 24pt;
+font-weight: 900;
+line-height: 1;
+}
+.event-list > li > img {
+width: 100%;
+}
+.event-list > li > .info {
+padding-top: 5px;
+text-align: center;
+}
+.event-list > li > .info > .title {
+font-size: 17pt;
+font-weight: 700;
+margin: 0px;
+}
+.event-list > li > .info > .desc {
+font-size: 13pt;
+font-weight: 300;
+margin: 0px;
+}
+.event-list > li > .info > ul,
+.event-list > li > .social > ul {
+display: table;
+list-style: none;
+margin: 10px 0px 0px;
+padding: 0px;
+width: 100%;
+text-align: center;
+}
+.event-list > li > .social > ul {
+margin: 0px;
+}
+.event-list > li > .info > ul > li,
+.event-list > li > .social > ul > li {
+display: table-cell;
+cursor: pointer;
+color: rgb(30, 30, 30);
+font-size: 11pt;
+font-weight: 300;
+    padding: 3px 0px;
+}
+.event-list > li > .info > ul > li > a {
+display: block;
+width: 100%;
+color: rgb(30, 30, 30);
+text-decoration: none;
+}
+.event-list > li > .social > ul > li {
+    padding: 0px;
+}
+.event-list > li > .social > ul > li > a {
+    padding: 3px 0px;
+}
+.event-list > li > .info > ul > li:hover,
+.event-list > li > .social > ul > li:hover {
+color: #fed136;
+background-color: #fed136;
+}
+.facebook a,
+.twitter a,
+.google-plus a {
+display: block;
+width: 100%;
+color: rgb(75, 110, 168) !important;
+}
+.twitter a {
+color: rgb(79, 213, 248) !important;
+}
+.google-plus a {
+color: rgb(221, 75, 57) !important;
+}
+.facebook:hover a {
+color: rgb(255, 255, 255) !important;
+background-color: rgb(75, 110, 168) !important;
+}
+.twitter:hover a {
+color: rgb(255, 255, 255) !important;
+background-color: rgb(79, 213, 248) !important;
+}
+.google-plus:hover a {
+color: rgb(255, 255, 255) !important;
+background-color: rgb(221, 75, 57) !important;
 }
 
-.portlet .portlet-heading {
-    padding: 0 15px;
+@media (min-width: 768px) {
+.event-list > li {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 120px;
+  padding: 0px;
 }
-
-.portlet .portlet-heading h4 {
-    padding: 1px 0;
-    font-size: 16px;
+.event-list > li > time,
+.event-list > li > img  {
+  display: inline-block;
 }
-
-.portlet .portlet-heading a {
-    color: #fff;
+.event-list > li > time,
+.event-list > li > img {
+  width: 120px;
+  float: left;
 }
-
-.portlet .portlet-heading a:hover,
-.portlet .portlet-heading a:active,
-.portlet .portlet-heading a:focus {
-    outline: none;
+.event-list > li > .info {
+  background-color: rgb(245, 245, 245);
+  overflow: hidden;
 }
-
-.portlet .portlet-widgets .dropdown-menu a {
-    color: #333;
+.event-list > li > time,
+.event-list > li > img {
+  width: 120px;
+  height: 120px;
+  padding: 0px;
+  margin: 0px;
 }
-
-.portlet .portlet-widgets ul.dropdown-menu {
-    min-width: 0;
+.event-list > li > .info {
+  position: relative;
+  height: 120px;
+  text-align: left;
+  padding-right: 40px;
 }
-
-.portlet .portlet-heading .portlet-title {
-    float: left;
+.event-list > li > .info > .title,
+.event-list > li > .info > .desc {
+  padding: 0px 10px;
 }
-
-.portlet .portlet-heading .portlet-title h4 {
-    margin: 10px 0;
+.event-list > li > .info > ul {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
 }
-
-.portlet .portlet-heading .portlet-widgets {
-    float: right;
-    margin: 8px 0;
+.event-list > li > .social {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: block;
+  width: 40px;
 }
-
-.portlet .portlet-heading .portlet-widgets .tabbed-portlets {
-    display: inline;
-}
-
-.portlet .portlet-heading .portlet-widgets .divider {
-    margin: 0 5px;
-}
-
-.portlet .portlet-body {
-    padding: 15px;
-    background: #fff;
-}
-
-.portlet .portlet-footer {
-    padding: 10px 15px;
-    background: #e0e7e8;
-}
-
-.portlet .portlet-footer ul {
-    margin: 0;
-}
-
-.portlet-green,
-.portlet-green>.portlet-heading {
-    border-color: #16a085;
-}
-
-.portlet-green>.portlet-heading {
-    color: #fff;
-    background-color: #16a085;
-}
-
-.portlet-orange,
-.portlet-orange>.portlet-heading {
-    border-color: #f39c12;
-}
-
-.portlet-orange>.portlet-heading {
-    color: #fff;
-    background-color: #f39c12;
-}
-
-.portlet-blue,
-.portlet-blue>.portlet-heading {
-    border-color: #2980b9;
-}
-
-.portlet-blue>.portlet-heading {
-    color: #fff;
-    background-color: #2980b9;
-}
-
-.portlet-red,
-.portlet-red>.portlet-heading {
-    border-color: #e74c3c;
-}
-
-.portlet-red>.portlet-heading {
-    color: #fff;
-    background-color: #e74c3c;
-}
-
-.portlet-purple,
-.portlet-purple>.portlet-heading {
-    border-color: #8e44ad;
-}
-
-.portlet-purple>.portlet-heading {
-    color: #fff;
-    background-color: #8e44ad;
-}
-
-.portlet-default,
-.portlet-dark-blue,
-.portlet-default>.portlet-heading,
-.portlet-dark-blue>.portlet-heading {
-    border-color: #34495e;
-}
-
-.portlet-default>.portlet-heading,
-.portlet-dark-blue>.portlet-heading {
-    color: #fff;
-    background-color: #34495e;
-}
-
-.portlet-basic,
-.portlet-basic>.portlet-heading {
-    border-color: #333;
-}
-
-.portlet-basic>.portlet-heading {
-    border-bottom: 1px solid #333;
-    color: #333;
-    background-color: #fff;
-}
-
-@media(min-width:768px) {
-    .portlet {
-        margin-bottom: 30px;
+    .event-list > li > .social > ul {
+        border-left: 1px solid rgb(230, 230, 230);
     }
+.event-list > li > .social > ul > li {
+  display: block;
+        padding: 0px;
+}
+.event-list > li > .social > ul > li > a {
+  display: block;
+  width: 40px;
+  padding: 10px 0px 9px;
+}
 }
 
-.text-green {
-    color: #16a085;
+
+/*Now the styles*/
+* {
+    margin: 0;
+  	padding: 0;
+}
+body {
+	font-family: arial, verdana, tahoma;
 }
 
-.text-orange {
-    color: #f39c12;
+/*Time to apply widths for accordian to work
+Width of image = 800px
+total images = 5
+so width of hovered image = 800px
+width of un-hovered image = 40px - you can set this to anything
+so total container width = 800 + 40*4 = 960px;
+default width = 960/5 = 192px;
+*/
+
+.accordian {
+	width: 960px; height: 400px;
+
+	overflow: hidden;
+
+	/*Time for some styling*/
+	margin: 30px auto;
+	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+	-webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
 }
 
-.text-red {
-    color: #e74c3c;
-}                
+/*A small hack to prevent flickering on some browsers*/
+.accordian ul {
+	width: 2000px;
+	/*This will give ample space to the last item to move
+	instead of falling down/flickering during hovers.*/
+}
+
+.accordian li {
+	position: relative;
+	display: block;
+	width: 192px;
+	float: left;
+
+	border-left: 1px solid #888;
+
+	box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+
+	/*Transitions to give animation effect*/
+	transition: all 0.8s;
+	-webkit-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+	/*If you hover on the images now you should be able to
+	see the basic accordian*/
+}
+
+/*Reduce with of un-hovered elements*/
+.accordian ul:hover li {width: 40px;}
+/*Lets apply hover effects now*/
+/*The LI hover style should override the UL hover style*/
+.accordian ul li:hover {width: 800px;}
+
+
+.accordian li img {
+	display: block;
+}
+
+/*Image title styles*/
+.image_title {
+	background: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	left: 0; bottom: 0;
+width: 960px;
+
+}
+.image_title a {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	padding: 20px;
+	font-size: 16px;
+}

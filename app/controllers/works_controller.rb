@@ -20,7 +20,7 @@ class WorksController < ApplicationController
     if !current_user.is_candidate && @work.save
       current_user.is_candidate = true
       current_user.save
-      redirect_to account_user_path(current_user)
+      redirect_to account_user_path(current_user.token)
       flash[:notice] = "你已经申请成为达人了！"
     else
       render :new

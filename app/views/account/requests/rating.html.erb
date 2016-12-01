@@ -26,7 +26,7 @@
 
 <div class="col-md-6 " align="right">
     <h4>感谢您的金玉良言</h4>
-    <p>请为我做出星级评价</p>
+    <p>满意我的服务请打五颗星哦</p>
     <div id="rating-for-message-1" class="text-center"></div>
     <br>
     <div align="right">
@@ -34,7 +34,9 @@
 
     <%= f.input :rating, :as => :hidden %>
     <%= f.input :user_id ,:as => :hidden , input_html: { value: @winner.id } %>
-    <%= f.input :commit, label:"请输入您的评价"%>
+    <%= f.input :request_id ,:as => :hidden , input_html: { value: @request.id } %>
+    <%= f.input :commit, label:"请输入您的评价" , placeholder: '请写几句评价吧^_^'%>
+
 
     <%= f.submit "评价完成", class: "btn btn-info text-left", :disable_with => '正在提交……' %>
 

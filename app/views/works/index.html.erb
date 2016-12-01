@@ -1,3 +1,55 @@
+
+  <h2 class="text-center" style="margin-top:70px">优选作品</h2>
+
+<div class="accordian">
+    <ul>
+		<li>
+			<div class="image_title">
+				<a href="#">衣橱</a>
+			</div>
+			<a href="#">
+				<img src="http://www.simplyspaced.com/wp-content/uploads/2015/03/51ba63e1d9127e0ce200069d._w.1000_h.1000_s.fit_.jpeg"/>
+			</a>
+		</li>
+    <li>
+      <div class="image_title">
+        <a href="#">工业风</a>
+      </div>
+      <a href="#">
+        <img src="http://qorbee.com/wp-content/uploads/2016/07/Home-Library-Design-9.jpeg"/>
+      </a>
+    </li>
+		<li>
+			<div class="image_title">
+				<a href="#">暖心卧室</a>
+			</div>
+			<a href="#">
+				<img src="https://www.kingsleyhealthcare.co.uk/assets/images/brookehouse/gallery/brookehousecarehome-bedroom.jpg"/>
+			</a>
+		</li>
+    <li>
+      <div class="image_title">
+        <a href="#">玄关</a>
+      </div>
+      <a href="#">
+        <img src="http://static4.thisisinsider.com/image/57ae256ee4f6917f1a8b4975-1190-625/7-new-ikea-items-that-will-make-your-home-super-organized.jpg"/>
+      </a>
+    </li>
+		<li>
+			<div class="image_title">
+				<a href="#">圣诞气氛</a>
+			</div>
+			<a href="#">
+				<img src="http://hoop8.com/1612A/pFiPu9cf.jpg"/>
+			</a>
+		</li>
+	</ul>
+</div>
+
+
+
+
+
 <section id="portfolio" class="bg-light-gray">
   <div class="container" >
     <div class="row" style="padding-left:0px; padding-right:30px;">
@@ -21,15 +73,14 @@
             <h4><%= link_to work.title, designer_path(work.user.token), target: "_blank" %></h4>
             <p class="text-muted"><%= link_to work.user.nickname, designer_path(work.user.token) %></p>
         </div>
-
-
-
       </div>
       <% end %>
+
 
       <div class="text-center" style="margin-bottom: -100px;">
         <%= will_paginate @works %>
       </div>
+
 
     </div>
   </div>

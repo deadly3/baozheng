@@ -61,7 +61,7 @@
                   <li><%= link_to("用户中心", account_user_path(current_user.token)) %></li>
                   <li role="separator" class="divider"></li>
                 <% elsif current_user.is_designer? && !current_user.is_admin? %>
-                    <li> <%= link_to("达人后台", designer_requests_path(current_user.token)) %> </li>
+                    <li> <%= link_to("达人后台", designer_user_path(current_user.token)) %> </li>
                     <li role="separator" class="divider"></li>
                 <% elsif current_user.is_admin? %>
                   <li> <%= link_to("管理员后台", admin_users_path) %> </li>

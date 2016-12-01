@@ -41,8 +41,8 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "更新保存" %>
-      <%= link_to("取消返回", account_user_path, :class => "btn btn-default") %>
+      <%= f.button :submit, "保存" %>
+      <%= link_to("取消", account_user_path(current_user.token), :class => "btn btn-default") %>
     <% end %>
 
       </div>

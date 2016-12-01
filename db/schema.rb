@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20161130232418) do
     t.string   "commit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "request_id"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|

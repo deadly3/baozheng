@@ -43,14 +43,17 @@
       <%= work.price %>
     </td>
     <td>
+
       <%= link_to("编辑", edit_designer_work_path(work), :class => "btn btn-sm btn-warning") %>
       <br>
-      <%= link_to("删除", designer_work_path(work), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-sm  btn-danger") %>
+      <%= link_to("删除", designer_work_path(work), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn  btn-sm btn-danger") %>
+
       <br>
      <% if work.is_hidden %>
-       <%= link_to("立即发布", publish_designer_work_path(work), :method => :post, :class => "btn btn-sm btn-success") %>
+       <%= link_to("立即发布", publish_designer_work_path(work), :method => :post, :class => "btn  btn-sm btn-success") %>
      <% else %>
-       <%= link_to("暂不发布", hide_designer_work_path(work), :method => :post, :class => "btn btn-sm btn-info") %>
+       <%= link_to("暂不发布", hide_designer_work_path(work), :method => :post, :class => "btn  btn-sm btn-info") %>
+
      <% end %>
     </td>
   </tr>
