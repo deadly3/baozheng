@@ -9,7 +9,7 @@ class Account::ConversationsController < ApplicationController
   end
 
   def show
-    @mailbox = current_user.mailbox
+    @mailbox ||= current_user.mailbox #不存在就current_user.mailbox
     @conversation = @mailbox.conversations.find(params[:id])
     @receipts = @conversation.receipts.collect(&:receiver).uniq
 
