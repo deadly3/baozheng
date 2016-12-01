@@ -1,17 +1,19 @@
 <h1>我的消息</h1>
-@conversations.where(need_red_point: true).any?
-<%= @conversations.where(need_red_point: true).count %>
 <ul>
   <% @conversations.each do |conversation| %>
     <li class="list-group-item clearfix">
-      <p style="color: blue">conversation need_red_point? - <%= conversation.need_red_point %></p>
-      <h3><% receipts = conversation.receipts_for current_user  %></h3>
-      <p style="color: red;">last receipt is_unread?-<%= receipts.last.is_unread? %></p>
-      <% receipts.each do |receipt| %>
-      <%= receipt.is_unread? %>
+      <p style="color: blue">conversation need_red_point? - <%= conversation.need_red_point? %></p>
+      <% whos = conversation.receipts.collect(&:receiver).uniq %>
+      <% if whos.first == current_user %>
+        <% who = whos.last %>
+      <% else %>
+        <% who = whos.first %>
       <% end %>
 
-      <%= conversation.last_sender.nickname %> - <%= conversation.last_message.body %> - <%= conversation.created_at.to_s(:short) %>
+
+      <%= who.nickname %> - - <%= conversation.created_at.to_s(:short) %>
+      <br>
+      <%= conversation.last_message.body %>
       <%= link_to("查看", account_conversation_path(conversation), :class => "pull-right") %>
     </li>
   <% end %>
