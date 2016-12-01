@@ -19,6 +19,4 @@ module Baozheng
 
   end
 
-  config.time_zone = "Beijing"
-
 end
