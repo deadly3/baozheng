@@ -1,13 +1,22 @@
+<br><br><br>
+
+
 <%= render :partial => "works/search_bar" %>
 
+<br>
+<h4>搜索结果：</h4>
 <br>
 <div class="search-result">
 
   <table class="table table-borderd">
+    <% if @works == nil %>
+    <p>亲，别调皮，不要搜索空白哦~~</p>
+    <% else %>
     <% @works.each do |work| %>
       <%= link_to(render_highlight_content(work, @query_string), work_path(work)) %>
 
       <hr>
+    <% end %>
     <% end %>
  </table>
 
