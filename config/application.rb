@@ -19,5 +19,4 @@ module Baozheng
 
   end
 
-
 end

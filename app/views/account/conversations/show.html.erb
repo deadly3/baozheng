@@ -1,2 +1,63 @@
+<<<<<<< HEAD
 <!-- 只有這頁有用到 -->
 <%= render :partial => "common/conversation" %>
+=======
+
+
+<div class="container col-md-10 col-md-offset-1" style="margin-top:70px">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      与
+      <% if @receipts.first == current_user%>
+          <%= @receipts.last.nickname %>
+      <% else %>
+          <%= @receipts.first.nickname %>
+      <% end %>
+      的对话
+    </div>
+
+
+      <div class="panel-body">
+        <div class="messages">
+          <% @conversation.receipts_for(current_user).each do |receipt| %>
+          <% message = receipt.message %>
+          <% if message.sender == current_user %>
+          <div class="text-right" style="background-color:; height: 30px; margin-top: 5px;">
+            <h4>
+              <small>
+                <%= message.created_at.strftime("%F %T") %>
+              </small>
+              <br>
+              <span>
+                <%= message.body %>
+              </span>
+            </h4>
+          </div>
+          <% else %>
+          <div class="" style="background-color: ;">
+            <h3>
+              <small>
+                <%= message.created_at.strftime("%F %T") %>
+              </small>
+              <br>
+              <span>
+                <%= message.body %>
+              </span>
+            </h3>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%= form_tag reply_account_conversation_path(@conversation), method: :post do %>
+    <div class="form-group">
+      <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: '请输入聊天内容', required: true %>
+    </div>
+    <%= submit_tag "发送", class: 'btn btn-primary' %>
+    <% end %>
+
+</div>
+</div>
+>>>>>>> develop

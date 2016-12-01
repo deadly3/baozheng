@@ -21,6 +21,7 @@
                         <th class="text-center">订单主题</th>
                         <th class="text-center">订单描述</th>
                         <th class="text-center">创建时间</th>
+                        <th class="text-center">编辑订单</th>
                         <th class="text-center">发单用户</th>
                         <th class="text-center">合作对象</th>
                         <th class="text-center">订单状态</th>
@@ -49,6 +50,16 @@
                             <td>
                               <%= r.created_at.strftime("%F %T") %>
                             </td>
+                            </td>
+                            <td align="center">
+                              <%= link_to edit_account_request_path(r.token), class: "btn btn-default" do %>
+                                <i class="fa fa-pencil"></i>
+                              <% end %>
+                              <%= link_to account_request_path(r.token), class: "btn btn-danger", :method => :delete, :data => { :confirm => "确认删除吗？" } do %>
+                                <i class="fa fa-trash"></i>
+                              <% end %>
+                            </td>
+
                             <td>
                               <% if r.user.present? %>
                               <%= r.user.nickname %>
