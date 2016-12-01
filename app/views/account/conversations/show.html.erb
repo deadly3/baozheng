@@ -1,11 +1,16 @@
 
+
 <div class="container col-md-10 col-md-offset-1" style="margin-top:70px">
   <div class="panel panel-default">
     <div class="panel-heading">
-
-<% @receipts %>
-      <%= @receipts.first.nickname %>   与   <%= @receipts.last.nickname  %> 的对话
-
+      与
+      <% if @receipts.first == current_user%>
+          <%= @receipts.last.nickname %>
+      <% else %>
+          <%= @receipts.first.nickname %>
+      <% end %>
+      的对话
+    </div>
 
 
       <div class="panel-body">
@@ -13,23 +18,27 @@
           <% @conversation.receipts_for(current_user).each do |receipt| %>
           <% message = receipt.message %>
           <% if message.sender == current_user %>
-          <div class="text-right" style="background-color:; height: 30px;">
+          <div class="text-right" style="background-color:; height: 30px; margin-top: 5px;">
             <h4>
-              <%= message.body %>
+              <small>
+                <%= message.created_at.strftime("%F %T") %>
+              </small>
+              <br>
+              <span>
+                <%= message.body %>
+              </span>
             </h4>
           </div>
           <% else %>
           <div class="" style="background-color: ;">
-            <p>
-              <span style="color: blue;">
-                <%= message.sender.email %>
+            <h3>
+              <small>
+                <%= message.created_at.strftime("%F %T") %>
+              </small>
+              <br>
+              <span>
+                <%= message.body %>
               </span>
-              <span style="color: blue;">
-                says at <%= message.created_at.strftime("%F %T") %>
-              </span>
-            </p>
-            <h3 style="margin-top: -5px;">
-              <%= message.body %>
             </h3>
           </div>
           <% end %>
@@ -40,9 +49,9 @@
 
     <%= form_tag reply_account_conversation_path(@conversation), method: :post do %>
     <div class="form-group">
-      <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+      <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: '请输入聊天内容', required: true %>
     </div>
-    <%= submit_tag "Send Message", class: 'btn btn-primary' %>
+    <%= submit_tag "发送", class: 'btn btn-primary' %>
     <% end %>
 
 </div>
