@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :check_red_point
   require 'devise'
 
   protected
@@ -43,6 +44,21 @@ class ApplicationController < ActionController::Base
   # def redirect_back_or(path)
   #   redirect_to request.referer || path
   # end
+  private
+    def check_red_point
+      if current_user
 
+        @mailbox = current_user.mailbox
+        @conversations = @mailbox.conversations
+
+        @conversations.each do |conversation|
+          @receipts = conversation.receipts_for current_user
+
+          conversation.need_red_point = @receipts.last.is_unread?
+          conversation.save
+        end
+      end
+
+    end
 
 end

@@ -1,12 +1,12 @@
 
-<div class="container col-md-10 col-md-offset-1">
+<div class="container col-md-10 col-md-offset-1" style="margin-top:70px">
   <div class="panel panel-default">
     <div class="panel-heading">
 
-
+<% @receipts %>
       <%= @receipts.first.nickname %>   与   <%= @receipts.last.nickname  %> 的对话
 
-    </div>
+
 
       <div class="panel-body">
         <div class="messages">
@@ -45,4 +45,5 @@
     <%= submit_tag "Send Message", class: 'btn btn-primary' %>
     <% end %>
 
+</div>
 </div>

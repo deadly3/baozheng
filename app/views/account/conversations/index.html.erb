@@ -1,9 +1,19 @@
-<h3>我的消息</h3>
-
+<h1>我的消息</h1>
 <ul>
   <% @conversations.each do |conversation| %>
     <li class="list-group-item clearfix">
-      <%= conversation.last_sender.nickname %> - <%= conversation.last_message.body %> - <%= conversation.created_at.to_s(:short) %>
+      <p style="color: blue">conversation need_red_point? - <%= conversation.need_red_point? %></p>
+      <% whos = conversation.receipts.collect(&:receiver).uniq %>
+      <% if whos.first == current_user %>
+        <% who = whos.last %>
+      <% else %>
+        <% who = whos.first %>
+      <% end %>
+
+
+      <%= who.nickname %> - - <%= conversation.created_at.to_s(:short) %>
+      <br>
+      <%= conversation.last_message.body %>
       <%= link_to("查看", account_conversation_path(conversation), :class => "pull-right") %>
     </li>
   <% end %>
