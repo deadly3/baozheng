@@ -126,3 +126,42 @@ footer {
     //  background-color: black;
    }
  }
+
+ #red-point {
+   width: 13px;
+   height: 13px;
+   border-radius: 100%;
+   background-color: red;
+   color: white;
+   position: relative;
+   left: -23px;
+   top: 13px;
+   font-size: 1em;
+   text-align: center;
+ }
+
+ #redpoint {
+  height:8px;
+  width:8px;
+  border-radius:8px;
+  display:inline-block;
+  text-align:center;
+  // background:$colHighlight;
+  background-color: red;
+  position: relative;
+  top: -7px;
+  right: 7px;
+}
+
+#red-point-on-conversation {
+  width: 13px;
+  height: 13px;
+  border-radius: 100%;
+  background-color: red;
+  color: white;
+  position: relative;
+  right: -50px;
+  top: 13px;
+  font-size: 1em;
+  text-align: center;
+}

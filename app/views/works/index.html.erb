@@ -51,6 +51,14 @@
 
 
 <section id="portfolio" class="bg-light-gray">
+<div class="search-bar">
+  <%= render :partial => "works/search_bar" %>
+  <hr>
+</div>
+
+
+
+
   <div class="container" >
     <div class="row" style="padding-left:0px; padding-right:30px;">
 
@@ -75,9 +83,13 @@
         </div>
       </div>
       <% end %>
-      <div class="text-center">
-          <%= will_paginate @works %>
+
+
+      <div class="text-center" style="margin-bottom: -100px;">
+        <%= will_paginate @works %>
       </div>
+
+
     </div>
   </div>
 </section>

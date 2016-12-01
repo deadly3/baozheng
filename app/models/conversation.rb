@@ -1,5 +1,9 @@
 class Conversation < Mailboxer::Conversation
   belongs_to :request
+
+  def need_red_point?
+    need_red_point
+  end
 end
 
 # == Schema Information

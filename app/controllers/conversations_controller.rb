@@ -1,5 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :configure_sign_up_params, only: [:show]
 
 
   def index

@@ -1,14 +1,17 @@
 
-<div class="container col-md-10 col-md-offset-1" style="margin: 30px;">
+
+<div class="container col-md-10 col-md-offset-1" style="margin-top:70px">
   <div class="panel panel-default">
     <div class="panel-heading">
-
+      与
       <% if @receipts.first == current_user%>
           <%= @receipts.last.nickname %>
       <% else %>
           <%= @receipts.first.nickname %>
       <% end %>
+      的对话
     </div>
+
 
       <div class="panel-body">
         <div class="messages">
@@ -46,9 +49,10 @@
 
     <%= form_tag reply_account_conversation_path(@conversation), method: :post do %>
     <div class="form-group">
-      <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+      <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: '请输入聊天内容', required: true %>
     </div>
-    <%= submit_tag "Send Message", class: 'btn btn-primary' %>
+    <%= submit_tag "发送", class: 'btn btn-primary' %>
     <% end %>
 
+</div>
 </div>
