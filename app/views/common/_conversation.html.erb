@@ -49,9 +49,9 @@
 
     <%= form_tag reply_account_conversation_path(@conversation), method: :post do %>
     <div class="form-group">
-      <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+      <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: '请输入文字', required: true %>
     </div>
-    <%= submit_tag "Send Message", class: 'btn btn-primary' %>
+    <%= submit_tag "发送", class: 'btn btn-primary' %>
     <% end %>
 
 </div>
