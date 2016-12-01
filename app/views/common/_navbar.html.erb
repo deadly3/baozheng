@@ -35,11 +35,19 @@
           <% elsif !current_user.is_designer? && !current_user.is_admin?%>
             <li><%= nav_link("我的订单", account_requests_path(current_user.token)) %> </li>
             <li><%= nav_link("我的消息", account_conversations_path) %> </li>
+            <% if @conversations.where(need_red_point: true).count != 0 %>
+                  <li id="red-point">
+                    <%= @conversations.where(need_red_point: true).count %>
+                  </li>
+            <% end %>
           <% elsif current_user.is_designer? && !current_user.is_admin?%>
             <li><%= nav_link("我的抢单", designer_requests_path(current_user.token)) %> </li>
             <li><%= nav_link("我的消息", designer_conversations_path) %> </li>
-            
-            <li id="red-point"></li>
+            <% if @conversations.where(need_red_point: true).count != 0 %>
+                  <li id="red-point">
+                    <%= @conversations.where(need_red_point: true).count %>
+                  </li>
+           <% end %>
           <% end %>
 
           <% if current_user %>
