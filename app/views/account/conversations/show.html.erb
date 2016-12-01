@@ -1,11 +1,13 @@
 
-<div class="container col-md-10 col-md-offset-1">
+<div class="container col-md-10 col-md-offset-1" style="margin: 30px;">
   <div class="panel panel-default">
     <div class="panel-heading">
 
-
-      <%= @receipts.first.nickname %>   与   <%= @receipts.last.nickname  %> 的对话
-
+      <% if @receipts.first == current_user%>
+          <%= @receipts.last.nickname %>
+      <% else %>
+          <%= @receipts.first.nickname %>
+      <% end %>
     </div>
 
       <div class="panel-body">
@@ -13,23 +15,27 @@
           <% @conversation.receipts_for(current_user).each do |receipt| %>
           <% message = receipt.message %>
           <% if message.sender == current_user %>
-          <div class="text-right" style="background-color:; height: 30px;">
+          <div class="text-right" style="background-color:; height: 30px; margin-top: 5px;">
             <h4>
-              <%= message.body %>
+              <small>
+                <%= message.created_at.strftime("%F %T") %>
+              </small>
+              <br>
+              <span>
+                <%= message.body %>
+              </span>
             </h4>
           </div>
           <% else %>
           <div class="" style="background-color: ;">
-            <p>
-              <span style="color: blue;">
-                <%= message.sender.email %>
+            <h3>
+              <small>
+                <%= message.created_at.strftime("%F %T") %>
+              </small>
+              <br>
+              <span>
+                <%= message.body %>
               </span>
-              <span style="color: blue;">
-                says at <%= message.created_at.strftime("%F %T") %>
-              </span>
-            </p>
-            <h3 style="margin-top: -5px;">
-              <%= message.body %>
             </h3>
           </div>
           <% end %>
