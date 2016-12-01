@@ -32,3 +32,4 @@ config/database.yml
 /config/application.yml
 
 public/assets/
+db/schema.rb

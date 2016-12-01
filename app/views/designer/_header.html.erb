@@ -1,3 +1,4 @@
+<!-- http://localhost:3000/designers/TOKEN -->
 <div id="coverphoto-designer" class="" style="background-image:url(https://s.yimg.com/pw/images/coverphoto03_h.jpg.v3)">
   <div class="position col-md-offset-1">
     <div class="coverphoto-gradient">
@@ -13,7 +14,10 @@
       <h1 class="title title-link-included pull-left">
         <%= @designer.nickname %>  的主页
       </h1>
+      <!-- fix here -->
+      <!-- account_conversation_path(conversation) -->
       <%= link_to(content_tag(:i, "发起对话", class: "fa fa-paper-plane" ), account_user_conversation_path(@designer.token ) , :class => "designer-conversation-btn pull-left") %>
+      <%#= link_to(content_tag(:i, "发起对话", class: "fa fa-paper-plane" ), account_user_conversation_path(@designer.token ) , :class => "designer-conversation-btn pull-left") %>
 
       <div id="title-description" class="title title-link-included">
         <h3>

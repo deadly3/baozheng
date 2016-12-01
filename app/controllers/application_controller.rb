@@ -36,6 +36,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def get_mailbox
+    @mailbox ||= current_user.mailbox
+  end
+
   # rescue_from ActiveRecord::RecordNotFound do
   #   flash[:warning] = 'Resource not found.'
   #   redirect_back_or root_path
