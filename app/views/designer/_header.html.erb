@@ -1,37 +1,36 @@
-<div id="coverphoto-designer" class="" style="background-image:url(https://s.yimg.com/pw/images/coverphoto03_h.jpg.v3)">
-  <div class="position col-md-offset-1">
-    <div class="coverphoto-gradient">
+<div id="coverphoto-designer" style="background-image:url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQtwLngSaZRpYFlKlBRZDkqhGAPXCWiLU43alV9bRiAAo8BhBCQ)">
+  <div style="height: 300px; margin-top:50" >
+    <div class="coverphoto-gradient" style="height:120px; padding-top: 160px;">
     </div>
-    <div>
-      <% if @designer.avatar.present? %>
-        <%= image_tag(@designer.avatar.url, class:"avatar-designer-show ")%>
-      <% else %>
-        <%= image_tag("http://placehold.it/200x200&text=avatar", class:"avatar-designer-show")%>
-      <% end %>
-    </div>
-    <div class="title-block-content ">
-      <h1 class="title title-link-included pull-left">
-        <%= @designer.nickname %>  的主页
-      </h1>
-      <%= link_to(content_tag(:i, "发起对话", class: "fa fa-paper-plane" ), account_user_conversation_path(@designer.token ) , :class => "designer-conversation-btn pull-left") %>
+    <div class="row" style="padding-top: 100px;">
 
-      <div id="title-description" class="title title-link-included">
-        <h3>
-          <% if @designer.description.present? %>
-          <%= @designer.description %>
-          <% else %>
-          这个达人很酷,还没有自我简介。三十个字三十个字三十个字三十个
-          <% end %>
-        </h3>
+      <div class="col-md-offset-2 col-md-2 col-xs-offset-5" >
+        <% if @designer.avatar.present? %>
+        <%= image_tag(@designer.avatar.url, class:"avatar-designer-show img-responsive")%>
+        <% else %>
+        <%= image_tag("http://placehold.it/300x300&text=avatar", class:"avatar-designer-show img-responsive")%>
+        <% end %>
       </div>
+
+      <div class="row">
+
+        <div class="col-md-3" style="color: #fff">
+          <h1>
+            <%= @designer.nickname %><small style="color: #fff">  的主页</small>
+          </h1>
+        </div>
+
+        <div class="col-md-3">
+          <%= link_to(content_tag(:i, "发起对话", class: "fa fa-paper-plane"), account_user_conversation_path(@designer.token), :class => "designer-conversation-btn") %>
+        </div>
+
+        <h2 class="designer-description col-md-7">
+          三十个字的三十个字的三十个字的三十个字的三十个字的三十个字的
+        </h2>
+
+      </div>
+
+
     </div>
   </div>
 </div>
-
-<!-- <div class="col-md-10 col-sm-12" style="height:100%; width:100px;">
-  <%= image_tag("http://placehold.it/800x700&text=test")%>
-</div> -->
-
-<!-- <div class="" style="height: 50px; margin-bottom: 20px;">
-</div> -->
-<!-- <hr> -->

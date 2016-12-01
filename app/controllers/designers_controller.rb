@@ -1,4 +1,5 @@
 class DesignersController < ApplicationController
+  layout "with-designer-header", only:[:show]
 
   def index
     @designers = User.designer.recent

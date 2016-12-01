@@ -2,7 +2,17 @@ class RequestsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 
   def index
-    @requests = Request.request_made.paginate(:page => params[:page], :per_page => 8).recent
+    # requests_all = Request.all.request_made
+    # requests = []
+    # requests_all.each do |r|
+    #   unless r.applicants.include?(current_user)
+    #     requests.push(r)
+    #   end
+    # end
+
+
+    @requests = Request.all.paginate(:page => params[:page], :per_page => 8)
+
   end
 
   def new

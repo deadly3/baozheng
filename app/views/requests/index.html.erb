@@ -7,7 +7,6 @@
 			<div class="col-xs-12 col-sm-offset-2 col-sm-8">
 				<ul class="event-list">
           <% @requests.shuffle.each do |r| %>
-						<% unless r.applicants.include?(current_user) %>
 								<li>
 									<time>
 										<span class="day"> <%= r.created_at.strftime("%d") %> </span>
@@ -31,14 +30,10 @@
 											</li>
 										</ul>
 									</div>
-
 								</li>
-						<% else %>
-								<%= r %>
-						<% end %>
           <% end %>
           <div class="text-center">
-            <%= will_paginate @requests %>
+            <%#= will_paginate @requests %>
           </div>
 				</ul>
 			</div>

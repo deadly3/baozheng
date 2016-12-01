@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Baozheng</title>
+        <%= csrf_meta_tags %>
+
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+
+    <body>
+
+        <%= render "common/navbar" %>
+        <%= render "common/flashes" %>
+        <%= render "designer/header" %>
+        
+        <div class="container main">
+          <%= yield %>
+        </div>
+
+        <%= render "common/footer" %>
+
+    </body>
+</html>
