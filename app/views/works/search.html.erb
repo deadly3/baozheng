@@ -5,7 +5,8 @@
 
   <table class="table table-borderd">
     <% @works.each do |work| %>
-      <%= link_to(work.title, work_path(work)) %>
+      <%= link_to(render_highlight_content(work, @query_string), work_path(work)) %>
+
       <hr>
     <% end %>
  </table>
