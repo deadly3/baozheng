@@ -1,5 +1,6 @@
 class WorksController < ApplicationController
-
+  layout "with-designer-header", only:[:show]
+   
   def index
     @works = Work.all.published.recent.paginate(page: params[:page], per_page: 6)
     # @works = Work.all.paginate(:page => params[:page], :per_page => 8)

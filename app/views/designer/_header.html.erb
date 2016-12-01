@@ -23,9 +23,13 @@
         <div class="col-md-3">
           <%= link_to(content_tag(:i, "发起对话", class: "fa fa-paper-plane"), account_user_conversation_path(@designer.token), :class => "designer-conversation-btn") %>
         </div>
-
-        <h2 class="designer-description col-md-7">
-          三十个字的三十个字的三十个字的三十个字的三十个字的三十个字的
+        <hr>
+        <h2 class="designer-description col-md-7 col-sm-12">
+          <% if @designer.description.present? %>
+          <%= @designer.description %>
+          <% else %>
+          这个达人很酷,还没有自我简介。
+          <% end %>
         </h2>
 
       </div>
