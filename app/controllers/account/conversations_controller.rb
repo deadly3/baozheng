@@ -1,15 +1,16 @@
 class Account::ConversationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :get_mailbox
   before_action :check_red_point
   layout "account"
 
   def index
-    @mailbox = current_user.mailbox
+    #@mailbox = current_user.mailbox
     @conversations = @mailbox.conversations
   end
 
   def show
-    @mailbox ||= current_user.mailbox #不存在就current_user.mailbox
+    #@mailbox ||= current_user.mailbox #不存在就current_user.mailbox
     @conversation = @mailbox.conversations.find(params[:id])
     @receipts = @conversation.receipts.collect(&:receiver).uniq
 
@@ -19,7 +20,7 @@ class Account::ConversationsController < ApplicationController
 
   def reply
 
-    @mailbox ||= current_user.mailbox
+    #@mailbox ||= current_user.mailbox
     @conversation = @mailbox.conversations.find(params[:id])
     current_user.reply_to_conversation(@conversation, params[:body])
 

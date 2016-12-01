@@ -26,6 +26,12 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [400, 400]
   end
 
+  # Coversation顯示頭像用
+  # 未來要改成原形或其他造型
+  version :avatar_small do
+    process resize_to_fill: [50, 50]
+  end
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
