@@ -51,19 +51,33 @@ class Account::RequestsController < ApplicationController
 
   def display
     @request = Request.find_by_token(params[:id])
+
+    unless @request.user == current_user
+      redirect_to "/"
+      flash[:warning] = "正常的提示语"
+    end
+
     @applicants = @request.applicants
+
   end
 
   def choose
     @request = Request.find_by_token(params[:id])
-      if @request.selected?
-        flash[:warning] = '已经选好合作达人喽~'
-      else
-        @user = params[:winner]
-        @request.winner = @user
-        @request.choose!
-      end
-    redirect_to :back
+
+    unless @request.user == current_user
+      redirect_to "/"
+      flash[:warning] = "正常的提示语"
+    end
+
+    if @request.selected?
+      flash[:warning] = '已经选好合作达人喽~'
+      redirect_to :back
+    else
+      @user = params[:winner]
+      @request.winner = @user
+      @request.choose!
+      redirect_to :back
+    end    
   end
 
   def make_payment
