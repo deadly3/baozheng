@@ -762,6 +762,9 @@ body {
   webkit-tap-highlight-color: #fed136;
 }
 
+
+
+
 .new-insert-picture {
   width: 200px;
   height: 80px;
@@ -977,7 +980,6 @@ background-color: rgb(221, 75, 57) !important;
   	padding: 0;
 }
 body {
-	background: #ddd;
 	font-family: arial, verdana, tahoma;
 }
 

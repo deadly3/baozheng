@@ -1,9 +1,11 @@
+<div class="form-inputs col-md-6">
 <%= simple_form_for [:account, @request] do |f| %>
 
-<%= f.input :title, :label =>  "主题"%>
-<%= f.input :description, :label =>  "描述" %>
+<%= f.input :title, :label =>  "主题", placeholder: "我要美化／收纳／设计自己的房间"%>
+<%= f.input :description, :label =>  "描述", placeholder: "我有一个20平米的房间，想要收纳进一个大号的空气净化器" %>
 <%= f.input :before_picture, :label =>  "当前照片" %>
 <%= f.input :dream_picture, :label =>  "理想图片" %>
 
-<%= f.submit "Submit" %>
+<%= f.submit "提交订单", :class => "btn btn-info"%>
 <% end %>
+<div>

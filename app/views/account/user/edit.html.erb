@@ -7,9 +7,8 @@
 </div> -->
 
 <div>
-
+<div class="form-inputs col-md-6">
   <%= simple_form_for [:account, current_user] do |f|%>
-
 
     <div>
       <% if current_user.avatar.present? %>
@@ -30,23 +29,21 @@
       </label>
 <!-- end of change -->
     </div>
-
-    <div>
       <br>
       <%= f.input :nickname, label:"昵称" %>
       <%= f.input :description, label:"个性签名" %>
       <%= f.input :age, label:"年龄", collection: 18..40, prompt: "请选择年龄", selected: 28 %>
       <%= f.input :sex, label:"性别", collection: ["男", "女"], prompt: "请选择性别", selected: "女" %>
       <%= f.input :district, label:"地区", collection: ["北京", "上海", "广州", "深圳"], prompt: "请选择地区", selected: "北京" %>
-    </div>
+
 
     <div class="form-actions">
-      <%= f.button :submit, "保存" %>
-      <%= link_to("取消", account_user_path(current_user.token), :class => "btn btn-default") %>
+      <%= f.button :submit, "保存", :class => "btn btn-primary" %>
+      <%= link_to("取消", account_user_path(current_user.token), :class => "btn btn-info") %>
     <% end %>
 
       </div>
-
+</div>
 
 
 
