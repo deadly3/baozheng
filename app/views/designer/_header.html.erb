@@ -22,7 +22,11 @@
         </div>
 
         <div class="col-md-3">
-          <%= link_to(content_tag(:i, "发起对话", class: "fa fa-paper-plane"), account_user_conversation_path(@designer.token), :class => "designer-conversation-btn") %>
+          <% unless current_user == @designer %>
+            <%= link_to(content_tag(:i, "发起对话", class: "fa fa-paper-plane"), account_user_conversation_path(@designer.token), :class => "designer-conversation-btn") %>
+          <% else %>
+            <%= link_to content_tag(:i, "新增作品", class: "fa fa-plus"), new_designer_work_path, class: "designer-conversation-btn" %>
+          <% end %>
         </div>
         <hr>
         <h2 class="designer-description col-md-7 col-sm-12">
