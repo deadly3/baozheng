@@ -3,21 +3,21 @@
 <div class="container main col-md-12">
 
   <div class="publicaciones-blog-home">
-  <div class="container" style="margin-left: -15px;">
+  <div class="container">
     <div class="" style="margin-top: -70px; ">
       <br>
       <h2>作品总览</h2>
-      <div class="row-page row" >
+      <div class="row-page row" style="margin-left: -15px; margin-right: 45px; " >
 
         <% @works.each do |work| %>
-            <div class="col-page col-sm-6 col-md-4">
+            <div class="col-page col-sm-6 col-md-4" style="">
               <%= link_to(work_path(work), class:"fondo-publicacion-home") do %>
                 <!-- <a href=""  class="fondo-publicacion-home"> -->
                   <div class="img-publicacion-home" style="max-height: 600px;">
                     <% if work.image.present? %>
-                        <%= image_tag(work.image.thumb.url, class:"img-responsive") %>
+                        <%= image_tag(work.image.url, class:"img-responsive image-designer-show") %>
                     <% else %>
-                        <%= image_tag("http://placehold.it/400x400&text=work", class:"img-responsive")%>
+                        <%= image_tag("http://placehold.it/400x400&text=work", class:"img-responsive image-designer-show")%>
                     <% end %>
                   </div>
                   <div class="contenido-publicacion-home">
@@ -26,9 +26,10 @@
                   </div>
                   <div class="mascara-enlace-blog-home">
                     <span>
+                      点击查看作品详情
                       <!-- <%= work.title %>: -->
                       <p>
-                        <small><%= work.description %></small>
+                        <small><%#= work.description %></small>
                       </p>
                     </span>
                   </div>
