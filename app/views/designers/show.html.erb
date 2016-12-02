@@ -40,39 +40,35 @@
         </div>
   </div>
 
-        <h2>评论汇总</h2>
-        <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>评论编号</th>
-            <th>评论时间</th>
-            <th>评论文字</th>
-            <th>评论星级</th>
+  <div class="">
 
-          </tr>
-        </thead>
-
+    <h2>评论汇总</h2>
+    暂无评论
+    <!-- <table class="table">
+      <thead>
+        <tr>
+          <th>评论编号</th>
+          <th>评论时间</th>
+          <th>评论文字</th>
+          <th>评论星级</th>
+        </tr>
+      </thead>
+      <tbody>
         <% @feedbacks.each do |f| %>
         <tr>
-          <td>
-        <h5><%= f.id %></h5>
-      </td>
-      <td>
-        <h5><%= f.created_at %></h5>
-      </td>
-      <td>
-        <h5><%= f.commit %></h5>
-      </td>
-      <td>
-        <div id="feedback-<%= f.id %>">  </div>
-      </td>
-
+          <td> <h5><%= f.id %></h5> </td>
+          <td> <h5><%= f.created_at %></h5> </td>
+          <td> <h5><%= f.commit %></h5> </td>
+          <td> <div id="feedback-<%= f.id %>">  </div> </td>
+        </tr>
         <% end %>
-        </table>
+      </tbody>
+    </table>
+  </div> -->
 
-        <!-- <div class="text-center">
+        <div class="text-center">
             <%#= will_paginate(@feedbacks) %>
-        </div> -->
+        </div>
 
 
 
