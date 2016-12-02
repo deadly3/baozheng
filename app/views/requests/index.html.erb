@@ -21,12 +21,15 @@
   							<p class="desc"><%= r.description%></p>
   							<ul>
 									<li style="width:33%;">
-										<%= link_to(content_tag(:i, " 抢单并发起对话", class: "fa fa-comments" ), account_user_conversation_path(r.user.token)) %>
+										<%= link_to(content_tag(:i, " 发起对话", class: "fa fa-comments" ), account_user_conversation_path(r.user.token)) %>
 
 									</li>
   								<li style="width:34%;">
-										<%= link_to(content_tag(:i, " 抢单", class: "fa fa-hand-paper-o" ), join_applicants_designer_request_path(r.token), method: :post) %>
-
+										<% unless r.applicants.include?(current_user) %>
+										<%= link_to(content_tag(:i, " 抢单", class: "fa fa-hand-paper-o" ), join_applicants_designer_request_path(r.token), method: :post, data:{comfirm: "你已抢单"} )%>
+										<% else %>
+										<%= link_to content_tag(:i, " 已抢单", class: "fa fa-check" ), designer_requests_path(current_user) %>
+										<% end %>
                   </li>
   							</ul>
   						</div>
