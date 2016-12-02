@@ -10,6 +10,7 @@ class WorksController < ApplicationController
   def show
     @work = Work.find(params[:id])
     @designer = @work.user
+    # @feedbacks = feedback.paginate(page: params[:page], per_page: 12)
   end
 
   def new
