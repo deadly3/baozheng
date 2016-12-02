@@ -61,6 +61,8 @@
                     <% else %>
                     <label class="label label-danger label-block">已经申请成为达人，请等待审核</label>
                     <% end %>
+              <% else %>
+              <%= link_to "去看自己的主页", designer_path(current_user.token), class: "btn btn-block btn-warning" %>
               <% end %>
 
             </div>
