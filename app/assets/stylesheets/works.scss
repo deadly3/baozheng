@@ -111,7 +111,14 @@ body {
     overflow: hidden;
     max-height: 180px;
 }
+.image-designer-show {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+}
 .mascara-enlace-blog-home {
+  // margin-left: 50px;
+  //   margin-right: 100px;
     height: 400px;
     width: 0%;
     color: #aaa;
@@ -126,11 +133,15 @@ body {
     padding-top: 180px;
 }
 .mascara-enlace-blog-home span {
-    text-align: center;
+    // margin-right: 50px;
+    padding-left: 30px;
+    // padding-right: 100px;
+    text-align: left;;
     max-height: 400px;
     border: 1px solid #fff;
     display: inline-block;
-    padding: 10px 30px;
+    display: flex;
+
     border-radius: 3px;
     color: #fff;
     font-weight: 900;

@@ -1,13 +1,13 @@
-<%= render 'designer/header' %>
+<!--with header inside layout with-designer-header  -->
 
 <div class="col-page" style="padding-top: 50px;" >
   <%= link_to(designer_path(@work.user.token), class:"fondo-publicacion-home") do %>
     <!-- <a href=""  class="fondo-publicacion-home"> -->
       <div class="img-publicacion-home">
         <% if @work.image.present? %>
-            <%= image_tag(@work.image.thumb.url, class:"img-responsive") %>
+            <%= image_tag(@work.image.url, class:"img-responsive") %>
         <% else %>
-            <%= image_tag("http://placehold.it/200x200&text=work", class:"img-responsive")%>
+            <%= image_tag("http://placehold.it/800x600&text=work", class:"img-responsive")%>
         <% end %>
       </div>
       <div class="contenido-publicacion-home">
