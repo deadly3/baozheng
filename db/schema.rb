@@ -30,11 +30,10 @@ ActiveRecord::Schema.define(version: 20161201070251) do
   end
 
   create_table "mailboxer_conversations", force: :cascade do |t|
-    t.string   "subject",        default: ""
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "subject",    default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "request_id"
-    t.boolean  "need_red_point", default: true
   end
 
   create_table "mailboxer_notifications", force: :cascade do |t|

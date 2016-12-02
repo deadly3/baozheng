@@ -34,6 +34,7 @@ class Request < ApplicationRecord
   validates :title, presence: true
 
   scope :recent, -> {order("created_at DESC")}
+  scope :not_applied, ->(user) { where("applicants.include?(?)", current_user) }
 
   before_create :generate_token
 
@@ -45,11 +46,15 @@ class Request < ApplicationRecord
   #   applicants << user
   # end
 
+  def self.with_no_applied_by(user)
+    includes(:applicants).
+    #   references(:applicants).
+       where.not(applicants: { user_id: user.id} )
+  end
+
   def has_been_applied_by?(user)
     applicants.include?(user)
   end
-
-
 
   include AASM
 

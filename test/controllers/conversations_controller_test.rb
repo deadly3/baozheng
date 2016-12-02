@@ -2,12 +2,11 @@
 #
 # Table name: mailboxer_conversations
 #
-#  id             :integer          not null, primary key
-#  subject        :string           default("")
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  request_id     :integer
-#  need_red_point :boolean          default(TRUE)
+#  id         :integer          not null, primary key
+#  subject    :string           default("")
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  request_id :integer
 #
 
 require 'test_helper'

@@ -1,0 +1,49 @@
+<div id="coverphoto-designer" style="background-image:url(https://s.yimg.com/pw/images/coverphoto03_h.jpg.v3)">
+  <div class="position" style="padding-left: -200px; padding-right: -200px;">
+    <div class="coverphoto-gradient" style="width: 2000px;">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div id="coverphoto-designer" class="" style="background-image:url(https://s.yimg.com/pw/images/coverphoto03_h.jpg.v3)">
+  <div class="position col-md-offset-1">
+    <div class="coverphoto-gradient">
+    </div>
+    <div>
+      <% if @designer.avatar.present? %>
+        <%= image_tag(@designer.avatar.url, class:"avatar-designer-show ")%>
+      <% else %>
+        <%= image_tag("http://placehold.it/200x200&text=avatar", class:"avatar-designer-show")%>
+      <% end %>
+    </div>
+    <div class="title-block-content ">
+      <h1 class="title title-link-included pull-left">
+        <%= @designer.nickname %>  的主页
+      </h1>
+      <%= link_to(content_tag(:i, "发起对话", class: "fa fa-paper-plane" ), account_user_conversation_path(@designer.token ) , :class => "designer-conversation-btn pull-left") %>
+
+      <div id="title-description" class="title title-link-included">
+        <h3>
+          <% if @designer.description.present? %>
+          <%= @designer.description %>
+          <% else %>
+          这个达人很酷,还没有自我简介。三十个字三十个字三十个字三十个
+          <% end %>
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="col-md-10 col-sm-12" style="height:100%; width:100px;">
+  <%= image_tag("http://placehold.it/800x700&text=test")%>
+</div> -->
+
+<!-- <div class="" style="height: 50px; margin-bottom: 20px;">
+</div> -->
+<!-- <hr> -->

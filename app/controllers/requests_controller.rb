@@ -2,7 +2,17 @@ class RequestsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 
   def index
-    @requests = Request.request_made.paginate(:page => params[:page], :per_page => 8).recent
+    # requests_all = Request.all.request_made
+    # requests = []
+    # requests_all.each do |r|
+    #   unless r.applicants.include?(current_user)
+    #     requests.push(r)
+    #   end
+    # end
+
+
+    @requests = Request.all.paginate(:page => params[:page], :per_page => 8)
+
   end
 
   def new
@@ -11,6 +21,7 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new(request_params)
+
     @request.user = current_user
     if @request.save
       redirect_to account_requests_path
@@ -26,7 +37,7 @@ class RequestsController < ApplicationController
   def join_applicants
     #作为admin加入到  当前request的申请者 collection
     @request = Request.find_by_token(params[:id])
-    if !@request.has_been_applied_by?(current_user)
+    unless @request.has_been_applied_by?(current_user)
        @request.applicants << current_user
       flash[:notice] = "已抢单！"
       redirect_to :back
