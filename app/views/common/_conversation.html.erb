@@ -7,7 +7,6 @@
       <%= @receipts.first.nickname %>   与   <%= @receipts.last.nickname  %> 的对话
 
 
-
       <div class="panel-body">
         <div class="messages">
           <% @conversation.receipts_for(current_user).each do |receipt| %>
@@ -26,7 +25,8 @@
             <h3 style="margin-top: -5px;">
               <%= message.body %>
             </h3>
-          </div>          <% else %>
+          </div>
+          <% else %>
           <div class="" style="background-color: ;">
             <p>
               <span style="color: blue;">
