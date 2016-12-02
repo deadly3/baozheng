@@ -116,6 +116,13 @@ Rails.application.routes.draw do
   end
   #./达人后台
 
+   #在看作品 搜索作品
+  resources :works do
+    collection do
+      get :search
+    end
+  end
+#/在看作品 搜索作品
 
   resources :users
 

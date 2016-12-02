@@ -1,0 +1,58 @@
+<!-- 只有這頁有用到 -->
+<div class="container col-md-10 col-md-offset-1" style="margin-top:70px">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+
+<%# @receipts %>
+      <%= @receipts.first.nickname %>   与   <%= @receipts.last.nickname  %> 的对话
+
+
+
+      <div class="panel-body">
+        <div class="messages">
+          <% @conversation.receipts_for(current_user).each do |receipt| %>
+          <% message = receipt.message %>
+          <% if message.sender == current_user %>
+          <div class="text-right" style="background-color: ;">
+            <p>
+              <span style="color: blue;">
+                <%= image_tag message.sender.avatar.avatar_small %>
+                <%= message.sender.nickname %>
+              </span>
+              <span style="color: blue;">
+                says at <%= message.created_at.strftime("%F %T") %>
+              </span>
+            </p>
+            <h3 style="margin-top: -5px;">
+              <%= message.body %>
+            </h3>
+          </div>          <% else %>
+          <div class="" style="background-color: ;">
+            <p>
+              <span style="color: blue;">
+                <%= image_tag message.sender.avatar.avatar_small %>
+                <%= message.sender.nickname %>
+              </span>
+              <span style="color: blue;">
+                says at <%= message.created_at.strftime("%F %T") %>
+              </span>
+            </p>
+            <h3 style="margin-top: -5px;">
+              <%= message.body %>
+            </h3>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%= form_tag reply_account_conversation_path(@conversation), method: :post do %>
+    <div class="form-group">
+      <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: '请输入文字', required: true %>
+    </div>
+    <%= submit_tag "发送", class: 'btn btn-primary' %>
+    <% end %>
+
+</div>
+</div>
