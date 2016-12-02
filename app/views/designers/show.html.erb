@@ -9,7 +9,7 @@
       <h2>作品总览</h2>
       <div class="row-page row" style="margin-left: -15px; margin-right: 45px; " >
 
-        <% @works.each do |work| %>
+        <% @works.shuffle.each do |work| %>
             <div class="col-page col-sm-6 col-md-4" style="">
               <%= link_to(work_path(work), class:"fondo-publicacion-home") do %>
                 <!-- <a href=""  class="fondo-publicacion-home"> -->
